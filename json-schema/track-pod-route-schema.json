@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/track-pod/main/json-schema/track-pod-route-schema.json",
+  "title": "Track-POD Route",
+  "description": "A Track-POD route bundling ordered stops for one driver and vehicle on a given date.",
+  "type": "object",
+  "properties": {
+    "Code": {
+      "type": "string",
+      "description": "Route code/number",
+      "nullable": true,
+      "example": "R0001234"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 1234
+    },
+    "Date": {
+      "type": "string",
+      "description": "Route date, yyyy-MM-dd",
+      "format": "date-time",
+      "example": "2019-02-01"
+    },
+    "DepotId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 1
+    },
+    "Depot": {
+      "type": "string",
+      "description": "Depot address",
+      "nullable": true,
+      "example": "9 Riverside, Salford M7 1PA "
+    },
+    "StartFromDepot": {
+      "type": "boolean",
+      "description": "Start route from depot",
+      "nullable": true,
+      "example": true
+    },
+    "ReturnToDepot": {
+      "type": "boolean",
+      "description": "Return to depot",
+      "nullable": true,
+      "example": true
+    },
+    "DriverLogin": {
+      "type": "string",
+      "description": "Driver's login",
+      "nullable": true,
+      "example": "RT567 "
+    },
+    "DriverName": {
+      "type": "string",
+      "description": "Driver\u2019s First Name and Last Name",
+      "nullable": true,
+      "example": "Peter G."
+    },
+    "DriverNumber": {
+      "type": "integer",
+      "description": "Driver Number",
+      "format": "int32",
+      "example": 2
+    },
+    "DriverVehicle": {
+      "type": "string",
+      "description": "Vehicle license plate number",
+      "nullable": true,
+      "example": "FCU 819"
+    },
+    "StartDate": {
+      "type": "string",
+      "description": "Route start time",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T8:01:23"
+    },
+    "CloseDate": {
+      "type": "string",
+      "description": "Route finish time",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T18:32:47"
+    },
+    "Track": {
+      "type": "number",
+      "description": "Track distance, m",
+      "format": "double",
+      "nullable": true,
+      "example": 123158.1
+    },
+    "Priority": {
+      "type": "integer",
+      "description": "Route priority",
+      "format": "int32",
+      "nullable": true,
+      "example": 99
+    },
+    "LocationLat": {
+      "type": "number",
+      "description": "Current GPS Latitude",
+      "format": "double",
+      "nullable": true,
+      "example": 25.290479
+    },
+    "LocationLon": {
+      "type": "number",
+      "description": "Current GPS Longitude",
+      "format": "double",
+      "nullable": true,
+      "example": 65.294049
+    },
+    "StartTimePlan": {
+      "type": "string",
+      "description": "Planned Start Time",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T18:32:47"
+    },
+    "FinishTimePlan": {
+      "type": "string",
+      "description": "Planned Finish Time",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T20:32:47"
+    },
+    "DistancePlan": {
+      "type": "number",
+      "description": "Planned distance, m",
+      "format": "double",
+      "nullable": true,
+      "example": 12340
+    },
+    "CostPlan": {
+      "type": "number",
+      "description": "Plan route cost",
+      "format": "double",
+      "nullable": true,
+      "example": 155.2
+    },
+    "CostActual": {
+      "type": "number",
+      "description": "Actual route cost",
+      "format": "double",
+      "nullable": true,
+      "example": 165.32
+    },
+    "CreateDateUtc": {
+      "type": "string",
+      "description": "Route creation date (UTC)",
+      "format": "date-time",
+      "example": "2019-02-01T13:32:47"
+    },
+    "Orders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Order"
+      },
+      "nullable": true,
+      "xml": {
+        "name": "Orders",
+        "wrapped": true
+      }
+    },
+    "Status": {
+      "enum": [
+        "Draft",
+        "Ready",
+        "Loaded",
+        "InProgress",
+        "Closed"
+      ],
+      "type": "string"
+    },
+    "Xd": {
+      "type": "boolean",
+      "description": "Cross-Docking route",
+      "example": false
+    },
+    "Vehicle": {
+      "type": "object",
+      "properties": {
+        "Number": {
+          "maxLength": 30,
+          "minLength": 0,
+          "type": "string",
+          "description": "Number",
+          "nullable": true,
+          "example": "XXX777"
+        },
+        "CarrierCode": {
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "description": "Carrier Code",
+          "nullable": true,
+          "example": 31
+        },
+        "Carrier": {
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "description": "Carrier",
+          "nullable": true,
+          "example": "Big Logistics"
+        },
+        "Weight": {
+          "type": "number",
+          "description": "Capacity Weight",
+          "format": "double",
+          "nullable": true,
+          "example": 10000
+        },
+        "Volume": {
+          "type": "number",
+          "description": "Capacity Volume",
+          "format": "double",
+          "nullable": true,
+          "example": 14.5
+        },
+        "Pallets": {
+          "type": "number",
+          "description": "Capacity Pallets",
+          "format": "double",
+          "nullable": true,
+          "example": 16
+        }
+      },
+      "additionalProperties": false,
+      "xml": {
+        "name": "Vehicle"
+      }
+    },
+    "CustomFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomField"
+      },
+      "description": "List of custom fields",
+      "nullable": true,
+      "xml": {
+        "name": "CustomFields",
+        "wrapped": true
+      }
+    }
+  },
+  "required": []
+}

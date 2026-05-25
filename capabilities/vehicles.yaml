@@ -1,0 +1,90 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Track-POD — Vehicles
+  description: 'Track-POD Vehicles capability. List, add, update, delete vehicles.'
+  tags:
+    - Track-POD
+    - Vehicles
+    - Fleet
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TRACK_POD_API_KEY: TRACK_POD_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: vehicles
+      baseUri: https://api.track-pod.com
+      description: Track-POD Vehicles REST surface.
+      resources:
+        - name: vehicle
+          path: /Vehicle
+          operations:
+            - name: listVehicles
+              method: GET
+              description: Get vehicles
+            - name: addVehicle
+              method: POST
+              description: Add a vehicle
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+            - name: updateVehicle
+              method: PUT
+              description: Update a vehicle
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: vehicle-by-id
+          path: /Vehicle/{id}
+          operations:
+            - name: getVehicleById
+              method: GET
+              description: Get vehicle by Track-POD unique identifier
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+            - name: deleteVehicleById
+              method: DELETE
+              description: Delete vehicle by Track-POD unique identifier
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: apikey
+        key: X-API-KEY
+        value: '{{env.TRACK_POD_API_KEY}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: vehicles-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Track-POD Vehicles.
+      tools:
+        - name: track-pod-list-vehicles
+          description: List Track-POD vehicles
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: vehicles.listVehicles
+        - name: track-pod-add-vehicle
+          description: Add a Track-POD vehicle
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: vehicles.addVehicle
+          with:
+            body: tools.body

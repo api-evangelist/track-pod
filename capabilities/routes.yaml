@@ -1,0 +1,165 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Track-POD — Routes
+  description: 'Track-POD Routes capability. Plan, start, close, ready, optimize, and export routes; attach orders.'
+  tags:
+    - Track-POD
+    - Routes
+    - Dispatch
+    - Optimization
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TRACK_POD_API_KEY: TRACK_POD_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: routes
+      baseUri: https://api.track-pod.com
+      description: Track-POD Routes REST surface.
+      resources:
+        - name: route
+          path: /Route
+          operations:
+            - name: addRoute
+              method: POST
+              description: Add a new route
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: route-by-code
+          path: /Route/Code/{code}
+          operations:
+            - name: getRouteByCode
+              method: GET
+              description: Get route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+            - name: updateRouteByCode
+              method: PUT
+              description: Update route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+            - name: deleteRouteByCode
+              method: DELETE
+              description: Delete route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+        - name: route-start
+          path: /Route/Start/Code/{code}
+          operations:
+            - name: startRouteByCode
+              method: PUT
+              description: Start route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+        - name: route-close
+          path: /Route/Close/Code/{code}
+          operations:
+            - name: closeRouteByCode
+              method: PUT
+              description: Close route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+        - name: route-ready
+          path: /Route/Ready/Code/{code}
+          operations:
+            - name: setRouteReadyByCode
+              method: PUT
+              description: Set route ready by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+        - name: route-track
+          path: /Route/Track/Code/{code}
+          operations:
+            - name: getRouteTrackByCode
+              method: GET
+              description: Get GPS track for a route by code
+              inputParameters:
+                - name: code
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: apikey
+        key: X-API-KEY
+        value: '{{env.TRACK_POD_API_KEY}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: routes-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Track-POD Routes.
+      tools:
+        - name: track-pod-add-route
+          description: Create a new Track-POD route
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: routes.addRoute
+          with:
+            body: tools.body
+        - name: track-pod-get-route
+          description: Get a Track-POD route by code
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: routes.getRouteByCode
+          with:
+            code: tools.code
+        - name: track-pod-start-route
+          description: Start a Track-POD route by code
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: routes.startRouteByCode
+          with:
+            code: tools.code
+        - name: track-pod-close-route
+          description: Close a Track-POD route by code
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: routes.closeRouteByCode
+          with:
+            code: tools.code
+        - name: track-pod-get-route-track
+          description: Get the GPS track for a Track-POD route by code
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: routes.getRouteTrackByCode
+          with:
+            code: tools.code

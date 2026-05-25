@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "trackpod": "https://api.track-pod.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Order": {
+      "@id": "trackpod:Order",
+      "@context": {
+        "Id": { "@id": "trackpod:Order/id", "@type": "xsd:string" },
+        "Number": { "@id": "trackpod:Order/number", "@type": "xsd:string" },
+        "TrackId": { "@id": "trackpod:Order/trackId", "@type": "xsd:string" },
+        "Date": { "@id": "trackpod:Order/date", "@type": "xsd:date" },
+        "Type": { "@id": "trackpod:Order/type", "@type": "xsd:string" },
+        "Status": { "@id": "trackpod:Order/status", "@type": "xsd:string" },
+        "Address": { "@id": "schema:DeliveryEvent/deliveryAddress" },
+        "AddressLat": { "@id": "schema:GeoCoordinates/latitude", "@type": "xsd:decimal" },
+        "AddressLon": { "@id": "schema:GeoCoordinates/longitude", "@type": "xsd:decimal" },
+        "Client": { "@id": "schema:customer" },
+        "ContactName": { "@id": "schema:name" },
+        "Phone": { "@id": "schema:telephone" },
+        "Email": { "@id": "schema:email" },
+        "COD": { "@id": "trackpod:Order/cod", "@type": "xsd:decimal" },
+        "Barcode": { "@id": "schema:Product/gtin" },
+        "ArrivedDate": { "@id": "trackpod:Order/arrivedDate", "@type": "xsd:dateTime" },
+        "DepartedDate": { "@id": "trackpod:Order/departedDate", "@type": "xsd:dateTime" },
+        "DeliveryInstructions": { "@id": "schema:description" },
+        "Depot": { "@id": "trackpod:Order/depot", "@type": "xsd:string" },
+        "DriverName": { "@id": "schema:Person/name" },
+        "Goods": { "@id": "trackpod:Order/goods", "@container": "@list" }
+      }
+    },
+
+    "Route": {
+      "@id": "trackpod:Route",
+      "@context": {
+        "Id": { "@id": "trackpod:Route/id", "@type": "xsd:string" },
+        "Code": { "@id": "trackpod:Route/code", "@type": "xsd:string" },
+        "Date": { "@id": "trackpod:Route/date", "@type": "xsd:date" },
+        "Status": { "@id": "trackpod:Route/status", "@type": "xsd:string" },
+        "DriverName": { "@id": "schema:Person/name" },
+        "DriverVehicle": { "@id": "schema:Vehicle/name" },
+        "Depot": { "@id": "trackpod:Route/depot", "@type": "xsd:string" },
+        "StartTimePlan": { "@id": "schema:startTime", "@type": "xsd:dateTime" },
+        "FinishTimePlan": { "@id": "schema:endTime", "@type": "xsd:dateTime" },
+        "DistancePlan": { "@id": "trackpod:Route/distancePlan", "@type": "xsd:decimal" },
+        "Orders": { "@id": "trackpod:Route/orders", "@container": "@list" },
+        "Track": { "@id": "trackpod:Route/track", "@container": "@list" }
+      }
+    },
+
+    "Driver": {
+      "@id": "trackpod:Driver",
+      "@context": {
+        "Id": { "@id": "trackpod:Driver/id", "@type": "xsd:string" },
+        "Username": { "@id": "trackpod:Driver/username", "@type": "xsd:string" },
+        "Name": { "@id": "schema:Person/name" },
+        "Phone": { "@id": "schema:telephone" },
+        "Email": { "@id": "schema:email" }
+      }
+    },
+
+    "Vehicle": {
+      "@id": "trackpod:Vehicle",
+      "@context": {
+        "Id": { "@id": "trackpod:Vehicle/id", "@type": "xsd:string" },
+        "Number": { "@id": "schema:Vehicle/vehicleIdentificationNumber" },
+        "Name": { "@id": "schema:Vehicle/name" },
+        "Capacity": { "@id": "schema:Vehicle/cargoVolume", "@type": "xsd:decimal" }
+      }
+    },
+
+    "Address": {
+      "@id": "schema:PostalAddress",
+      "@context": {
+        "Id": { "@id": "trackpod:Address/id", "@type": "xsd:string" },
+        "Address": { "@id": "schema:streetAddress" },
+        "Lat": { "@id": "schema:GeoCoordinates/latitude", "@type": "xsd:decimal" },
+        "Lon": { "@id": "schema:GeoCoordinates/longitude", "@type": "xsd:decimal" }
+      }
+    }
+  }
+}

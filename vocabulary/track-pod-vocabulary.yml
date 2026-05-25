@@ -1,0 +1,66 @@
+specification: API Commons Vocabulary
+specificationVersion: '0.1'
+provider: Track-POD
+providerId: track-pod
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Operational vocabulary for the Track-POD delivery management platform — last-mile, ePOD, route planning.
+domains:
+  - name: Delivery Operations
+    terms:
+      - term: Order
+        definition: A unit of work tied to a single stop — delivery, pickup, or service — with goods, addresses, contacts, and lifecycle status.
+      - term: Route
+        definition: An ordered sequence of stops for one driver and vehicle on a specific date; planned, started, optimized, and closed.
+      - term: Driver
+        definition: A field user who operates a vehicle, logs into the mobile app, and captures proof of delivery.
+      - term: Vehicle
+        definition: A fleet asset associated with a driver and route, optionally inspected via VehicleCheck.
+      - term: Depot
+        definition: An origin/return location from which routes start and finish.
+      - term: TrackId
+        definition: Customer-facing tracking identifier used to look up an order without exposing internal ids.
+  - name: Proof Of Delivery
+    terms:
+      - term: ePOD
+        definition: Electronic Proof Of Delivery — digital signature, photos, geotag, and timestamp captured by the mobile app.
+      - term: Sign On Glass
+        definition: Capturing a recipient's signature directly on the driver's mobile device touchscreen.
+      - term: Geotag
+        definition: Latitude/longitude attached to a delivery event for audit and dispute resolution.
+      - term: POD PDF
+        definition: Auto-generated PDF aggregating signature, photos, and event metadata for an order.
+  - name: Lifecycle / Status
+    terms:
+      - term: NotScheduled
+        definition: Order created but not yet attached to a route.
+      - term: Scheduled
+        definition: Order assigned to a route and pending dispatch.
+      - term: InProgress
+        definition: Route in motion, driver active.
+      - term: Delivered
+        definition: Order successfully completed (delivery type).
+      - term: Collected
+        definition: Order successfully completed (pickup type).
+      - term: Partially
+        definition: Order completed with partial goods accepted.
+      - term: NotDelivered
+        definition: Delivery attempt failed; reason captured via RejectReason.
+      - term: NotCollected
+        definition: Pickup attempt failed; reason captured via RejectReason.
+  - name: Pricing
+    terms:
+      - term: Per-Driver Plan
+        definition: Subscription pricing scaled by number of active drivers (Advanced, Advanced Plus, Ultimate, Enterprise).
+      - term: Per-Order Plan
+        definition: Subscription pricing scaled by monthly order volume (S, M, L, XL).
+  - name: API Surface
+    terms:
+      - term: X-API-KEY
+        definition: HTTP header carrying the per-tenant Track-POD API key.
+      - term: Restricted API Key
+        definition: API key scoped by IP address, HTTP method, and domain for least-privilege access.
+      - term: Webhook
+        definition: Outbound HTTP POST notification sent to a subscriber URL with Metadata and Data sections; retries up to 5 times on failure.
+      - term: Bulk Order
+        definition: A POST /Order/Bulk request creating up to 500 orders at once.

@@ -1,0 +1,118 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Track-POD — Drivers
+  description: 'Track-POD Drivers capability. List, add, update, and delete drivers by id or username.'
+  tags:
+    - Track-POD
+    - Drivers
+    - Fleet
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TRACK_POD_API_KEY: TRACK_POD_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: drivers
+      baseUri: https://api.track-pod.com
+      description: Track-POD Drivers REST surface.
+      resources:
+        - name: driver
+          path: /Driver
+          operations:
+            - name: listDrivers
+              method: GET
+              description: Get drivers
+            - name: addDriver
+              method: POST
+              description: Add a driver
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+            - name: updateDriver
+              method: PUT
+              description: Update a driver
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: driver-by-id
+          path: /Driver/Id/{id}
+          operations:
+            - name: getDriverById
+              method: GET
+              description: Get driver by Track-POD unique identifier
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+            - name: deleteDriverById
+              method: DELETE
+              description: Delete driver by Track-POD unique identifier
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+        - name: driver-by-username
+          path: /Driver/Username/{username}
+          operations:
+            - name: getDriverByUsername
+              method: GET
+              description: Get driver by username
+              inputParameters:
+                - name: username
+                  in: path
+                  type: string
+                  required: true
+            - name: deleteDriverByUsername
+              method: DELETE
+              description: Delete driver by username
+              inputParameters:
+                - name: username
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: apikey
+        key: X-API-KEY
+        value: '{{env.TRACK_POD_API_KEY}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: drivers-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Track-POD Drivers.
+      tools:
+        - name: track-pod-list-drivers
+          description: List Track-POD drivers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: drivers.listDrivers
+        - name: track-pod-add-driver
+          description: Add a Track-POD driver
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: drivers.addDriver
+          with:
+            body: tools.body
+        - name: track-pod-get-driver-by-username
+          description: Get a Track-POD driver by username
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: drivers.getDriverByUsername
+          with:
+            username: tools.username

@@ -1,0 +1,47 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Track-POD
+providerId: track-pod
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Rate Limits
+  - Throttling
+description: Track-POD API 2.0 publishes two stacked request-rate caps and a bulk-import quota. There is no documented monthly quota at the API layer beyond the plan's included order count.
+sources:
+  - https://api.track-pod.com/index.html
+  - https://www.track-pod.com/blog/track-pod-api-explained/
+scope: per-api-key
+limits:
+  - name: requests_per_second
+    type: request-rate
+    metric: requests
+    window:
+      duration: 1
+      unit: second
+    limit: 20
+    description: Burst limit measured per API key.
+  - name: requests_per_minute
+    type: request-rate
+    metric: requests
+    window:
+      duration: 1
+      unit: minute
+    limit: 400
+    description: Sustained limit measured per API key.
+  - name: bulk_order_size
+    type: payload-size
+    metric: orders
+    window:
+      duration: 1
+      unit: request
+    limit: 500
+    description: Maximum number of orders in a single POST /Order/Bulk request.
+inspection:
+  endpoint: GET /Test
+  description: Track-POD exposes a /Test endpoint that reflects the caller's current authorization state and rate-limit consumption, intended for client self-diagnosis.
+restrictions:
+  - name: Restricted API Keys
+    description: Track-POD supports restricted API keys that can be scoped by allowed IP address, HTTP method, and domain, enabling least-privilege third-party integrations.
+    source: https://www.track-pod.com/blog/restricted-api-access/

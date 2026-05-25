@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/track-pod/main/json-schema/track-pod-vehicle-check-schema.json",
+  "title": "Track-POD Vehicle Check",
+  "description": "A driver walk-around inspection record for a Track-POD vehicle.",
+  "type": "object",
+  "properties": {
+    "DriverLogin": {
+      "type": "string",
+      "description": "Driver's login",
+      "nullable": true,
+      "example": "RT567 "
+    },
+    "DriverName": {
+      "type": "string",
+      "description": "Driver\u2019s First Name and Last Name",
+      "nullable": true,
+      "example": "Peter G."
+    },
+    "DepotId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 1
+    },
+    "Depot": {
+      "type": "string",
+      "description": "Depot address",
+      "nullable": true,
+      "example": "9 Riverside, Salford M7 1PA "
+    },
+    "Date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "VehicleNumber": {
+      "type": "string",
+      "description": "Vehicle number",
+      "nullable": true,
+      "example": "XXX777"
+    },
+    "Odometer": {
+      "type": "number",
+      "description": "Odometer",
+      "format": "double",
+      "nullable": true
+    },
+    "Values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/VehicleCheckValue"
+      },
+      "description": "Vehicle check values",
+      "nullable": true,
+      "xml": {
+        "name": "Values",
+        "wrapped": true
+      }
+    },
+    "HasSignature": {
+      "type": "boolean",
+      "description": "Signature attached",
+      "example": true
+    },
+    "SignaturePhoto": {
+      "type": "string",
+      "description": "Links for download jpg file (each link is available for 24h from API call)",
+      "nullable": true
+    },
+    "Stage": {
+      "$ref": "#/components/schemas/VehicleCheckStage"
+    },
+    "RouteNumber": {
+      "type": "string",
+      "nullable": true
+    }
+  },
+  "required": []
+}

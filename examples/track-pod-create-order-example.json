@@ -1,0 +1,42 @@
+{
+  "_description": "Example POST /Order request creating a single unscheduled Track-POD delivery order, authenticated with the X-API-KEY header.",
+  "_endpoint": "POST https://api.track-pod.com/Order",
+  "_headers": {
+    "X-API-KEY": "YOUR_TRACK_POD_API_KEY",
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  "request": {
+    "Number": "ORD-2026-0001",
+    "Type": "Delivery",
+    "Date": "2026-05-26",
+    "Address": "350 Fifth Avenue, New York, NY 10118",
+    "ContactName": "Jane Customer",
+    "Phone": "+12125551234",
+    "Email": "jane@example.com",
+    "Client": "Example Retail LLC",
+    "ClientId": "client-9001",
+    "DeliveryInstructions": "Leave with concierge in lobby. Do not ring bell.",
+    "Depot": "Brooklyn-Hub",
+    "COD": 49.99,
+    "Goods": [
+      {
+        "Description": "Wireless headphones",
+        "Barcode": "0190198001284",
+        "Quantity": 1,
+        "Weight": 0.45,
+        "Volume": 0.0025,
+        "Price": 49.99
+      }
+    ],
+    "CustomFields": [
+      { "Name": "PurchaseOrder", "Value": "PO-77821" }
+    ]
+  },
+  "response_201": {
+    "Id": "8b1e4b3a-5d0c-4f2e-9a3b-0c0e1f1c2a99",
+    "Number": "ORD-2026-0001",
+    "TrackId": "TPDX9F2A",
+    "Status": "NotScheduled"
+  }
+}

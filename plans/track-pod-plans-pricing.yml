@@ -1,0 +1,255 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Track-POD
+providerId: track-pod
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Delivery
+  - Last Mile
+  - Logistics
+  - Subscription
+description: Reconciled Track-POD pricing surface as of May 2026, captured from www.track-pod.com/pricing-delivery-app/. Two product families — per-driver plans (Advanced, Advanced Plus, Ultimate, Enterprise) and per-order plans (S, M, L, XL).
+sources:
+  - https://www.track-pod.com/pricing-delivery-app/
+plans:
+  - id: track-pod-advanced
+    name: Advanced
+    type: subscription
+    description: Per-driver plan, minimum 3 drivers, 6,000 orders/month, 7 web users.
+    entries:
+      - label: Per Driver (annual billing)
+        name: driver_seat_annual
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '49.00'
+        userMultiplied: true
+      - label: Per Driver (monthly billing)
+        name: driver_seat_monthly
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '59.00'
+        userMultiplied: true
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: 6000
+        timeFrame: month
+      - label: Web users included
+        name: web_users
+        type: included
+        metric: web_users
+        limit: 7
+        timeFrame: month
+  - id: track-pod-advanced-plus
+    name: Advanced Plus
+    type: subscription
+    description: Per-driver plan, minimum 3 drivers, unlimited orders, 50 web users. Marketed as MOST POPULAR.
+    entries:
+      - label: Per Driver (annual billing)
+        name: driver_seat_annual
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '69.00'
+        userMultiplied: true
+      - label: Per Driver (monthly billing)
+        name: driver_seat_monthly
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '79.00'
+        userMultiplied: true
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: -1
+        timeFrame: month
+      - label: Web users included
+        name: web_users
+        type: included
+        metric: web_users
+        limit: 50
+        timeFrame: month
+  - id: track-pod-ultimate
+    name: Ultimate
+    type: subscription
+    description: Per-driver plan, minimum 3 drivers, unlimited orders, 100 web users.
+    entries:
+      - label: Per Driver (annual billing)
+        name: driver_seat_annual
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '89.00'
+        userMultiplied: true
+      - label: Per Driver (monthly billing)
+        name: driver_seat_monthly
+        type: fixed
+        metric: drivers
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '99.00'
+        userMultiplied: true
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: -1
+        timeFrame: month
+      - label: Web users included
+        name: web_users
+        type: included
+        metric: web_users
+        limit: 100
+        timeFrame: month
+  - id: track-pod-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom-priced plan for fleets with 20+ drivers; unlimited orders and unlimited web users; custom integration support.
+    entries:
+      - label: Custom pricing
+        name: custom
+        type: custom
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'contact-sales'
+        userMultiplied: false
+  - id: track-pod-s-plan
+    name: S Plan
+    type: subscription
+    description: Per-order plan, 1,500 orders/month at $0.19 per order, unlimited drivers, 50 web users.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: fixed
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '285.00'
+        userMultiplied: false
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: 1500
+        timeFrame: month
+      - label: Effective per-order rate
+        name: per_order
+        type: derived
+        metric: orders
+        unit: 1
+        price: '0.19'
+  - id: track-pod-m-plan
+    name: M Plan
+    type: subscription
+    description: Per-order plan, 3,000 orders/month at $0.17 per order, unlimited drivers, 50 web users. Marketed as MOST POPULAR.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: fixed
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '510.00'
+        userMultiplied: false
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: 3000
+        timeFrame: month
+      - label: Effective per-order rate
+        name: per_order
+        type: derived
+        metric: orders
+        unit: 1
+        price: '0.17'
+  - id: track-pod-l-plan
+    name: L Plan
+    type: subscription
+    description: Per-order plan, 6,000 orders/month at $0.15 per order, unlimited drivers, 50 web users.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: fixed
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '900.00'
+        userMultiplied: false
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: 6000
+        timeFrame: month
+      - label: Effective per-order rate
+        name: per_order
+        type: derived
+        metric: orders
+        unit: 1
+        price: '0.15'
+  - id: track-pod-xl-plan
+    name: XL Plan
+    type: subscription
+    description: Per-order plan, 12,000 orders/month at $0.12 per order, unlimited drivers, 100 web users.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: fixed
+        metric: subscription
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '1440.00'
+        userMultiplied: false
+      - label: Included orders/month
+        name: orders_included
+        type: included
+        metric: orders
+        limit: 12000
+        timeFrame: month
+      - label: Effective per-order rate
+        name: per_order
+        type: derived
+        metric: orders
+        unit: 1
+        price: '0.12'
+notes:
+  - All plans include route optimization, live tracking, proof of delivery, geofencing, the driver mobile app, analytics, 5,000+ integrations, and API access.
+  - The driver mobile app is free to download on iOS and Android; the web dispatcher dashboard requires a paid subscription.
+  - Annual billing is invoiced up front at a lower per-driver rate; monthly billing is at a higher per-driver rate.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/2026-01/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/track-pod/main/json-structure/track-pod-order-structure.json",
+  "title": "Track-POD Order Structure",
+  "description": "Structural overview of a Track-POD Order resource grouped by functional area.",
+  "type": "object",
+  "groups": {
+    "identity": ["Id", "Number", "TrackId", "CustomerReferenceId"],
+    "scheduling": ["Date", "Priority", "DepotId", "Depot", "DriverLogin", "DriverName", "DriverVehicle"],
+    "contact": ["ContactName", "Phone", "Email", "ClientId", "Client"],
+    "destination": ["Address", "AddressId", "AddressLat", "AddressLon", "AddressZone", "AddressNote"],
+    "lifecycle": ["Status", "CreateDateUtc", "ChangeDate", "ArrivedDate", "DepartedDate", "CreateSource"],
+    "operational": ["DeliveryInstructions", "DriverComment", "ClientNote", "Barcode", "DistanceFromDepotPlan"],
+    "commercial": ["COD", "CODActual", "CustomFields"],
+    "goods": ["Goods"]
+  }
+}

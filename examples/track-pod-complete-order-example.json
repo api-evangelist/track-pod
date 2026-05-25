@@ -1,0 +1,29 @@
+{
+  "_description": "Example PUT /Order/Number/{number}/Complete marking a scheduled order as delivered, with signature, photo references, and delivered goods.",
+  "_endpoint": "PUT https://api.track-pod.com/Order/Number/ORD-2026-0001/Complete",
+  "_headers": {
+    "X-API-KEY": "YOUR_TRACK_POD_API_KEY",
+    "Content-Type": "application/json"
+  },
+  "request": {
+    "Status": "Delivered",
+    "Date": "2026-05-26T14:32:11Z",
+    "DriverLogin": "driver_42",
+    "DriverComment": "Handed to recipient at front desk.",
+    "ArrivedDate": "2026-05-26T14:30:02Z",
+    "DepartedDate": "2026-05-26T14:33:48Z",
+    "Lat": 40.748817,
+    "Lon": -73.985428,
+    "Goods": [
+      {
+        "Barcode": "0190198001284",
+        "Quantity": 1,
+        "Status": "Delivered"
+      }
+    ]
+  },
+  "response_200": {
+    "Status": "Delivered",
+    "PodUrl": "https://api.track-pod.com/Order/Number/ORD-2026-0001/Pdf"
+  }
+}

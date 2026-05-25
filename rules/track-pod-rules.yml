@@ -1,0 +1,78 @@
+extends:
+  - spectral:oas
+formats:
+  - oas3
+functions: []
+rules:
+  track-pod-api-key-required:
+    description: All operations must require the X-API-KEY API key security scheme.
+    message: "{{description}}; missing or empty security on this operation."
+    severity: error
+    given: $.paths[*][?(@property === 'get' || @property === 'post' || @property === 'put' || @property === 'delete' || @property === 'patch')]
+    then:
+      field: security
+      function: truthy
+
+  track-pod-pascalcase-paths:
+    description: Track-POD paths use PascalCase resource segments (e.g. /Order, /VehicleCheck, /Route/Code/{code}).
+    message: "Path segment is not PascalCase: {{value}}"
+    severity: warn
+    given: $.paths
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: '^/[A-Z][A-Za-z]+(/[A-Za-z{}/-]+)*$'
+
+  track-pod-operation-summary:
+    description: Every operation must have a non-empty summary; Track-POD summaries use Title Case.
+    message: "Operation summary missing"
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: summary
+      function: truthy
+
+  track-pod-summary-title-case:
+    description: Operation summaries should start with a capitalised verb (Get, Add, Update, Delete, Set, Complete, Reject).
+    message: "Summary should start with a Track-POD verb"
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(Get|Add|Update|Delete|Set|Complete|Reject|Start|Close|Confirm|List|Test)\b'
+
+  track-pod-tag-each-operation:
+    description: Every operation must declare at least one tag (Address, Driver, Order, RejectReason, Route, Test, Vehicle, VehicleCheck).
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  track-pod-error-response:
+    description: Mutating operations must document at least one non-2xx response.
+    severity: warn
+    given: $.paths[*][post,put,delete,patch].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ['400']
+            - required: ['401']
+            - required: ['403']
+            - required: ['404']
+            - required: ['409']
+            - required: ['429']
+            - required: ['default']
+
+  track-pod-no-deprecated-status:
+    description: Avoid the deprecated /Order/*/Status PUT endpoints; prefer /Order/*/Complete or /Order/*/Reject.
+    severity: info
+    given: $.paths[?(@property =~ /\/Order\/(Number|Id|TrackId)\/[^/]+\/Status$/)]
+    then:
+      field: deprecated
+      function: truthy

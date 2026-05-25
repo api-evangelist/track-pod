@@ -1,0 +1,105 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Track-POD
+providerId: track-pod
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Delivery
+  - Logistics
+description: FOCUS-aligned FinOps definition for the Track-POD delivery management platform. Two cost models live side by side — per-driver seat subscription and per-order metered subscription — both billed monthly in USD.
+sources:
+  - https://www.track-pod.com/pricing-delivery-app/
+  - https://www.track-pod.com/api-integration/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Track-POD
+serviceCategory: Logistics and Delivery Management
+billingModel:
+  pricingCategory: Hybrid
+  pricingSubcategory:
+    - Subscription
+    - Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: driver_seat
+  secondaryUnits:
+    - order
+    - web_user_seat
+focusColumns:
+  ServiceName: Track-POD
+  ServiceCategory: Logistics and Delivery Management
+  ProviderName: Track-POD
+  PublisherName: Track-POD
+  InvoiceIssuerName: Track-POD
+  PricingCategory: Hybrid
+  PricingUnit: driver-month
+  BillingCurrency: USD
+meters:
+  - name: driver_seats
+    unit: driver-month
+    aggregation: max
+    dimensions:
+      - plan
+      - billing_cadence
+    description: Active drivers in a given billing month under per-driver plans.
+  - name: orders_processed
+    unit: order
+    aggregation: sum
+    dimensions:
+      - plan
+      - depot
+    description: Orders created in Track-POD during the billing month.
+  - name: web_user_seats
+    unit: user-month
+    aggregation: max
+    dimensions:
+      - plan
+    description: Active dispatcher / web users in a given billing month.
+chargeMappings:
+  - id: per-driver-subscription
+    plans:
+      - track-pod-advanced
+      - track-pod-advanced-plus
+      - track-pod-ultimate
+    chargeCategory: Usage
+    chargeClass: Standard
+    pricingUnit: driver-month
+    note: Per-driver seat price is billed monthly, with discounted rate on annual commitment.
+  - id: per-order-subscription
+    plans:
+      - track-pod-s-plan
+      - track-pod-m-plan
+      - track-pod-l-plan
+      - track-pod-xl-plan
+    chargeCategory: Purchase
+    chargeClass: Committed Use
+    pricingUnit: order
+    note: Per-order plans bill a fixed monthly subscription that includes a stated number of orders; effective per-order rate decreases as the tier grows.
+  - id: enterprise-custom
+    plans:
+      - track-pod-enterprise
+    chargeCategory: Purchase
+    chargeClass: Negotiated
+    pricingUnit: contract
+    note: Enterprise plan is custom-quoted for 20+ driver fleets and may bundle custom integration work.
+costOptimizationLevers:
+  - Choose annual billing over monthly to lower per-driver seat cost on Advanced, Advanced Plus, and Ultimate plans.
+  - Match plan family to workload shape — fleets with stable driver count favour per-driver plans; high-order, gig-style fleets favour per-order plans.
+  - Use restricted API keys scoped by IP/method/domain to prevent runaway third-party integrations from inflating order counts.
+  - Use the POST /Order/Bulk endpoint to import up to 500 orders per request, reducing API request volume against rate limits.

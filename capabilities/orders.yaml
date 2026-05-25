@@ -1,0 +1,174 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Track-POD — Orders
+  description: 'Track-POD Orders capability. Create, read, update, complete, reject, and retrieve POD documents for delivery orders.'
+  tags:
+    - Track-POD
+    - Orders
+    - Delivery
+    - Proof Of Delivery
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TRACK_POD_API_KEY: TRACK_POD_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: orders
+      baseUri: https://api.track-pod.com
+      description: Track-POD Orders REST surface. Authentication via X-API-KEY header.
+      resources:
+        - name: order
+          path: /Order
+          operations:
+            - name: addUnscheduledOrder
+              method: POST
+              description: Add unscheduled order
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+            - name: updateOrder
+              method: PUT
+              description: Update order
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: order-bulk
+          path: /Order/Bulk
+          operations:
+            - name: addOrdersBulk
+              method: POST
+              description: Add up to 500 unscheduled orders in one request
+              inputParameters:
+                - name: body
+                  in: body
+                  type: array
+                  required: true
+        - name: order-by-number
+          path: /Order/Number/{number}
+          operations:
+            - name: getOrderByNumber
+              method: GET
+              description: Get order by number
+              inputParameters:
+                - name: number
+                  in: path
+                  type: string
+                  required: true
+            - name: deleteOrderByNumber
+              method: DELETE
+              description: Delete order by number
+              inputParameters:
+                - name: number
+                  in: path
+                  type: string
+                  required: true
+        - name: order-complete
+          path: /Order/Number/{number}/Complete
+          operations:
+            - name: completeOrderByNumber
+              method: PUT
+              description: Set order status to delivered, collected, or partially
+              inputParameters:
+                - name: number
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: order-reject
+          path: /Order/Number/{number}/Reject
+          operations:
+            - name: rejectOrderByNumber
+              method: PUT
+              description: Set order status to not delivered or not collected
+              inputParameters:
+                - name: number
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: order-pod
+          path: /Order/Number/{number}/Pdf
+          operations:
+            - name: getOrderPodPdf
+              method: GET
+              description: Get order proof-of-delivery PDF by order number
+              outputRawFormat: binary
+              inputParameters:
+                - name: number
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: apikey
+        key: X-API-KEY
+        value: '{{env.TRACK_POD_API_KEY}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: orders-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Track-POD Orders.
+      tools:
+        - name: track-pod-add-order
+          description: Add an unscheduled order to Track-POD
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: orders.addUnscheduledOrder
+          with:
+            body: tools.body
+        - name: track-pod-get-order-by-number
+          description: Retrieve a Track-POD order by its order number
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: orders.getOrderByNumber
+          with:
+            number: tools.number
+        - name: track-pod-complete-order
+          description: Mark a Track-POD order as delivered/collected/partially
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: orders.completeOrderByNumber
+          with:
+            number: tools.number
+            body: tools.body
+        - name: track-pod-reject-order
+          description: Mark a Track-POD order as not delivered/not collected
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: orders.rejectOrderByNumber
+          with:
+            number: tools.number
+            body: tools.body
+        - name: track-pod-get-pod-pdf
+          description: Download the proof-of-delivery PDF for an order
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: orders.getOrderPodPdf
+          with:
+            number: tools.number

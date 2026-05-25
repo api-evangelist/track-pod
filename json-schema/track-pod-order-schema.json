@@ -1,0 +1,1014 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/track-pod/main/json-schema/track-pod-order-schema.json",
+  "title": "Track-POD Order",
+  "description": "A Track-POD delivery or collection order, including addresses, goods, status, and proof-of-delivery metadata.",
+  "type": "object",
+  "properties": {
+    "Number": {
+      "type": "string",
+      "description": "Order/Invoice/Job/Waybill number",
+      "nullable": true,
+      "example": "cv30001-2"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 10000345
+    },
+    "Date": {
+      "type": "string",
+      "description": "Order date, yyyy-MM-dd",
+      "format": "date-time",
+      "example": "2019-02-01T00:00:00"
+    },
+    "SeqNumber": {
+      "type": "integer",
+      "description": "Scheduled sequence in the route",
+      "format": "int32",
+      "nullable": true,
+      "example": 2
+    },
+    "RouteNumber": {
+      "type": "string",
+      "description": "Route number",
+      "nullable": true,
+      "example": "R000123"
+    },
+    "RoutePriority": {
+      "type": "integer",
+      "description": "Route priority",
+      "format": "int32",
+      "nullable": true,
+      "example": 10
+    },
+    "RouteStatus": {
+      "enum": [
+        "Draft",
+        "Ready",
+        "Loaded",
+        "InProgress",
+        "Closed"
+      ],
+      "type": "string"
+    },
+    "DriverLogin": {
+      "type": "string",
+      "description": "Login of Driver",
+      "nullable": true,
+      "example": "ds45"
+    },
+    "DriverName": {
+      "type": "string",
+      "description": "Name of Driver",
+      "nullable": true,
+      "example": "Dilan"
+    },
+    "DriverNumber": {
+      "type": "integer",
+      "description": "Driver Number",
+      "format": "int32",
+      "nullable": true,
+      "example": 2
+    },
+    "DriverVehicle": {
+      "type": "string",
+      "description": "Vehicle license plate number",
+      "nullable": true,
+      "example": "FCU 819"
+    },
+    "ShipperId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 357
+    },
+    "Shipper": {
+      "type": "string",
+      "description": "Shipper/Supplier name",
+      "nullable": true,
+      "example": "Sanitex"
+    },
+    "DepotId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 1
+    },
+    "Depot": {
+      "type": "string",
+      "description": "Depot address",
+      "nullable": true,
+      "example": "9 Riverside, Salford M7 1PA"
+    },
+    "Weight": {
+      "type": "number",
+      "description": "Total weight",
+      "format": "double",
+      "example": 50.5
+    },
+    "Volume": {
+      "type": "number",
+      "description": "Total volume",
+      "format": "double",
+      "example": 8.54
+    },
+    "Pallets": {
+      "type": "number",
+      "description": "Pallets count",
+      "format": "double",
+      "example": 3.5
+    },
+    "InvoiceId": {
+      "type": "string",
+      "description": "Invoice identifier in user accounting system",
+      "nullable": true,
+      "example": "inv0002 "
+    },
+    "CustomerReferenceId": {
+      "type": "string",
+      "description": "Customer reference order identifier in user accounting system",
+      "nullable": true,
+      "example": "ord123/1"
+    },
+    "GoodsList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Goods"
+      },
+      "description": "Goods List in Order",
+      "nullable": true,
+      "xml": {
+        "name": "GoodsList",
+        "wrapped": true
+      }
+    },
+    "PickupOrder": {
+      "type": "object",
+      "properties": {
+        "Id_DocShipment": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Type": {
+          "type": "integer",
+          "description": "Order type:\n0 - Delivery order;\n1 - Collection order",
+          "format": "int32",
+          "example": 0
+        },
+        "ClientId": {
+          "type": "string",
+          "description": "Unique identifier in user accounting system",
+          "nullable": true,
+          "example": 247
+        },
+        "Client": {
+          "type": "string",
+          "description": "Client/Customer name",
+          "nullable": true,
+          "example": "Maxima"
+        },
+        "AddressId": {
+          "type": "string",
+          "description": "Unique identifier in user accounting system",
+          "nullable": true,
+          "example": 13587
+        },
+        "Address": {
+          "type": "string",
+          "description": "Delivery/Pickup address",
+          "nullable": true,
+          "example": "2 St Josephs Crescent, Liverpool L3 3JF"
+        },
+        "AddressLat": {
+          "type": "number",
+          "description": "Address GPS Latitude",
+          "format": "double",
+          "nullable": true,
+          "example": 25.290479
+        },
+        "AddressLon": {
+          "type": "number",
+          "description": "Address GPS Longitude",
+          "format": "double",
+          "nullable": true,
+          "example": 65.294049
+        },
+        "AddressZone": {
+          "type": "string",
+          "description": "Address zone",
+          "nullable": true,
+          "example": "Zone 1"
+        },
+        "ContactName": {
+          "type": "string",
+          "description": "Customer\u2019s contact name",
+          "nullable": true,
+          "example": "John Doe"
+        },
+        "Phone": {
+          "type": "string",
+          "description": "Customer\u2019s contact phone number",
+          "nullable": true,
+          "example": "+37061191244"
+        },
+        "Email": {
+          "type": "string",
+          "description": "Customer\u2019s e-mail",
+          "nullable": true,
+          "example": "X-604@maxima.com"
+        },
+        "TimeSlotFrom": {
+          "type": "string",
+          "description": "Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T09:00:00"
+        },
+        "TimeSlotTo": {
+          "type": "string",
+          "description": "Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T18:00:00"
+        },
+        "ServiceTime": {
+          "type": "number",
+          "description": "Desired service time, min.\nIf seconds are specified value will be decimal",
+          "format": "double",
+          "nullable": true,
+          "example": 10
+        },
+        "CustomFields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CustomField"
+          },
+          "description": "List of custom fields",
+          "nullable": true,
+          "xml": {
+            "name": "CustomFields",
+            "wrapped": true
+          }
+        },
+        "Note": {
+          "type": "string",
+          "description": "Notes to order",
+          "nullable": true,
+          "example": "Only to sign Invoice"
+        },
+        "COD": {
+          "type": "number",
+          "description": "Amount of Cash on Delivery",
+          "format": "double",
+          "example": 20.45
+        },
+        "CODActual": {
+          "type": "string",
+          "description": "Collected Paid Amount from a Client",
+          "nullable": true,
+          "example": 20.5
+        },
+        "StatusId": {
+          "type": "integer",
+          "description": "Status code: 1 - In Progress; 2 - Not delivered/Not collected (site issues); 3 - Delivered/Collected; 4 - Partially; 5 - Not delivered/Not collected (order issues)",
+          "format": "int32",
+          "nullable": true,
+          "example": 3
+        },
+        "Status": {
+          "type": "string",
+          "description": "Status description",
+          "nullable": true,
+          "example": "Delivered"
+        },
+        "StatusLat": {
+          "type": "number",
+          "description": "Status GPS Latitude",
+          "format": "double",
+          "nullable": true,
+          "example": 25.290479
+        },
+        "StatusLon": {
+          "type": "number",
+          "description": "Status GPS Longitude",
+          "format": "double",
+          "nullable": true,
+          "example": "65.294049."
+        },
+        "DriverComment": {
+          "type": "string",
+          "description": "Drivers comment from mobile application",
+          "nullable": true,
+          "example": "The customer was angry for being late"
+        },
+        "RejectReasonId": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "RejectReason": {
+          "type": "string",
+          "description": "Reject reason for order",
+          "nullable": true,
+          "example": "Out Of Time"
+        },
+        "ScanReasonId": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "ScanRejectReason": {
+          "type": "string",
+          "description": "Reject reason for order's scanning",
+          "nullable": true,
+          "example": "Barcode is Damaged"
+        },
+        "LoadCheckScanReasonId": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "LoadCheckScanRejectReason": {
+          "type": "string",
+          "description": "Reject reason for order's scanning when the order is loaded",
+          "nullable": true,
+          "example": "Barcode is Damaged"
+        },
+        "SignatureName": {
+          "type": "string",
+          "description": "Name of the person who signed",
+          "nullable": true,
+          "example": "Andrew Bart"
+        },
+        "HasSignaturePhoto": {
+          "type": "boolean",
+          "description": "Signature attached",
+          "nullable": true,
+          "example": true
+        },
+        "SignaturePhotos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+          "nullable": true,
+          "xml": {
+            "name": "SignaturePhotos"
+          },
+          "example": [
+            "https://image.track-pod.com/..."
+          ]
+        },
+        "HasPhoto": {
+          "type": "boolean",
+          "description": "Photo attached",
+          "nullable": true,
+          "example": false
+        },
+        "Photos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+          "nullable": true,
+          "xml": {
+            "name": "Photos"
+          },
+          "example": [
+            "https://image.track-pod.com/..."
+          ]
+        },
+        "HasRoutePointPhoto": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "StatusDate": {
+          "type": "string",
+          "description": "Status date",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:31:00"
+        },
+        "PlanTime": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "PlanTimeDep": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "PlanServiceTime": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "ETA": {
+          "type": "string",
+          "description": "Estimated time of arrival",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:27:00"
+        },
+        "UpdatedETA": {
+          "type": "string",
+          "description": "Updated estimated time of arrival",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:35:00"
+        },
+        "RouteDate": {
+          "type": "string",
+          "description": "Route date",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T00:00:00"
+        },
+        "ArrivedDate": {
+          "type": "string",
+          "description": "Date of arrival",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:25:00"
+        },
+        "DepartedDate": {
+          "type": "string",
+          "description": "Date of Departure",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:31:00"
+        },
+        "ReportUrl": {
+          "type": "string",
+          "description": "Link to the PDF order delivery note (available within 1 hour from the API call)",
+          "nullable": true,
+          "example": "Paid feature, please contact support for details"
+        },
+        "Barcode": {
+          "type": "string",
+          "description": "Barcode",
+          "nullable": true,
+          "example": 1234567890123
+        },
+        "Scanned": {
+          "type": "boolean",
+          "description": "Order is scanned in the mobile application",
+          "nullable": true,
+          "example": false
+        },
+        "FeedbackRating": {
+          "type": "number",
+          "description": "Feedback Rating from mobile application",
+          "format": "double",
+          "nullable": true,
+          "example": 5
+        },
+        "TrackKey": {
+          "type": "string",
+          "description": "Key for tracking order",
+          "format": "uuid",
+          "readOnly": true,
+          "example": "3F2504E0-4F89-11D3-9A0C-0305E82C3301",
+          "deprecated": true
+        },
+        "TrackId": {
+          "type": "string",
+          "description": "Id for tracking order",
+          "format": "uuid",
+          "example": "3F2504E0-4F89-11D3-9A0C-0305E82C3301"
+        },
+        "TrackLink": {
+          "type": "string",
+          "description": "Link for tracking order",
+          "nullable": true,
+          "example": "https://web.track-pod.com/track?id=d8662b19-ece7-4cda-baa3-c711ade5ad15"
+        },
+        "LoadStatusId": {
+          "$ref": "#/components/schemas/LoadStatus"
+        },
+        "HasLoadSignature": {
+          "type": "boolean",
+          "nullable": true
+        },
+        "LoadStatus": {
+          "type": "string",
+          "description": "Status code: none; loaded; not-loaded;",
+          "nullable": true,
+          "example": "loaded"
+        },
+        "LoadDate": {
+          "type": "string",
+          "description": "Date of Loading",
+          "format": "date-time",
+          "nullable": true,
+          "example": "2019-02-01T15:31:00"
+        },
+        "LoadSignaturePhotos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+          "nullable": true,
+          "xml": {
+            "name": "LoadSignaturePhotos",
+            "wrapped": true
+          }
+        },
+        "ChangeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "AddressNote": {
+          "type": "string",
+          "description": "Address note",
+          "nullable": true,
+          "example": "Beware of the dog"
+        },
+        "ClientNote": {
+          "type": "string",
+          "description": "Client note",
+          "nullable": true,
+          "example": "Very nice person"
+        },
+        "CustomFieldsStr": {
+          "type": "string",
+          "nullable": true
+        },
+        "CancelledStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RescheduledTimes": {
+          "type": "integer",
+          "description": "Order rescheduled times",
+          "format": "int32",
+          "nullable": true,
+          "example": 1
+        }
+      },
+      "additionalProperties": false,
+      "xml": {
+        "name": "PickupOrder"
+      }
+    },
+    "CreateSource": {
+      "enum": [
+        "Web",
+        "File",
+        "DupRoute",
+        "DupOrder",
+        "WebApi",
+        "ShopifyIntegration",
+        "WooCommerceIntegration",
+        "MagentoIntegration",
+        "ZapierIntegration",
+        "QuickBooksIntegration",
+        "XeroIntegration",
+        "EbayIntegration",
+        "Driver",
+        "UnleashedIntegration",
+        "MyobIntegration",
+        "LiveTracking",
+        "Routing"
+      ],
+      "type": "string"
+    },
+    "DistanceFromDepotPlan": {
+      "type": "number",
+      "description": "Planned distance from depot, m",
+      "format": "double",
+      "nullable": true,
+      "example": 12340
+    },
+    "SeqNumberDriver": {
+      "type": "integer",
+      "description": "Updated sequence by driver in the route",
+      "format": "int32",
+      "nullable": true,
+      "example": 2
+    },
+    "DeliveryInstructions": {
+      "type": "string",
+      "description": "Delivery Instructions from live-tracking page",
+      "nullable": true,
+      "example": "Door code is 1234"
+    },
+    "Pin": {
+      "type": "string",
+      "description": "Confirmation pin code",
+      "nullable": true,
+      "readOnly": true,
+      "example": 1234
+    },
+    "AddressNote": {
+      "type": "string",
+      "description": "Address note",
+      "nullable": true,
+      "example": "Beware of the dog"
+    },
+    "ClientNote": {
+      "type": "string",
+      "description": "Client note",
+      "nullable": true,
+      "example": "Very nice person"
+    },
+    "CreateDateUtc": {
+      "type": "string",
+      "description": "Order creation date (UTC)",
+      "format": "date-time",
+      "example": "2019-02-01T13:32:47"
+    },
+    "Priority": {
+      "type": "string",
+      "description": "Priority values: low, normal, high",
+      "nullable": true,
+      "readOnly": true
+    },
+    "TeamCode": {
+      "type": "string",
+      "description": "Team code",
+      "nullable": true
+    },
+    "Feedback": {
+      "type": "string",
+      "description": "Feedback",
+      "nullable": true,
+      "example": "Great service!"
+    },
+    "NotificationsPolicy": {
+      "type": "object",
+      "properties": {
+        "PriorToRouteNotificationEnabled": {
+          "type": "boolean",
+          "description": "Overrides default behavior for prior to route notifications",
+          "nullable": true
+        },
+        "AtRouteStartNotificationEnabled": {
+          "type": "boolean",
+          "description": "Overrides default behavior for at route start notifications",
+          "nullable": true
+        },
+        "EnRouteNotificationEnabled": {
+          "type": "boolean",
+          "description": "Overrides default behavior for en route notifications",
+          "nullable": true
+        },
+        "AtDepartureNotificationEnabled": {
+          "type": "boolean",
+          "description": "Overrides default behavior for at departure notifications",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "xml": {
+        "name": "NotificationsPolicy"
+      }
+    },
+    "RouteDate": {
+      "type": "string",
+      "description": "Route date",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T00:00:00"
+    },
+    "Type": {
+      "type": "integer",
+      "description": "Order type:\n0 - Delivery order;\n1 - Collection order",
+      "format": "int32",
+      "example": 0
+    },
+    "ClientId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 247
+    },
+    "Client": {
+      "type": "string",
+      "description": "Client/Customer name",
+      "nullable": true,
+      "example": "Maxima"
+    },
+    "AddressId": {
+      "type": "string",
+      "description": "Unique identifier in user accounting system",
+      "nullable": true,
+      "example": 13587
+    },
+    "Address": {
+      "type": "string",
+      "description": "Delivery/Pickup address",
+      "nullable": true,
+      "example": "2 St Josephs Crescent, Liverpool L3 3JF"
+    },
+    "AddressLat": {
+      "type": "number",
+      "description": "Address GPS Latitude",
+      "format": "double",
+      "nullable": true,
+      "example": 25.290479
+    },
+    "AddressLon": {
+      "type": "number",
+      "description": "Address GPS Longitude",
+      "format": "double",
+      "nullable": true,
+      "example": 65.294049
+    },
+    "AddressZone": {
+      "type": "string",
+      "description": "Address zone",
+      "nullable": true,
+      "example": "Zone 1"
+    },
+    "TimeSlotFrom": {
+      "type": "string",
+      "description": "Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T09:00:00"
+    },
+    "TimeSlotTo": {
+      "type": "string",
+      "description": "Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T18:00:00"
+    },
+    "ServiceTime": {
+      "type": "number",
+      "description": "Desired service time, min.\nIf seconds are specified value will be decimal",
+      "format": "double",
+      "nullable": true,
+      "example": 10
+    },
+    "Note": {
+      "type": "string",
+      "description": "Notes to order",
+      "nullable": true,
+      "example": "Only to sign Invoice"
+    },
+    "ContactName": {
+      "type": "string",
+      "description": "Customer\u2019s contact name",
+      "nullable": true,
+      "example": "John Doe"
+    },
+    "Phone": {
+      "type": "string",
+      "description": "Customer\u2019s contact phone number",
+      "nullable": true,
+      "example": "+37061191244"
+    },
+    "Email": {
+      "type": "string",
+      "description": "Customer\u2019s e-mail",
+      "nullable": true,
+      "example": "X-604@maxima.com"
+    },
+    "COD": {
+      "type": "number",
+      "description": "Amount of Cash on Delivery",
+      "format": "double",
+      "example": 20.45
+    },
+    "CODActual": {
+      "type": "string",
+      "description": "Collected Paid Amount from a Client",
+      "nullable": true,
+      "example": 20.5
+    },
+    "StatusId": {
+      "type": "integer",
+      "description": "Status code: 1 - In Progress; 2 - Not delivered/Not collected (site issues); 3 - Delivered/Collected; 4 -\nPartially; 5 - Not delivered/Not collected (order issues)",
+      "format": "int32",
+      "nullable": true,
+      "example": 3
+    },
+    "Status": {
+      "type": "string",
+      "description": "Status description",
+      "nullable": true,
+      "example": "Delivered"
+    },
+    "StatusLat": {
+      "type": "number",
+      "description": "Status GPS Latitude",
+      "format": "double",
+      "nullable": true,
+      "example": 25.290479
+    },
+    "StatusLon": {
+      "type": "number",
+      "description": "Status GPS Longitude",
+      "format": "double",
+      "nullable": true,
+      "example": "65.294049."
+    },
+    "DriverComment": {
+      "type": "string",
+      "description": "Drivers comment from mobile application",
+      "nullable": true,
+      "example": "The customer was angry for being late"
+    },
+    "RejectReason": {
+      "type": "string",
+      "description": "Reject reason for order",
+      "nullable": true,
+      "example": "Out Of Time"
+    },
+    "LoadCheckScanRejectReason": {
+      "type": "string",
+      "description": "Reject reason for order's scanning when the order is loaded",
+      "nullable": true,
+      "example": "Barcode is Damaged"
+    },
+    "ScanRejectReason": {
+      "type": "string",
+      "description": "Reject reason for order's scanning",
+      "nullable": true,
+      "example": "Barcode is Damaged"
+    },
+    "SignatureName": {
+      "type": "string",
+      "description": "Name of the person who signed",
+      "nullable": true,
+      "example": "Andrew Bart"
+    },
+    "HasSignaturePhoto": {
+      "type": "boolean",
+      "description": "Signature attached",
+      "nullable": true,
+      "example": true
+    },
+    "SignaturePhotos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+      "nullable": true,
+      "xml": {
+        "name": "SignaturePhotos"
+      },
+      "example": [
+        "https://image.track-pod.com/..."
+      ]
+    },
+    "HasPhoto": {
+      "type": "boolean",
+      "description": "Photo attached",
+      "nullable": true,
+      "example": false
+    },
+    "Photos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+      "nullable": true,
+      "xml": {
+        "name": "Photos"
+      },
+      "example": [
+        "https://image.track-pod.com/..."
+      ]
+    },
+    "StatusDate": {
+      "type": "string",
+      "description": "Status date",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:31:00"
+    },
+    "ETA": {
+      "type": "string",
+      "description": "Estimated time of arrival",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:27:00"
+    },
+    "UpdatedETA": {
+      "type": "string",
+      "description": "Updated estimated time of arrival",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:35:00"
+    },
+    "ArrivedDate": {
+      "type": "string",
+      "description": "Date of arrival",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:25:00"
+    },
+    "DepartedDate": {
+      "type": "string",
+      "description": "Date of Departure",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:31:00"
+    },
+    "ReportUrl": {
+      "type": "string",
+      "description": "Link to the PDF order delivery note (available within 1 hour from the API call)",
+      "nullable": true,
+      "example": "Paid feature, please contact support for details"
+    },
+    "CustomFields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CustomField"
+      },
+      "description": "List of custom fields",
+      "nullable": true,
+      "xml": {
+        "name": "CustomFields",
+        "wrapped": true
+      }
+    },
+    "Barcode": {
+      "type": "string",
+      "description": "Barcode",
+      "nullable": true,
+      "example": 1234567890123
+    },
+    "Scanned": {
+      "type": "boolean",
+      "description": "Order is scanned in the mobile application",
+      "nullable": true,
+      "example": false
+    },
+    "FeedbackRating": {
+      "type": "number",
+      "description": "Feedback Rating from mobile application",
+      "format": "double",
+      "nullable": true,
+      "example": 5
+    },
+    "TrackKey": {
+      "type": "string",
+      "description": "Key for tracking order",
+      "format": "uuid",
+      "readOnly": true,
+      "example": "3F2504E0-4F89-11D3-9A0C-0305E82C3301",
+      "deprecated": true
+    },
+    "TrackId": {
+      "type": "string",
+      "description": "Id for tracking order",
+      "format": "uuid",
+      "example": "3F2504E0-4F89-11D3-9A0C-0305E82C3301"
+    },
+    "TrackLink": {
+      "type": "string",
+      "description": "Link for tracking order",
+      "nullable": true,
+      "example": "https://web.track-pod.com/track?id=d8662b19-ece7-4cda-baa3-c711ade5ad15"
+    },
+    "LoadStatus": {
+      "type": "string",
+      "description": "Status code: none; loaded; not-loaded;",
+      "nullable": true,
+      "example": "loaded"
+    },
+    "LoadDate": {
+      "type": "string",
+      "description": "Date of Loading",
+      "format": "date-time",
+      "nullable": true,
+      "example": "2019-02-01T15:31:00"
+    },
+    "LoadSignaturePhotos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of links for download jpg file (each link is available for 24h from API call)",
+      "nullable": true,
+      "xml": {
+        "name": "LoadSignaturePhotos",
+        "wrapped": true
+      }
+    },
+    "ChangeDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "RescheduledTimes": {
+      "type": "integer",
+      "description": "Order rescheduled times",
+      "format": "int32",
+      "nullable": true,
+      "example": 1
+    }
+  },
+  "required": []
+}
