@@ -1,21 +1,16 @@
 aid: track-pod
 name: Track-POD
 description: >-
-  Track-POD is a cloud-based delivery management platform that combines route
-  planning and optimization with electronic proof of delivery (ePOD), driver
-  tracking, and last-mile customer notifications. The platform serves 10,000+
-  companies globally with a freemium model — the mobile driver app is free
-  on iOS and Android, while the web dispatcher dashboard is sold on per-driver
-  (Advanced, Advanced Plus, Ultimate, Enterprise) and per-order (S, M, L, XL)
-  plans. Track-POD exposes a documented REST API (Track-POD API 2.0) with an
-  OpenAPI 3.0 specification, JSON and XML payloads, X-API-KEY authentication,
-  a public sandbox environment, and webhooks for ten event types covering
-  orders, routes, and statuses. Common use cases include automated order
-  import from e-commerce platforms (WooCommerce, Magento, Shopify, BigCommerce)
-  and accounting/CRM systems (QuickBooks, Xero, Zoho, Microsoft Dynamics,
-  Salesforce), real-time route dispatch and tracking, geotagged and signed
-  proof of delivery, and PDF/shipping-label generation. Track-POD also ships
-  no-code integrations via Zapier and Integrately.
+  Track-POD is a cloud-based delivery management platform that combines route planning and optimization with electronic
+  proof of delivery (ePOD), driver tracking, and last-mile customer notifications. The platform serves 10,000+ companies
+  globally with a freemium model — the mobile driver app is free on iOS and Android, while the web dispatcher dashboard
+  is sold on per-driver (Advanced, Advanced Plus, Ultimate, Enterprise) and per-order (S, M, L, XL) plans. Track-POD
+  exposes a documented REST API (Track-POD API 2.0) with an OpenAPI 3.0 specification, JSON and XML payloads, X-API-KEY
+  authentication, a public sandbox environment, and webhooks for ten event types covering orders, routes, and statuses.
+  Common use cases include automated order import from e-commerce platforms (WooCommerce, Magento, Shopify, BigCommerce)
+  and accounting/CRM systems (QuickBooks, Xero, Zoho, Microsoft Dynamics, Salesforce), real-time route dispatch and
+  tracking, geotagged and signed proof of delivery, and PDF/shipping-label generation. Track-POD also ships no-code
+  integrations via Zapier and Integrately.
 type: Index
 position: Provider
 access: 3rd-Party
@@ -44,14 +39,11 @@ apis:
   - aid: track-pod:track-pod-api
     name: Track-POD API
     description: >-
-      Track-POD API 2.0 is a JSON/XML REST API for delivery management. It
-      covers eight resource families — Address, Driver, Order, RejectReason,
-      Route, Test, Vehicle, and VehicleCheck — across 58 operations.
-      Authentication uses an X-API-KEY header issued from Settings >
-      Integrations > Web API. The same surface is offered against a sandbox
-      tenant at api.sandbox.track-pod.com. Rate limits are 20 requests per
-      second / 400 requests per minute. Restricted API keys can be scoped
-      by IP address, HTTP method, and domain.
+      Track-POD API 2.0 is a JSON/XML REST API for delivery management. It covers eight resource families — Address,
+      Driver, Order, RejectReason, Route, Test, Vehicle, and VehicleCheck — across 58 operations. Authentication uses an
+      X-API-KEY header issued from Settings > Integrations > Web API. The same surface is offered against a sandbox
+      tenant at api.sandbox.track-pod.com. Rate limits are 20 requests per second / 400 requests per minute. Restricted
+      API keys can be scoped by IP address, HTTP method, and domain.
     humanURL: https://api.track-pod.com/index.html
     baseURL: https://api.track-pod.com
     tags:
@@ -68,18 +60,6 @@ apis:
         type: Sandbox
       - url: openapi/track-pod-openapi.yml
         type: OpenAPI
-      - url: capabilities/orders.yaml
-        type: NaftikoCapability
-      - url: capabilities/routes.yaml
-        type: NaftikoCapability
-      - url: capabilities/drivers.yaml
-        type: NaftikoCapability
-      - url: capabilities/vehicles.yaml
-        type: NaftikoCapability
-      - url: capabilities/addresses.yaml
-        type: NaftikoCapability
-      - url: capabilities/vehicle-checks.yaml
-        type: NaftikoCapability
       - url: json-schema/track-pod-order-schema.json
         type: JSONSchema
       - url: json-schema/track-pod-route-schema.json
@@ -154,7 +134,9 @@ common:
       - Offline-capable driver mobile app for iOS and Android with auto-sync
       - REST API (Track-POD API 2.0) with JSON/XML, 58 operations across 8 resource families
       - Public sandbox tenant at api.sandbox.track-pod.com for safe testing
-      - Webhooks for 10 events — order create/update/delete, route create/update/delete, order status change, route start/close/optimize
+      - >-
+        Webhooks for 10 events — order create/update/delete, route create/update/delete, order status change, route
+        start/close/optimize
       - Restricted API keys scoped by IP, HTTP method, and domain
       - Rate limits 20 req/sec, 400 req/min, with a /Test endpoint to inspect current consumption
       - Bulk order import endpoint accepting up to 500 orders per request
