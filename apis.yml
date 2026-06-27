@@ -69,7 +69,7 @@ apis:
       - url: rules/track-pod-rules.yml
         type: SpectralRules
       - url: examples/track-pod-create-order-example.json
-        type: Example
+        type: Examples
       - url: vocabulary/track-pod-vocabulary.yml
         type: Vocabulary
 common:
@@ -109,7 +109,7 @@ common:
     url: https://www.track-pod.com/privacy-policy/
   - type: TermsOfService
     url: https://www.track-pod.com/terms-of-service/
-  - type: SignUp
+  - type: Signup
     url: https://www.track-pod.com/free-trial/
   - type: LinkedIn
     url: https://www.linkedin.com/company/track-pod/
