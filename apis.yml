@@ -73,6 +73,10 @@ apis:
       - url: vocabulary/track-pod-vocabulary.yml
         type: Vocabulary
 common:
+  - type: DomainSecurity
+    url: security/track-pod-domain-security.yml
+  - type: Authentication
+    url: authentication/track-pod-authentication.yml
   - type: Website
     url: https://www.track-pod.com
   - type: Documentation

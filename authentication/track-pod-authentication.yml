@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/track-pod-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKey
+  type: apiKey
+  in: header
+  parameter: X-API-KEY
+  description: Please enter API key into field
+  sources:
+  - openapi/track-pod-openapi.yml
