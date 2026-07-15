@@ -73,6 +73,8 @@ apis:
       - url: vocabulary/track-pod-vocabulary.yml
         type: Vocabulary
 common:
+  - type: AgenticAccess
+    url: agentic-access/track-pod-agentic-access.yml
   - type: DomainSecurity
     url: security/track-pod-domain-security.yml
   - type: Authentication
