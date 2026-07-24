@@ -1,0 +1,603 @@
+openapi: 3.0.4
+info:
+  title: Track-POD Address Driver API
+  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  version: '2.0'
+security:
+- ApiKey: []
+tags:
+- name: Driver
+paths:
+  /Driver/Id/{id}:
+    get:
+      tags:
+      - Driver
+      summary: Get driver by Track-POD unique identifier
+      operationId: GetDriverById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: A driver
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Driver'
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '404':
+          description: Not found. Driver not found
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+    delete:
+      tags:
+      - Driver
+      summary: Delete driver by Track-POD unique identifier
+      operationId: DeleteDriverById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Driver was deleted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Bad Request. Driver already has delivery status
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '404':
+          description: Not found. Driver not found
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+  /Driver/Username/{username}:
+    get:
+      tags:
+      - Driver
+      summary: Get driver by Username
+      operationId: GetDriverByUsername
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A driver
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Driver'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Driver'
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '404':
+          description: Not found. Driver not found
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+    delete:
+      tags:
+      - Driver
+      summary: Delete Driver by id.
+      operationId: DeleteDriverByUsername
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Driver was deleted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: Bad Request. Driver already has delivery status
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '404':
+          description: Not found. Driver not found
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+  /Driver:
+    get:
+      tags:
+      - Driver
+      summary: Get drivers
+      operationId: GetDrivers
+      responses:
+        '200':
+          description: Drivers
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+                xml:
+                  name: ArrayOfDriver
+                  wrapped: true
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+                xml:
+                  name: ArrayOfDriver
+                  wrapped: true
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+                xml:
+                  name: ArrayOfDriver
+                  wrapped: true
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+                xml:
+                  name: ArrayOfDriver
+                  wrapped: true
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+                xml:
+                  name: ArrayOfDriver
+                  wrapped: true
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+    post:
+      tags:
+      - Driver
+      summary: Add driver
+      operationId: AddDriver
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewDriver'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/NewDriver'
+      responses:
+        '201':
+          description: Driver was created successfully
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: One or more validation errors
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '405':
+          description: Not Allowed. Driver already exists, Invalid home address, etc
+        '415':
+          description: Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+    put:
+      tags:
+      - Driver
+      summary: Update driver
+      operationId: UpdateDriver
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDriver'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateDriver'
+      responses:
+        '202':
+          description: Driver was updated successfully
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '400':
+          description: One or more validation errors
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '404':
+          description: Not found. Driver not found
+        '405':
+          description: Not Allowed. Invalid home address
+        '415':
+          description: Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    UpdateDriver:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Track-POD unique identifier
+          format: uuid
+          nullable: true
+          example: 00000000-0000-0000-0000-000000000000
+        Name:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: "Required (*) \n\nName"
+          nullable: true
+          example: John Doe
+        Vehicle:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Vehicle number
+          nullable: true
+          example: NYC 1898
+        Phone:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Phone
+          nullable: true
+          example: +1-XXX-456-7890
+        Username:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: "Required (*) \n\nUsername"
+          nullable: true
+          example: john
+        Password:
+          maxLength: 255
+          minLength: 5
+          type: string
+          description: "Required (*) \n\nPassword"
+          nullable: true
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type: string
+          description: Unique identifier in user accounting system
+          nullable: true
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Depot address
+          nullable: true
+          example: '9 Riverside, Salford M7 1PA '
+        HomeAddress:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Home address
+          nullable: true
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          maxLength: 100
+          minLength: 0
+          type: string
+          description: Zone
+          nullable: true
+          example: South
+        Active:
+          type: boolean
+          description: Active flag
+          nullable: true
+          example: true
+        Note:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Note
+          nullable: true
+          example: My favourite driver
+      additionalProperties: false
+      xml:
+        name: UpdateDriver
+    NewDriver:
+      type: object
+      properties:
+        Name:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: "Required (*) \n\nName"
+          nullable: true
+          example: John Doe
+        Vehicle:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Vehicle number
+          nullable: true
+          example: NYC 1898
+        Phone:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Phone
+          nullable: true
+          example: +1-XXX-456-7890
+        Username:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: "Required (*) \n\nUsername"
+          nullable: true
+          example: john
+        Password:
+          maxLength: 255
+          minLength: 5
+          type: string
+          description: "Required (*) \n\nPassword"
+          nullable: true
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type: string
+          description: Unique identifier in user accounting system
+          nullable: true
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Depot address
+          nullable: true
+          example: '9 Riverside, Salford M7 1PA '
+        HomeAddress:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Home address
+          nullable: true
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          maxLength: 100
+          minLength: 0
+          type: string
+          description: Zone
+          nullable: true
+          example: South
+        Active:
+          type: boolean
+          description: Active flag
+          nullable: true
+          example: true
+        Note:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Note
+          nullable: true
+          example: My favourite driver
+      additionalProperties: false
+      description: '"*" - required fields'
+      xml:
+        name: NewDriver
+    Driver:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Track-POD unique identifier
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        Number:
+          type: integer
+          description: Sequence number
+          format: int32
+          example: 1
+        Name:
+          type: string
+          description: Name
+          nullable: true
+          example: John Doe
+        Vehicle:
+          type: string
+          description: Vehicle number
+          nullable: true
+          example: NYC 1898
+        Phone:
+          type: string
+          description: Phone
+          nullable: true
+          example: +1-XXX-456-7890
+        Username:
+          type: string
+          description: Username
+          nullable: true
+          example: john
+        DepotId:
+          type: string
+          description: Unique identifier in user accounting system
+          nullable: true
+          example: 1
+        Depot:
+          type: string
+          description: Depot address
+          nullable: true
+          example: 9 Riverside, Salford M7 1PA
+        HomeAddress:
+          type: string
+          description: Home address
+          nullable: true
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          type: string
+          description: Zone
+          nullable: true
+          example: South
+        Active:
+          type: boolean
+          description: Active flag
+          example: true
+        Note:
+          type: string
+          description: Note
+          nullable: true
+          example: My favourite driver
+        TeamCodes:
+          type: array
+          items:
+            type: string
+          description: Team code
+          nullable: true
+          xml:
+            name: TeamCodes
+            wrapped: true
+      additionalProperties: false
+      xml:
+        name: Driver
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type: integer
+          description: The HTTP status code for the response
+          format: int32
+          nullable: true
+        Title:
+          type: string
+          description: A short, human-readable summary of the response
+          nullable: true
+        Detail:
+          type: string
+          description: A human-readable explanation specific to this response.
+          nullable: true
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      description: Please enter API key into field
+      name: X-API-KEY
+      in: header

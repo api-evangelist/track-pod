@@ -1,0 +1,170 @@
+openapi: 3.0.4
+info:
+  title: Track-POD Address API
+  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  version: '2.0'
+security:
+- ApiKey: []
+tags:
+- name: Address
+paths:
+  /Address:
+    post:
+      tags:
+      - Address
+      summary: Add or update address
+      operationId: AddAddress
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '201':
+          description: Address was created successfully
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '202':
+          description: Address was updated successfully
+        '400':
+          description: One or more validation errors
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '415':
+          description: Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    Address:
+      required:
+      - FullAddress
+      type: object
+      properties:
+        Id:
+          maxLength: 50
+          minLength: 0
+          type: string
+          description: Unique identifier in user accounting system
+          nullable: true
+          example: 30495
+        Name:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Address name
+          nullable: true
+          example: 2 St Josephs Crescent, Liverpool, L3 3JF
+        Street:
+          maxLength: 95
+          minLength: 0
+          type: string
+          description: Street
+          nullable: true
+          example: Josephs Crescent
+        City:
+          maxLength: 45
+          minLength: 0
+          type: string
+          description: City
+          nullable: true
+          example: Liverpool
+        State:
+          maxLength: 95
+          minLength: 0
+          type: string
+          description: State
+          nullable: true
+          example: ''
+        PostalCode:
+          maxLength: 15
+          minLength: 0
+          type: string
+          description: Postal Code
+          nullable: true
+          example: ''
+        FullAddress:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: Full (customer's) address
+          example: 2 St Josephs Crescent, Liverpool, L3 3JF
+        Zone:
+          maxLength: 100
+          minLength: 0
+          type: string
+          description: Address zone
+          nullable: true
+          example: Lvp
+        Lat:
+          type: number
+          description: Location latitude
+          format: double
+          nullable: true
+          example: 25.290479
+        Lon:
+          type: number
+          description: Location longitude
+          format: double
+          nullable: true
+          example: 65.294049
+        TimeSlotFrom:
+          type: string
+          description: Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          nullable: true
+          example: '2019-02-01T09:00:00'
+        TimeSlotTo:
+          type: string
+          description: Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          nullable: true
+          example: '2019-02-01T18:00:00'
+      additionalProperties: false
+      xml:
+        name: Address
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type: integer
+          description: The HTTP status code for the response
+          format: int32
+          nullable: true
+        Title:
+          type: string
+          description: A short, human-readable summary of the response
+          nullable: true
+        Detail:
+          type: string
+          description: A human-readable explanation specific to this response.
+          nullable: true
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      description: Please enter API key into field
+      name: X-API-KEY
+      in: header

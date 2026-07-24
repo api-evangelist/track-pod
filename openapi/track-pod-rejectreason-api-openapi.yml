@@ -1,0 +1,107 @@
+openapi: 3.0.4
+info:
+  title: Track-POD Address RejectReason API
+  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  version: '2.0'
+security:
+- ApiKey: []
+tags:
+- name: RejectReason
+paths:
+  /RejectReason:
+    get:
+      tags:
+      - RejectReason
+      summary: Get reasons for rejection list
+      operationId: GetRejectReasonsList
+      responses:
+        '200':
+          description: A reasons for rejection list
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RejectReasonsList'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RejectReasonsList'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RejectReasonsList'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RejectReasonsList'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/RejectReasonsList'
+        '401':
+          description: Unauthorized. Invalid X-API-KEY in the request header
+        '429':
+          description: Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    RejectReasonsList:
+      type: object
+      properties:
+        SiteIssue:
+          type: array
+          items:
+            $ref: '#/components/schemas/RejectReason'
+          description: List of site issues
+          nullable: true
+          xml:
+            name: SiteIssue
+            wrapped: true
+        OrderIssue:
+          type: array
+          items:
+            $ref: '#/components/schemas/RejectReason'
+          description: List of order issues
+          nullable: true
+          xml:
+            name: OrderIssue
+            wrapped: true
+        GoodsIssue:
+          type: array
+          items:
+            $ref: '#/components/schemas/RejectReason'
+          description: List of goods issues
+          nullable: true
+          xml:
+            name: GoodsIssue
+            wrapped: true
+        ScanningIssues:
+          type: array
+          items:
+            $ref: '#/components/schemas/RejectReason'
+          description: List of scanning issues
+          nullable: true
+          xml:
+            name: ScanningIssues
+            wrapped: true
+      additionalProperties: false
+      xml:
+        name: RejectReasonsList
+    RejectReason:
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: Track-POD unique identifier
+          format: int32
+          example: 2
+        Name:
+          type: string
+          description: Name
+          nullable: true
+          example: Canceled
+      additionalProperties: false
+      xml:
+        name: RejectReason
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      description: Please enter API key into field
+      name: X-API-KEY
+      in: header
