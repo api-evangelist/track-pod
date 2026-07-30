@@ -12,9 +12,22 @@ description: >-
   tracking, geotagged and signed proof of delivery, and PDF/shipping-label generation. Track-POD also ships no-code
   integrations via Zapier and Integrately.
 type: Index
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/track-pod.png
 tags:
   - Delivery
   - Last Mile
@@ -36,43 +49,217 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: track-pod:track-pod-api
-    name: Track-POD API
-    description: >-
-      Track-POD API 2.0 is a JSON/XML REST API for delivery management. It covers eight resource families — Address,
-      Driver, Order, RejectReason, Route, Test, Vehicle, and VehicleCheck — across 58 operations. Authentication uses an
-      X-API-KEY header issued from Settings > Integrations > Web API. The same surface is offered against a sandbox
-      tenant at api.sandbox.track-pod.com. Rate limits are 20 requests per second / 400 requests per minute. Restricted
-      API keys can be scoped by IP address, HTTP method, and domain.
-    humanURL: https://api.track-pod.com/index.html
-    baseURL: https://api.track-pod.com
-    tags:
-      - Delivery
-      - Orders
-      - Routes
-      - Drivers
-      - Vehicles
-      - Proof Of Delivery
-    properties:
-      - url: https://api.track-pod.com/index.html
-        type: Documentation
-      - url: https://api.sandbox.track-pod.com/index.html
-        type: Sandbox
-      - url: openapi/track-pod-openapi.yml
-        type: OpenAPI
-      - url: json-schema/track-pod-order-schema.json
-        type: JSONSchema
-      - url: json-schema/track-pod-route-schema.json
-        type: JSONSchema
-      - url: json-ld/track-pod-context.jsonld
-        type: JSONLD
-      - url: rules/track-pod-rules.yml
-        type: SpectralRules
-      - url: examples/track-pod-create-order-example.json
-        type: Examples
-      - url: vocabulary/track-pod-vocabulary.yml
-        type: Vocabulary
+- aid: track-pod:track-pod-address-api
+  name: Track-POD Address API
+  description: The Address API from Track-POD — 1 operation(s) for address.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Address
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-address-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-driver-api
+  name: Track-POD Driver API
+  description: The Driver API from Track-POD — 3 operation(s) for driver.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Driver
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-driver-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-order-api
+  name: Track-POD Order API
+  description: The Order API from Track-POD — 23 operation(s) for order.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Order
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-order-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-rejectreason-api
+  name: Track-POD RejectReason API
+  description: The RejectReason API from Track-POD — 1 operation(s) for rejectreason.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - RejectReason
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-rejectreason-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-route-api
+  name: Track-POD Route API
+  description: The Route API from Track-POD — 24 operation(s) for route.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Route
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-route-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-test-api
+  name: Track-POD Test API
+  description: The Test API from Track-POD — 1 operation(s) for test.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Test
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-test-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-vehicle-api
+  name: Track-POD Vehicle API
+  description: The Vehicle API from Track-POD — 2 operation(s) for vehicle.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Vehicle
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-vehicle-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-vehiclecheck-api
+  name: Track-POD VehicleCheck API
+  description: The VehicleCheck API from Track-POD — 3 operation(s) for vehiclecheck.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - VehicleCheck
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-vehiclecheck-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/track-pod/overview
   - type: AgenticAccess
     url: agentic-access/track-pod-agentic-access.yml
   - type: DomainSecurity
