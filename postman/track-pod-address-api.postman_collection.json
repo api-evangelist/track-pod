@@ -1,0 +1,431 @@
+{
+  "info": {
+    "_postman_id": "316b9926-78e3-4e55-bce0-7a6c05b7261c",
+    "name": "Track-POD Address API",
+    "description": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:17:24.000Z",
+    "updatedAt": "2026-07-28T03:17:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-316b9926-78e3-4e55-bce0-7a6c05b7261c"
+  },
+  "item": [
+    {
+      "name": "Address",
+      "item": [
+        {
+          "name": "Add or update address",
+          "id": "f0124f21-c866-431f-93fc-9add8aa8fa65",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Address",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Address"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "74dcdf68-eab7-4f1e-b97f-e1992ee15bb1",
+              "name": "Address was created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-74dcdf68-eab7-4f1e-b97f-e1992ee15bb1"
+            },
+            {
+              "id": "813b6241-ea24-46bf-befe-14ba243a301e",
+              "name": "Address was updated successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-813b6241-ea24-46bf-befe-14ba243a301e"
+            },
+            {
+              "id": "d0b169e6-c08e-46b2-af2c-227ae153c8e7",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-d0b169e6-c08e-46b2-af2c-227ae153c8e7"
+            },
+            {
+              "id": "bf96d0c0-e73a-483c-9aac-bb118fcdc285",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-bf96d0c0-e73a-483c-9aac-bb118fcdc285"
+            },
+            {
+              "id": "c914c47f-9f0b-4ad0-a7c6-e5358213b2c1",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-c914c47f-9f0b-4ad0-a7c6-e5358213b2c1"
+            },
+            {
+              "id": "88f8a351-431e-4c9c-9b2a-4b17510b09b0",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-88f8a351-431e-4c9c-9b2a-4b17510b09b0"
+            },
+            {
+              "id": "0fefde17-f295-4566-bd49-c15a49c60845",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Address",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Address"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:25.000Z",
+              "updatedAt": "2026-07-28T03:17:25.000Z",
+              "uid": "35240-0fefde17-f295-4566-bd49-c15a49c60845"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:25.000Z",
+          "updatedAt": "2026-07-28T03:17:25.000Z",
+          "uid": "35240-f0124f21-c866-431f-93fc-9add8aa8fa65"
+        }
+      ],
+      "id": "2e5cef52-636b-4a33-a218-9d15eb91fb7d",
+      "createdAt": "2026-07-28T03:17:25.000Z",
+      "updatedAt": "2026-07-28T03:17:25.000Z",
+      "uid": "35240-2e5cef52-636b-4a33-a218-9d15eb91fb7d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

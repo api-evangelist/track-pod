@@ -1,0 +1,28 @@
+{
+  "provider": "track-pod",
+  "sources": [
+    "track-pod-address-api-openapi.yml",
+    "track-pod-driver-api-openapi.yml",
+    "track-pod-order-api-openapi.yml",
+    "track-pod-rejectreason-api-openapi.yml",
+    "track-pod-route-api-openapi.yml",
+    "track-pod-test-api-openapi.yml",
+    "track-pod-vehicle-api-openapi.yml",
+    "track-pod-vehiclecheck-api-openapi.yml"
+  ],
+  "outputs": [
+    "track-pod-address-api-openapi.yml",
+    "track-pod-driver-api-openapi.yml",
+    "track-pod-order-api-openapi.yml",
+    "track-pod-rejectreason-api-openapi.yml",
+    "track-pod-route-api-openapi.yml",
+    "track-pod-test-api-openapi.yml",
+    "track-pod-vehicle-api-openapi.yml",
+    "track-pod-vehiclecheck-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

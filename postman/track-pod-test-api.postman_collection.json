@@ -1,0 +1,220 @@
+{
+  "info": {
+    "_postman_id": "e899aa4d-7095-4c84-b521-d0f810847c58",
+    "name": "Track-POD Address Test API",
+    "description": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:17:35.000Z",
+    "updatedAt": "2026-07-28T03:17:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e899aa4d-7095-4c84-b521-d0f810847c58"
+  },
+  "item": [
+    {
+      "name": "Test",
+      "item": [
+        {
+          "name": "Test authorization and rate limits",
+          "id": "0080e486-79d9-4394-b329-71ca351287f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Test",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Test"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e48b6bc4-0273-41a4-9c85-74a6f8c39047",
+              "name": "Return string \"ok\" on successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Test",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Test"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<string>",
+              "createdAt": "2026-07-28T03:17:36.000Z",
+              "updatedAt": "2026-07-28T03:17:36.000Z",
+              "uid": "35240-e48b6bc4-0273-41a4-9c85-74a6f8c39047"
+            },
+            {
+              "id": "fae873e5-402c-4649-95e1-e009c0e7d324",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Test",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Test"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:36.000Z",
+              "updatedAt": "2026-07-28T03:17:36.000Z",
+              "uid": "35240-fae873e5-402c-4649-95e1-e009c0e7d324"
+            },
+            {
+              "id": "7cc095e1-2cf5-459e-b344-fb588b0c38d6",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Test",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Test"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:36.000Z",
+              "updatedAt": "2026-07-28T03:17:36.000Z",
+              "uid": "35240-7cc095e1-2cf5-459e-b344-fb588b0c38d6"
+            },
+            {
+              "id": "aa6e3d78-3fae-4c23-8a4e-434b9d78ea1a",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Test",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Test"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:36.000Z",
+              "updatedAt": "2026-07-28T03:17:36.000Z",
+              "uid": "35240-aa6e3d78-3fae-4c23-8a4e-434b9d78ea1a"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:36.000Z",
+          "updatedAt": "2026-07-28T03:17:36.000Z",
+          "uid": "35240-0080e486-79d9-4394-b329-71ca351287f0"
+        }
+      ],
+      "id": "59fbdf5c-2a93-4eb4-8740-84bf27ed221e",
+      "createdAt": "2026-07-28T03:17:36.000Z",
+      "updatedAt": "2026-07-28T03:17:36.000Z",
+      "uid": "35240-59fbdf5c-2a93-4eb4-8740-84bf27ed221e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

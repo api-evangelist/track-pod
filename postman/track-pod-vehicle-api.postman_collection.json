@@ -1,0 +1,1501 @@
+{
+  "info": {
+    "_postman_id": "a876bca6-fd9b-46ec-af63-53c5387de19d",
+    "name": "Track-POD Address Vehicle API",
+    "description": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:17:41.000Z",
+    "updatedAt": "2026-07-28T03:17:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a876bca6-fd9b-46ec-af63-53c5387de19d"
+  },
+  "item": [
+    {
+      "name": "Vehicle",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get vehicle by Track-POD unique identifier",
+              "id": "b1bec1ea-9efa-4db1-bc95-25267bc5ef58",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "363ac5b7-589f-464c-a539-69d31f65c620",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0a6a565b-9acd-4d4c-86c8-b255150c0d64",
+                  "name": "A vehicle",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<integer>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\"\n}",
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-0a6a565b-9acd-4d4c-86c8-b255150c0d64"
+                },
+                {
+                  "id": "e358a80a-9b7c-4260-909b-899a3c5857ac",
+                  "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-e358a80a-9b7c-4260-909b-899a3c5857ac"
+                },
+                {
+                  "id": "f27f550d-17e3-4456-a4bf-d7cbcb9ad1a1",
+                  "name": "Not found. Vehicle not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-f27f550d-17e3-4456-a4bf-d7cbcb9ad1a1"
+                },
+                {
+                  "id": "5050d5cb-561a-4621-b1c1-1185d8223ddc",
+                  "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-5050d5cb-561a-4621-b1c1-1185d8223ddc"
+                },
+                {
+                  "id": "f28bf6b7-0b7f-4dbd-a1e2-1dd9635e83c4",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-f28bf6b7-0b7f-4dbd-a1e2-1dd9635e83c4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-b1bec1ea-9efa-4db1-bc95-25267bc5ef58"
+            },
+            {
+              "name": "Delete vehicle by Track-POD unique identifier",
+              "id": "faef40a9-728f-40d7-8a85-f4e74590f848",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ed1bf3a0-2b1e-4a77-b970-e5812af6e796",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "7437b4a8-17ca-4b07-87e7-4fe08e095845",
+                  "name": "Vehicle was deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-7437b4a8-17ca-4b07-87e7-4fe08e095845"
+                },
+                {
+                  "id": "d41d40ae-f9fb-47d1-888a-3c32c45ea8a5",
+                  "name": "Bad Request.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-d41d40ae-f9fb-47d1-888a-3c32c45ea8a5"
+                },
+                {
+                  "id": "7b9e47b6-f91c-4fc5-9e5a-f833c9c56db0",
+                  "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-7b9e47b6-f91c-4fc5-9e5a-f833c9c56db0"
+                },
+                {
+                  "id": "58e1e442-21fe-4667-bcee-cd6c2a751bc6",
+                  "name": "Not found. Vehicle not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-58e1e442-21fe-4667-bcee-cd6c2a751bc6"
+                },
+                {
+                  "id": "d578d9ce-5891-478d-9602-c003fdfa5833",
+                  "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-d578d9ce-5891-478d-9602-c003fdfa5833"
+                },
+                {
+                  "id": "697a5183-3bd6-40b2-8fb2-31e8506be696",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Vehicle/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Vehicle",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:41.000Z",
+                  "updatedAt": "2026-07-28T03:17:41.000Z",
+                  "uid": "35240-697a5183-3bd6-40b2-8fb2-31e8506be696"
+                }
+              ],
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-faef40a9-728f-40d7-8a85-f4e74590f848"
+            }
+          ],
+          "id": "2a9129a8-9de3-40f2-919c-c6a67665b9af",
+          "createdAt": "2026-07-28T03:17:41.000Z",
+          "updatedAt": "2026-07-28T03:17:41.000Z",
+          "uid": "35240-2a9129a8-9de3-40f2-919c-c6a67665b9af"
+        },
+        {
+          "name": "Get vehicles",
+          "id": "7b56b5c3-f5b0-40da-891a-f8e576d0df0a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Vehicle?number=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Vehicle"
+              ],
+              "query": [
+                {
+                  "key": "number",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "253bc6d5-bd5f-4778-a3cf-987d266aca1f",
+              "name": "Vehicles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle?number=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"Id\": \"<integer>\",\n    \"DriverId\": \"<uuid>\",\n    \"DriverUsername\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"MaxNodes\": \"<integer>\",\n    \"MaxWorkTime\": \"<integer>\",\n    \"MaxDistance\": \"<integer>\",\n    \"SpeedRatio\": \"<double>\",\n    \"CostPerDistance\": \"<double>\",\n    \"CostPerHour\": \"<double>\",\n    \"BaseFare\": \"<double>\",\n    \"StartTime\": \"<string>\",\n    \"VehicleType\": \"<integer>\",\n    \"EmissionCo2\": \"<integer>\",\n    \"Number\": \"<string>\",\n    \"CarrierCode\": \"<string>\",\n    \"Carrier\": \"<string>\",\n    \"Weight\": \"<double>\",\n    \"Volume\": \"<double>\",\n    \"Pallets\": \"<double>\"\n  },\n  {\n    \"Id\": \"<integer>\",\n    \"DriverId\": \"<uuid>\",\n    \"DriverUsername\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"MaxNodes\": \"<integer>\",\n    \"MaxWorkTime\": \"<integer>\",\n    \"MaxDistance\": \"<integer>\",\n    \"SpeedRatio\": \"<double>\",\n    \"CostPerDistance\": \"<double>\",\n    \"CostPerHour\": \"<double>\",\n    \"BaseFare\": \"<double>\",\n    \"StartTime\": \"<string>\",\n    \"VehicleType\": \"<integer>\",\n    \"EmissionCo2\": \"<integer>\",\n    \"Number\": \"<string>\",\n    \"CarrierCode\": \"<string>\",\n    \"Carrier\": \"<string>\",\n    \"Weight\": \"<double>\",\n    \"Volume\": \"<double>\",\n    \"Pallets\": \"<double>\"\n  }\n]",
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-253bc6d5-bd5f-4778-a3cf-987d266aca1f"
+            },
+            {
+              "id": "53bf0dfb-af01-455f-a4f5-67d69b0dfe7d",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle?number=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-53bf0dfb-af01-455f-a4f5-67d69b0dfe7d"
+            },
+            {
+              "id": "3ffa14c8-99a1-4de2-a4b6-ea511327217a",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle?number=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-3ffa14c8-99a1-4de2-a4b6-ea511327217a"
+            },
+            {
+              "id": "f473d563-fff4-4038-aba6-6ed4dd972870",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle?number=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-f473d563-fff4-4038-aba6-6ed4dd972870"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:41.000Z",
+          "updatedAt": "2026-07-28T03:17:41.000Z",
+          "uid": "35240-7b56b5c3-f5b0-40da-891a-f8e576d0df0a"
+        },
+        {
+          "name": "Add vehicle",
+          "id": "da181ed3-3a4d-4e29-9806-f5830770379c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Vehicle",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Vehicle"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "79211de5-6571-4019-9b4d-dae9fcd28eb3",
+              "name": "Vehicle was created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-79211de5-6571-4019-9b4d-dae9fcd28eb3"
+            },
+            {
+              "id": "99b526a6-fba4-4c3c-9d48-8a18d0f3c14c",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-99b526a6-fba4-4c3c-9d48-8a18d0f3c14c"
+            },
+            {
+              "id": "3446726a-c884-4d06-9b54-bbf791046049",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-3446726a-c884-4d06-9b54-bbf791046049"
+            },
+            {
+              "id": "2f60f182-e0c8-4e28-96d4-608ea20ebb56",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-2f60f182-e0c8-4e28-96d4-608ea20ebb56"
+            },
+            {
+              "id": "4490f960-b2fe-445b-9ede-c15dfe300992",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-4490f960-b2fe-445b-9ede-c15dfe300992"
+            },
+            {
+              "id": "5c0575f2-2dd1-4de9-8a27-764cdc5fe08d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-5c0575f2-2dd1-4de9-8a27-764cdc5fe08d"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:41.000Z",
+          "updatedAt": "2026-07-28T03:17:41.000Z",
+          "uid": "35240-da181ed3-3a4d-4e29-9806-f5830770379c"
+        },
+        {
+          "name": "Update vehicle",
+          "id": "550eebf9-d1bc-4caa-9cb7-21456c7589fd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Vehicle",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Vehicle"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd71123f-176f-4880-828e-7f49395cb90f",
+              "name": "Vehicle was updated successfully",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-fd71123f-176f-4880-828e-7f49395cb90f"
+            },
+            {
+              "id": "995ed73f-c69e-460d-868e-4a1e46860c6a",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-995ed73f-c69e-460d-868e-4a1e46860c6a"
+            },
+            {
+              "id": "4a740f0d-f8ea-4462-b99f-b04a7a563fcf",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-4a740f0d-f8ea-4462-b99f-b04a7a563fcf"
+            },
+            {
+              "id": "210091af-9348-40a4-8888-54ebfb54abab",
+              "name": "Not found. Vehicle not found",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-210091af-9348-40a4-8888-54ebfb54abab"
+            },
+            {
+              "id": "f4b691d5-1b86-428f-ae26-4cefb3191d0e",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-f4b691d5-1b86-428f-ae26-4cefb3191d0e"
+            },
+            {
+              "id": "fc450568-9c29-4f30-8047-ce5dc8f591c9",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-fc450568-9c29-4f30-8047-ce5dc8f591c9"
+            },
+            {
+              "id": "c9ce44da-f2d9-4a2f-81c6-bb8ad42d8f20",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<string>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Vehicle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Vehicle"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:41.000Z",
+              "updatedAt": "2026-07-28T03:17:41.000Z",
+              "uid": "35240-c9ce44da-f2d9-4a2f-81c6-bb8ad42d8f20"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:41.000Z",
+          "updatedAt": "2026-07-28T03:17:41.000Z",
+          "uid": "35240-550eebf9-d1bc-4caa-9cb7-21456c7589fd"
+        }
+      ],
+      "id": "4999093e-a081-4cd4-be55-6171eaf99b14",
+      "createdAt": "2026-07-28T03:17:41.000Z",
+      "updatedAt": "2026-07-28T03:17:41.000Z",
+      "uid": "35240-4999093e-a081-4cd4-be55-6171eaf99b14"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

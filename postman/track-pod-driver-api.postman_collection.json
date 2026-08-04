@@ -1,0 +1,2152 @@
+{
+  "info": {
+    "_postman_id": "122fe2da-58a3-4831-8897-a35c46b5690b",
+    "name": "Track-POD Address Driver API",
+    "description": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:17:25.000Z",
+    "updatedAt": "2026-07-28T03:17:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-122fe2da-58a3-4831-8897-a35c46b5690b"
+  },
+  "item": [
+    {
+      "name": "Driver",
+      "item": [
+        {
+          "name": "Id",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get driver by Track-POD unique identifier",
+                  "id": "8cc040ed-bb5c-4ea7-9d09-eded2041eefd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Driver/Id/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Driver",
+                        "Id",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b1b45860-dbd5-4d9a-93b2-5d843870730e",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "19ea88b7-9ec8-44b2-aef5-e8a8322652c1",
+                      "name": "A driver",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Number\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\",\n  \"TeamCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-19ea88b7-9ec8-44b2-aef5-e8a8322652c1"
+                    },
+                    {
+                      "id": "ac3fa23c-46e9-4521-8dca-47966191a187",
+                      "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-ac3fa23c-46e9-4521-8dca-47966191a187"
+                    },
+                    {
+                      "id": "9a1c66d3-b093-435a-8303-60cd0427ae0a",
+                      "name": "Not found. Driver not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-9a1c66d3-b093-435a-8303-60cd0427ae0a"
+                    },
+                    {
+                      "id": "b064a219-7bd0-401f-9ce7-226424348fc7",
+                      "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-b064a219-7bd0-401f-9ce7-226424348fc7"
+                    },
+                    {
+                      "id": "5a0f9576-b4ce-4560-a761-09a2928f05c6",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-5a0f9576-b4ce-4560-a761-09a2928f05c6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:17:26.000Z",
+                  "updatedAt": "2026-07-28T03:17:26.000Z",
+                  "uid": "35240-8cc040ed-bb5c-4ea7-9d09-eded2041eefd"
+                },
+                {
+                  "name": "Delete driver by Track-POD unique identifier",
+                  "id": "d829f9b7-dd88-4774-b462-ae925011d57e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Driver/Id/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Driver",
+                        "Id",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "069ab952-966e-4daf-b0fb-7aab53795254",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2ea4fff4-1318-43e6-96cb-49538e158fd0",
+                      "name": "Driver was deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-2ea4fff4-1318-43e6-96cb-49538e158fd0"
+                    },
+                    {
+                      "id": "5a24e1a0-97df-4c69-9a4f-775bc863cd6d",
+                      "name": "Bad Request. Driver already has delivery status",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-5a24e1a0-97df-4c69-9a4f-775bc863cd6d"
+                    },
+                    {
+                      "id": "ebba21a7-e948-4072-8e73-74d33f65ac9a",
+                      "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-ebba21a7-e948-4072-8e73-74d33f65ac9a"
+                    },
+                    {
+                      "id": "96c8bacd-ff1c-4059-a984-5ab924fd3e63",
+                      "name": "Not found. Driver not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-96c8bacd-ff1c-4059-a984-5ab924fd3e63"
+                    },
+                    {
+                      "id": "ae46c036-fef4-4d38-9b64-147b32cd580d",
+                      "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-ae46c036-fef4-4d38-9b64-147b32cd580d"
+                    },
+                    {
+                      "id": "aa41ce11-7519-4333-9f52-cff6ccc74df2",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Id/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Id",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-aa41ce11-7519-4333-9f52-cff6ccc74df2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:17:26.000Z",
+                  "updatedAt": "2026-07-28T03:17:26.000Z",
+                  "uid": "35240-d829f9b7-dd88-4774-b462-ae925011d57e"
+                }
+              ],
+              "id": "b5a7e4c5-8541-4d8a-bd78-3a431f62a61d",
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-b5a7e4c5-8541-4d8a-bd78-3a431f62a61d"
+            }
+          ],
+          "id": "a3601d62-0747-47ea-8a0b-170cb3ce82f9",
+          "createdAt": "2026-07-28T03:17:26.000Z",
+          "updatedAt": "2026-07-28T03:17:26.000Z",
+          "uid": "35240-a3601d62-0747-47ea-8a0b-170cb3ce82f9"
+        },
+        {
+          "name": "Username",
+          "item": [
+            {
+              "name": "{username}",
+              "item": [
+                {
+                  "name": "Get driver by Username",
+                  "id": "ab4b5356-99d3-42e3-ac74-94caebd6c76a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Driver/Username/:username",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Driver",
+                        "Username",
+                        ":username"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bab7fd84-8ab1-4713-b4ef-dd76aa605283",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8b346437-be2a-4f23-98d4-788eba61673b",
+                      "name": "A driver",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Number\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\",\n  \"TeamCodes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-8b346437-be2a-4f23-98d4-788eba61673b"
+                    },
+                    {
+                      "id": "c5d7043d-7c9f-4dbc-b015-5550719ffde0",
+                      "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-c5d7043d-7c9f-4dbc-b015-5550719ffde0"
+                    },
+                    {
+                      "id": "8abb873e-2cf0-41b4-80ca-01a25b631ae1",
+                      "name": "Not found. Driver not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-8abb873e-2cf0-41b4-80ca-01a25b631ae1"
+                    },
+                    {
+                      "id": "51fd22a0-e1ef-4408-8cb6-4113a7bb1418",
+                      "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-51fd22a0-e1ef-4408-8cb6-4113a7bb1418"
+                    },
+                    {
+                      "id": "6110c5b5-7f93-4d3e-aed8-aa6fc695acca",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-6110c5b5-7f93-4d3e-aed8-aa6fc695acca"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:17:26.000Z",
+                  "updatedAt": "2026-07-28T03:17:26.000Z",
+                  "uid": "35240-ab4b5356-99d3-42e3-ac74-94caebd6c76a"
+                },
+                {
+                  "name": "Delete Driver by id.",
+                  "id": "ae6a551a-0950-4975-a827-7be0f039e76f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Driver/Username/:username",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Driver",
+                        "Username",
+                        ":username"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4fb8df9d-6bf4-46bd-8bd1-023f0288e099",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2b394ddb-77ef-4449-b257-17ffafb2a5e9",
+                      "name": "Driver was deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-2b394ddb-77ef-4449-b257-17ffafb2a5e9"
+                    },
+                    {
+                      "id": "ae481093-e9dd-4853-88ad-78ee0c0d704b",
+                      "name": "Bad Request. Driver already has delivery status",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-ae481093-e9dd-4853-88ad-78ee0c0d704b"
+                    },
+                    {
+                      "id": "f47755cc-8e2b-4b17-8aed-451ea43e0827",
+                      "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-f47755cc-8e2b-4b17-8aed-451ea43e0827"
+                    },
+                    {
+                      "id": "8b4f69ac-b1f7-4c20-b221-39ec03abac4f",
+                      "name": "Not found. Driver not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-8b4f69ac-b1f7-4c20-b221-39ec03abac4f"
+                    },
+                    {
+                      "id": "40caa13b-ca13-4454-be25-4457e6a65658",
+                      "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-40caa13b-ca13-4454-be25-4457e6a65658"
+                    },
+                    {
+                      "id": "99e13ca1-1afc-4695-89f2-f8c9918aa314",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Driver/Username/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Driver",
+                            "Username",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:26.000Z",
+                      "updatedAt": "2026-07-28T03:17:26.000Z",
+                      "uid": "35240-99e13ca1-1afc-4695-89f2-f8c9918aa314"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:17:26.000Z",
+                  "updatedAt": "2026-07-28T03:17:26.000Z",
+                  "uid": "35240-ae6a551a-0950-4975-a827-7be0f039e76f"
+                }
+              ],
+              "id": "2b6cbb47-4401-459f-bae4-2e6aeb3c1a7f",
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-2b6cbb47-4401-459f-bae4-2e6aeb3c1a7f"
+            }
+          ],
+          "id": "9fcf5f70-41c2-47c3-883b-d7f2e5d3297b",
+          "createdAt": "2026-07-28T03:17:26.000Z",
+          "updatedAt": "2026-07-28T03:17:26.000Z",
+          "uid": "35240-9fcf5f70-41c2-47c3-883b-d7f2e5d3297b"
+        },
+        {
+          "name": "Get drivers",
+          "id": "e1cc2c33-2eb0-4030-b186-deda98df3b4d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Driver",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Driver"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7fcfe15f-4328-413d-9947-08f1a72e82a5",
+              "name": "Drivers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"Id\": \"<uuid>\",\n    \"Number\": \"<integer>\",\n    \"Name\": \"<string>\",\n    \"Vehicle\": \"<string>\",\n    \"Phone\": \"<string>\",\n    \"Username\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"HomeAddress\": \"<string>\",\n    \"Zone\": \"<string>\",\n    \"Active\": \"<boolean>\",\n    \"Note\": \"<string>\",\n    \"TeamCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"Id\": \"<uuid>\",\n    \"Number\": \"<integer>\",\n    \"Name\": \"<string>\",\n    \"Vehicle\": \"<string>\",\n    \"Phone\": \"<string>\",\n    \"Username\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"HomeAddress\": \"<string>\",\n    \"Zone\": \"<string>\",\n    \"Active\": \"<boolean>\",\n    \"Note\": \"<string>\",\n    \"TeamCodes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-7fcfe15f-4328-413d-9947-08f1a72e82a5"
+            },
+            {
+              "id": "6d591764-1534-46f0-b6f7-f15c58ca1e46",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-6d591764-1534-46f0-b6f7-f15c58ca1e46"
+            },
+            {
+              "id": "1ec0169c-40a5-4117-8693-a23f4e5c67db",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-1ec0169c-40a5-4117-8693-a23f4e5c67db"
+            },
+            {
+              "id": "e8f6cdd8-ba18-4c01-99de-3238a3a2d2b3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-e8f6cdd8-ba18-4c01-99de-3238a3a2d2b3"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:26.000Z",
+          "updatedAt": "2026-07-28T03:17:26.000Z",
+          "uid": "35240-e1cc2c33-2eb0-4030-b186-deda98df3b4d"
+        },
+        {
+          "name": "Add driver",
+          "id": "b330c862-3370-4c3d-8a0c-333d5f2b1bbd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Driver",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Driver"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "725e13b9-000f-4214-84e7-84eac382c27b",
+              "name": "Driver was created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-725e13b9-000f-4214-84e7-84eac382c27b"
+            },
+            {
+              "id": "83567a4e-0394-4d00-a4f8-6027f21851aa",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-83567a4e-0394-4d00-a4f8-6027f21851aa"
+            },
+            {
+              "id": "550d91e6-de93-4787-9bf4-6db108fbff09",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-550d91e6-de93-4787-9bf4-6db108fbff09"
+            },
+            {
+              "id": "5c42c4e2-6821-463e-8c3d-b024b22e3ebc",
+              "name": "Not Allowed. Driver already exists, Invalid home address, etc",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-5c42c4e2-6821-463e-8c3d-b024b22e3ebc"
+            },
+            {
+              "id": "6ad17708-deb4-4b7d-88ec-566cf944351d",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-6ad17708-deb4-4b7d-88ec-566cf944351d"
+            },
+            {
+              "id": "2643c5d8-b603-40de-b72d-eedc0b1a23cd",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-2643c5d8-b603-40de-b72d-eedc0b1a23cd"
+            },
+            {
+              "id": "3a0f2c54-1f0e-4ad7-a35a-a9f003af7f50",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-3a0f2c54-1f0e-4ad7-a35a-a9f003af7f50"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:26.000Z",
+          "updatedAt": "2026-07-28T03:17:26.000Z",
+          "uid": "35240-b330c862-3370-4c3d-8a0c-333d5f2b1bbd"
+        },
+        {
+          "name": "Update driver",
+          "id": "41da1697-b44e-437a-8e14-1a94f692a795",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Driver",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Driver"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6b0e5d34-5a95-429c-a9f2-aebd215c7b6d",
+              "name": "Driver was updated successfully",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Status\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Detail\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-6b0e5d34-5a95-429c-a9f2-aebd215c7b6d"
+            },
+            {
+              "id": "3a11332d-8d03-49bb-a6df-1213f7e190a5",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-3a11332d-8d03-49bb-a6df-1213f7e190a5"
+            },
+            {
+              "id": "2f28e9d7-55db-47d4-a5c8-c72af90a7325",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-2f28e9d7-55db-47d4-a5c8-c72af90a7325"
+            },
+            {
+              "id": "5f8d556a-4758-43b4-89da-e12797c3a64a",
+              "name": "Not found. Driver not found",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-5f8d556a-4758-43b4-89da-e12797c3a64a"
+            },
+            {
+              "id": "9b81afc6-9912-4b8c-ac30-8f4b190fb8e2",
+              "name": "Not Allowed. Invalid home address",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-9b81afc6-9912-4b8c-ac30-8f4b190fb8e2"
+            },
+            {
+              "id": "25771be3-2ddf-42a6-8fb1-93c7077f37bb",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-25771be3-2ddf-42a6-8fb1-93c7077f37bb"
+            },
+            {
+              "id": "9c87cbfc-86fc-4f08-ab06-f05011d46978",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-9c87cbfc-86fc-4f08-ab06-f05011d46978"
+            },
+            {
+              "id": "20eecf78-6e82-4a92-9874-1b442da38ec4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Vehicle\": \"<string>\",\n  \"Phone\": \"<string>\",\n  \"Username\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"HomeAddress\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Active\": \"<boolean>\",\n  \"Note\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Driver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Driver"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T03:17:26.000Z",
+              "updatedAt": "2026-07-28T03:17:26.000Z",
+              "uid": "35240-20eecf78-6e82-4a92-9874-1b442da38ec4"
+            }
+          ],
+          "createdAt": "2026-07-28T03:17:26.000Z",
+          "updatedAt": "2026-07-28T03:17:26.000Z",
+          "uid": "35240-41da1697-b44e-437a-8e14-1a94f692a795"
+        }
+      ],
+      "id": "f9169c12-fe88-43c3-b22c-e044e891cc7f",
+      "createdAt": "2026-07-28T03:17:26.000Z",
+      "updatedAt": "2026-07-28T03:17:26.000Z",
+      "uid": "35240-f9169c12-fe88-43c3-b22c-e044e891cc7f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

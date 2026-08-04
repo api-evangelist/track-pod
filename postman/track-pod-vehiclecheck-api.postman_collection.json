@@ -1,0 +1,762 @@
+{
+  "info": {
+    "_postman_id": "45559f1e-aa03-4db5-bc86-721f70ffb202",
+    "name": "Track-POD Address VehicleCheck API",
+    "description": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:17:42.000Z",
+    "updatedAt": "2026-07-28T03:17:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45559f1e-aa03-4db5-bc86-721f70ffb202"
+  },
+  "item": [
+    {
+      "name": "VehicleCheck",
+      "item": [
+        {
+          "name": "{number}",
+          "item": [
+            {
+              "name": "Get last vehicle check by number",
+              "id": "f1ae0e3e-b43b-4c53-aefe-ce889782d5a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/VehicleCheck/:number",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "VehicleCheck",
+                    ":number"
+                  ],
+                  "variable": [
+                    {
+                      "id": "51b963bf-ddbb-4402-9f18-292824f3ab20",
+                      "key": "number",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d69484e3-1c4d-4a55-bba4-7130dad4ea71",
+                  "name": "Vehicle check",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/VehicleCheck/:number",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "VehicleCheck",
+                        ":number"
+                      ],
+                      "variable": [
+                        {
+                          "key": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"DriverLogin\": \"<string>\",\n  \"DriverName\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"Date\": \"<dateTime>\",\n  \"VehicleNumber\": \"<string>\",\n  \"Odometer\": \"<double>\",\n  \"Values\": [\n    {\n      \"Label\": \"<string>\",\n      \"Status\": \"<boolean>\",\n      \"Photo\": \"<boolean>\",\n      \"Photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"Note\": \"<string>\",\n      \"Value\": \"<double>\"\n    },\n    {\n      \"Label\": \"<string>\",\n      \"Status\": \"<boolean>\",\n      \"Photo\": \"<boolean>\",\n      \"Photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"Note\": \"<string>\",\n      \"Value\": \"<double>\"\n    }\n  ],\n  \"HasSignature\": \"<boolean>\",\n  \"SignaturePhoto\": \"<string>\",\n  \"Stage\": \"BeforeRoute\",\n  \"RouteNumber\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-d69484e3-1c4d-4a55-bba4-7130dad4ea71"
+                },
+                {
+                  "id": "7ab02c47-54e0-4338-94e0-889731c797f4",
+                  "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/VehicleCheck/:number",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "VehicleCheck",
+                        ":number"
+                      ],
+                      "variable": [
+                        {
+                          "key": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-7ab02c47-54e0-4338-94e0-889731c797f4"
+                },
+                {
+                  "id": "82fbecd8-52f5-48e4-a101-d6f979962253",
+                  "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/VehicleCheck/:number",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "VehicleCheck",
+                        ":number"
+                      ],
+                      "variable": [
+                        {
+                          "key": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-82fbecd8-52f5-48e4-a101-d6f979962253"
+                },
+                {
+                  "id": "c53c539e-df5c-445b-8904-4fdf4f125c8a",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-KEY",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/VehicleCheck/:number",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "VehicleCheck",
+                        ":number"
+                      ],
+                      "variable": [
+                        {
+                          "key": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-c53c539e-df5c-445b-8904-4fdf4f125c8a"
+                }
+              ],
+              "createdAt": "2026-07-28T03:17:42.000Z",
+              "updatedAt": "2026-07-28T03:17:42.000Z",
+              "uid": "35240-f1ae0e3e-b43b-4c53-aefe-ce889782d5a5"
+            }
+          ],
+          "id": "c7b9a7b3-90fa-4be5-9680-254a2aa0bcde",
+          "createdAt": "2026-07-28T03:17:42.000Z",
+          "updatedAt": "2026-07-28T03:17:42.000Z",
+          "uid": "35240-c7b9a7b3-90fa-4be5-9680-254a2aa0bcde"
+        },
+        {
+          "name": "Number",
+          "item": [
+            {
+              "name": "{number}",
+              "item": [
+                {
+                  "name": "Date",
+                  "item": [
+                    {
+                      "name": "{date}",
+                      "item": [
+                        {
+                          "name": "Get vehicle checks by date",
+                          "id": "556dd9ed-c00d-4b15-9ffa-7de8ee8292e9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/plain"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "VehicleCheck",
+                                "Number",
+                                ":number",
+                                "Date",
+                                ":date"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c7b282ab-87f4-4cc5-9d27-37ced5dd9bd1",
+                                  "key": "number",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7ae55803-a2a7-4cd6-9d89-93e5e7803abe",
+                                  "key": "date",
+                                  "value": "<dateTime>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "25108036-d43a-441b-85d3-5ce3a0eeca0b",
+                              "name": "Vehicle checks",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/plain"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "VehicleCheck",
+                                    "Number",
+                                    ":number",
+                                    "Date",
+                                    ":date"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "number"
+                                    },
+                                    {
+                                      "key": "date"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"DriverLogin\": \"<string>\",\n    \"DriverName\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"Date\": \"<dateTime>\",\n    \"VehicleNumber\": \"<string>\",\n    \"Odometer\": \"<double>\",\n    \"Values\": [\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      },\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      }\n    ],\n    \"HasSignature\": \"<boolean>\",\n    \"SignaturePhoto\": \"<string>\",\n    \"Stage\": \"AfterRoute\",\n    \"RouteNumber\": \"<string>\"\n  },\n  {\n    \"DriverLogin\": \"<string>\",\n    \"DriverName\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"Date\": \"<dateTime>\",\n    \"VehicleNumber\": \"<string>\",\n    \"Odometer\": \"<double>\",\n    \"Values\": [\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      },\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      }\n    ],\n    \"HasSignature\": \"<boolean>\",\n    \"SignaturePhoto\": \"<string>\",\n    \"Stage\": \"AfterRoute\",\n    \"RouteNumber\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-07-28T03:17:42.000Z",
+                              "updatedAt": "2026-07-28T03:17:42.000Z",
+                              "uid": "35240-25108036-d43a-441b-85d3-5ce3a0eeca0b"
+                            },
+                            {
+                              "id": "615f5bf8-a02e-4624-b369-c24f40da1406",
+                              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "VehicleCheck",
+                                    "Number",
+                                    ":number",
+                                    "Date",
+                                    ":date"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "number"
+                                    },
+                                    {
+                                      "key": "date"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:17:42.000Z",
+                              "updatedAt": "2026-07-28T03:17:42.000Z",
+                              "uid": "35240-615f5bf8-a02e-4624-b369-c24f40da1406"
+                            },
+                            {
+                              "id": "d0cccf3f-7703-4276-b4e1-0a06c37e44d7",
+                              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "VehicleCheck",
+                                    "Number",
+                                    ":number",
+                                    "Date",
+                                    ":date"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "number"
+                                    },
+                                    {
+                                      "key": "date"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:17:42.000Z",
+                              "updatedAt": "2026-07-28T03:17:42.000Z",
+                              "uid": "35240-d0cccf3f-7703-4276-b4e1-0a06c37e44d7"
+                            },
+                            {
+                              "id": "5df8e804-6663-4022-a9ef-f61bda38aabf",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-KEY",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "VehicleCheck",
+                                    "Number",
+                                    ":number",
+                                    "Date",
+                                    ":date"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "number"
+                                    },
+                                    {
+                                      "key": "date"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:17:42.000Z",
+                              "updatedAt": "2026-07-28T03:17:42.000Z",
+                              "uid": "35240-5df8e804-6663-4022-a9ef-f61bda38aabf"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:17:42.000Z",
+                          "updatedAt": "2026-07-28T03:17:42.000Z",
+                          "uid": "35240-556dd9ed-c00d-4b15-9ffa-7de8ee8292e9"
+                        }
+                      ],
+                      "id": "b95b666d-8e70-41e1-ac4a-6d206aa71d48",
+                      "createdAt": "2026-07-28T03:17:42.000Z",
+                      "updatedAt": "2026-07-28T03:17:42.000Z",
+                      "uid": "35240-b95b666d-8e70-41e1-ac4a-6d206aa71d48"
+                    }
+                  ],
+                  "id": "b90da2e9-aef2-4d40-8b91-a3552fb4df77",
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-b90da2e9-aef2-4d40-8b91-a3552fb4df77"
+                }
+              ],
+              "id": "5e72ab97-4634-4d79-ba18-1e595bff1f2b",
+              "createdAt": "2026-07-28T03:17:42.000Z",
+              "updatedAt": "2026-07-28T03:17:42.000Z",
+              "uid": "35240-5e72ab97-4634-4d79-ba18-1e595bff1f2b"
+            }
+          ],
+          "id": "18a1a3e0-4f39-4c23-bdcd-883f087afe67",
+          "createdAt": "2026-07-28T03:17:42.000Z",
+          "updatedAt": "2026-07-28T03:17:42.000Z",
+          "uid": "35240-18a1a3e0-4f39-4c23-bdcd-883f087afe67"
+        },
+        {
+          "name": "Date",
+          "item": [
+            {
+              "name": "{date}",
+              "item": [
+                {
+                  "name": "Get vehicle checks by date",
+                  "id": "7b31fda6-264e-4aee-bd96-d599a3b01ceb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/VehicleCheck/Date/:date",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "VehicleCheck",
+                        "Date",
+                        ":date"
+                      ],
+                      "variable": [
+                        {
+                          "id": "82578a46-3d85-47d3-9de4-ee4b8e9583ef",
+                          "key": "date",
+                          "value": "<dateTime>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5a43f820-dbc4-4fb5-9980-b3cecbd780a5",
+                      "name": "Vehicle checks",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/VehicleCheck/Date/:date",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "VehicleCheck",
+                            "Date",
+                            ":date"
+                          ],
+                          "variable": [
+                            {
+                              "key": "date"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"DriverLogin\": \"<string>\",\n    \"DriverName\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"Date\": \"<dateTime>\",\n    \"VehicleNumber\": \"<string>\",\n    \"Odometer\": \"<double>\",\n    \"Values\": [\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      },\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      }\n    ],\n    \"HasSignature\": \"<boolean>\",\n    \"SignaturePhoto\": \"<string>\",\n    \"Stage\": \"AfterRoute\",\n    \"RouteNumber\": \"<string>\"\n  },\n  {\n    \"DriverLogin\": \"<string>\",\n    \"DriverName\": \"<string>\",\n    \"DepotId\": \"<string>\",\n    \"Depot\": \"<string>\",\n    \"Date\": \"<dateTime>\",\n    \"VehicleNumber\": \"<string>\",\n    \"Odometer\": \"<double>\",\n    \"Values\": [\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      },\n      {\n        \"Label\": \"<string>\",\n        \"Status\": \"<boolean>\",\n        \"Photo\": \"<boolean>\",\n        \"Photos\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"Note\": \"<string>\",\n        \"Value\": \"<double>\"\n      }\n    ],\n    \"HasSignature\": \"<boolean>\",\n    \"SignaturePhoto\": \"<string>\",\n    \"Stage\": \"AfterRoute\",\n    \"RouteNumber\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T03:17:42.000Z",
+                      "updatedAt": "2026-07-28T03:17:42.000Z",
+                      "uid": "35240-5a43f820-dbc4-4fb5-9980-b3cecbd780a5"
+                    },
+                    {
+                      "id": "41122d67-c072-4e86-8db0-9b33f011ea88",
+                      "name": "Unauthorized. Invalid X-API-KEY in the request header",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/VehicleCheck/Date/:date",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "VehicleCheck",
+                            "Date",
+                            ":date"
+                          ],
+                          "variable": [
+                            {
+                              "key": "date"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:42.000Z",
+                      "updatedAt": "2026-07-28T03:17:42.000Z",
+                      "uid": "35240-41122d67-c072-4e86-8db0-9b33f011ea88"
+                    },
+                    {
+                      "id": "21861255-ad60-403c-a31d-bf22d08bd8d1",
+                      "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/VehicleCheck/Date/:date",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "VehicleCheck",
+                            "Date",
+                            ":date"
+                          ],
+                          "variable": [
+                            {
+                              "key": "date"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:42.000Z",
+                      "updatedAt": "2026-07-28T03:17:42.000Z",
+                      "uid": "35240-21861255-ad60-403c-a31d-bf22d08bd8d1"
+                    },
+                    {
+                      "id": "8def3fb1-7465-4ead-9e40-793fe5f5c410",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-KEY",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/VehicleCheck/Date/:date",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "VehicleCheck",
+                            "Date",
+                            ":date"
+                          ],
+                          "variable": [
+                            {
+                              "key": "date"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:17:42.000Z",
+                      "updatedAt": "2026-07-28T03:17:42.000Z",
+                      "uid": "35240-8def3fb1-7465-4ead-9e40-793fe5f5c410"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:17:42.000Z",
+                  "updatedAt": "2026-07-28T03:17:42.000Z",
+                  "uid": "35240-7b31fda6-264e-4aee-bd96-d599a3b01ceb"
+                }
+              ],
+              "id": "fc2f148f-4901-4173-a8a1-2b987aea26e5",
+              "createdAt": "2026-07-28T03:17:42.000Z",
+              "updatedAt": "2026-07-28T03:17:42.000Z",
+              "uid": "35240-fc2f148f-4901-4173-a8a1-2b987aea26e5"
+            }
+          ],
+          "id": "10121b0b-c9b2-4717-a52b-fae9ec8f3c5c",
+          "createdAt": "2026-07-28T03:17:42.000Z",
+          "updatedAt": "2026-07-28T03:17:42.000Z",
+          "uid": "35240-10121b0b-c9b2-4717-a52b-fae9ec8f3c5c"
+        }
+      ],
+      "id": "c28000b8-cc28-48f3-8687-fd8afc639e92",
+      "createdAt": "2026-07-28T03:17:42.000Z",
+      "updatedAt": "2026-07-28T03:17:42.000Z",
+      "uid": "35240-c28000b8-cc28-48f3-8687-fd8afc639e92"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
