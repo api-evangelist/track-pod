@@ -1,0 +1,427 @@
+{
+  "item": [
+    {
+      "id": "482e66dc-db0e-40fc-b321-255db497127f",
+      "name": "Address",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7502f368-486e-4ada-866f-e4826fa65981",
+          "name": "Add or update address",
+          "request": {
+            "name": "Add or update address",
+            "description": {},
+            "url": {
+              "path": [
+                "Address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FullAddress\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Street\": \"<string>\",\n  \"City\": \"<string>\",\n  \"State\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"Lat\": \"<double>\",\n  \"Lon\": \"<double>\",\n  \"TimeSlotFrom\": \"<dateTime>\",\n  \"TimeSlotTo\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dcc2a86e-2ece-4b79-8e4e-163c8766795d",
+              "name": "Address was created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Status\": 8840,\n  \"Title\": \"string\",\n  \"Detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3d0b4fb-076c-4916-9000-293f7350093b",
+              "name": "Address was updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "536e283e-4103-4074-a583-7a5a44323df1",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1a6447c-9541-43f4-843d-06c340887ed7",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1cddd3ce-5f03-4529-ba1a-a8b9a5f952b8",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b2d5184-a84b-4edd-bd5b-e1fcb5e151e9",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60c418a9-8adf-4858-85d4-d7375b687c66",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FullAddress\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Id\": \"<string>\",\n  \"Name\": \"2 St Josephs Crescent, Liverpool, L3 3JF\",\n  \"Street\": \"Josephs Crescent\",\n  \"City\": \"Liverpool\",\n  \"State\": \"\",\n  \"PostalCode\": \"\",\n  \"Zone\": \"Lvp\",\n  \"Lat\": 25.290479,\n  \"Lon\": 65.294049,\n  \"TimeSlotFrom\": \"2019-02-01T09:00:00\",\n  \"TimeSlotTo\": \"2019-02-01T18:00:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "46efd785-9fc6-4c65-a46f-5d157e5d0133",
+    "name": "Track-POD Address API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+      "type": "text/plain"
+    }
+  }
+}

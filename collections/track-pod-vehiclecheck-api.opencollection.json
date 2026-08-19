@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Track-POD Address VehicleCheck API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VehicleCheck",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get last vehicle check by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/VehicleCheck/:number",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get last vehicle check by number"
+        },
+        {
+          "info": {
+            "name": "Get vehicle checks by date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/VehicleCheck/Number/:number/Date/:date",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get vehicle checks by date"
+        },
+        {
+          "info": {
+            "name": "Get vehicle checks by date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/VehicleCheck/Date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get vehicle checks by date"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

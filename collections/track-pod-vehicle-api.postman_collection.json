@@ -1,0 +1,1594 @@
+{
+  "item": [
+    {
+      "id": "cd270522-9a2e-4a1b-8ad9-6d372586c086",
+      "name": "Vehicle",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7370f4d-90ca-4961-8c23-cd1dd8741043",
+          "name": "Get vehicle by Track-POD unique identifier",
+          "request": {
+            "name": "Get vehicle by Track-POD unique identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "Vehicle",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "596ac080-a5af-449e-b6ed-b273b9a389aa",
+              "name": "A vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 2341,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"string\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"string\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 10000,\n  \"Volume\": 14.5,\n  \"Pallets\": 16\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a548a10f-966a-4fac-b18e-f9d36745d4eb",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "caa32808-28a0-4380-bd53-65ac3e609a25",
+              "name": "Not found. Vehicle not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1bd251b2-f187-4f87-bb40-ee66fe16297b",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e3afc22-555e-4e6e-ac1f-2afa72449a5d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72bf029c-f292-477d-b61a-69a62e3c410f",
+          "name": "Delete vehicle by Track-POD unique identifier",
+          "request": {
+            "name": "Delete vehicle by Track-POD unique identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "Vehicle",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d64535e-82c0-47bf-a0c4-8a4ecebaa834",
+              "name": "Vehicle was deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Status\": 8557,\n  \"Title\": \"string\",\n  \"Detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc7e2409-7ec2-4628-ba88-f36b40564fcd",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea80b508-eb3a-4a43-ba0f-5f3b21581bb0",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28c5695b-580f-41bf-a58e-7cfdb4582e5e",
+              "name": "Not found. Vehicle not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccb45b72-a2af-4573-b065-058cb04713ae",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3577a7f9-62e0-4428-98b5-e4ebb9e612b0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c15d9c60-60bc-41a7-86b9-f97a5aeb0ff9",
+          "name": "Get vehicles",
+          "request": {
+            "name": "Get vehicles",
+            "description": {},
+            "url": {
+              "path": [
+                "Vehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d33e74c-e108-4518-98b9-8309b6a160a2",
+              "name": "Vehicles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 2341,\n    \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n    \"DriverUsername\": \"MyDriver\",\n    \"DepotId\": \"string\",\n    \"Depot\": \"9 Riverside, Salford M7 1PA \",\n    \"MaxNodes\": 5,\n    \"MaxWorkTime\": 8,\n    \"MaxDistance\": 1000,\n    \"SpeedRatio\": 1,\n    \"CostPerDistance\": 1,\n    \"CostPerHour\": 10,\n    \"BaseFare\": 0,\n    \"StartTime\": \"08:00:00\",\n    \"VehicleType\": 1,\n    \"EmissionCo2\": 250,\n    \"Number\": \"XXX777\",\n    \"CarrierCode\": \"string\",\n    \"Carrier\": \"Big Logistics\",\n    \"Weight\": 10000,\n    \"Volume\": 14.5,\n    \"Pallets\": 16\n  },\n  {\n    \"Id\": 2341,\n    \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n    \"DriverUsername\": \"MyDriver\",\n    \"DepotId\": \"string\",\n    \"Depot\": \"9 Riverside, Salford M7 1PA \",\n    \"MaxNodes\": 5,\n    \"MaxWorkTime\": 8,\n    \"MaxDistance\": 1000,\n    \"SpeedRatio\": 1,\n    \"CostPerDistance\": 1,\n    \"CostPerHour\": 10,\n    \"BaseFare\": 0,\n    \"StartTime\": \"08:00:00\",\n    \"VehicleType\": 1,\n    \"EmissionCo2\": 250,\n    \"Number\": \"XXX777\",\n    \"CarrierCode\": \"string\",\n    \"Carrier\": \"Big Logistics\",\n    \"Weight\": 10000,\n    \"Volume\": 14.5,\n    \"Pallets\": 16\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "787a9a3b-ce09-45a5-97dd-3d0766248e18",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "580a21b3-cfa6-4186-b710-409f8bc283b5",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1255fe8d-df0f-4d80-a806-18f3dafe795b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "number",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40d97306-a0e0-4142-88ee-2d1b9605f4b8",
+          "name": "Add vehicle",
+          "request": {
+            "name": "Add vehicle",
+            "description": {},
+            "url": {
+              "path": [
+                "Vehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<date-span>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "366f638d-232a-44cf-9ca1-f3e31c972c1d",
+              "name": "Vehicle was created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Status\": 8557,\n  \"Title\": \"string\",\n  \"Detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "246d7a49-7e29-4969-91c3-ef2000a231d8",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "627fc83c-119e-43a2-9dee-8ede1b9e5061",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f3051a0-7b24-4def-b152-7179a6adda54",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7281d067-a1a1-4cc7-9ac7-2db65f6fd5bc",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "188a7cca-fe5e-41dc-a874-c9d27ccf0e91",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a231a34-65a6-49f5-b6eb-c3e9e1c28f73",
+          "name": "Update vehicle",
+          "request": {
+            "name": "Update vehicle",
+            "description": {},
+            "url": {
+              "path": [
+                "Vehicle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Number\": \"<string>\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"<string>\",\n  \"Weight\": \"<double>\",\n  \"Volume\": \"<double>\",\n  \"Pallets\": \"<double>\",\n  \"DriverId\": \"<uuid>\",\n  \"DriverUsername\": \"<string>\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"<string>\",\n  \"MaxNodes\": \"<integer>\",\n  \"MaxWorkTime\": \"<integer>\",\n  \"MaxDistance\": \"<integer>\",\n  \"SpeedRatio\": \"<double>\",\n  \"CostPerDistance\": \"<double>\",\n  \"CostPerHour\": \"<double>\",\n  \"BaseFare\": \"<double>\",\n  \"StartTime\": \"<date-span>\",\n  \"VehicleType\": \"<integer>\",\n  \"EmissionCo2\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59935536-081c-4154-a4c5-3e1ed63879c3",
+              "name": "Vehicle was updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Status\": 8557,\n  \"Title\": \"string\",\n  \"Detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb58b5ae-63cc-4596-91c0-0e6148886fac",
+              "name": "One or more validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fec66b5-f3e5-4057-97e6-994cc1cf794d",
+              "name": "Unauthorized. Invalid X-API-KEY in the request header",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efe028be-66ae-46f2-aaca-3845dfe6d4aa",
+              "name": "Not found. Vehicle not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42502e8f-de25-487e-b13a-a6a61278c705",
+              "name": "Unsupported Media Type. Invalid Content-Type in the request header. Must be application/json or application/xml",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a9ebda0-ac19-425c-b56e-8d652a4ff534",
+              "name": "Too Many Requests. Rate limit is 20 requests/sec and 400 requests/min",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f69af74f-7fe7-4039-b83d-8a44ad6187ce",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vehicle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": 2341,\n  \"Number\": \"XXX777\",\n  \"CarrierCode\": \"<string>\",\n  \"Carrier\": \"Big Logistics\",\n  \"Weight\": 100,\n  \"Volume\": 14.5,\n  \"Pallets\": 16,\n  \"DriverId\": \"00000000-0000-0000-0000-000000000000\",\n  \"DriverUsername\": \"MyDriver\",\n  \"DepotId\": \"<string>\",\n  \"Depot\": \"9 Riverside, Salford M7 1PA \",\n  \"MaxNodes\": 5,\n  \"MaxWorkTime\": 8,\n  \"MaxDistance\": 1000,\n  \"SpeedRatio\": 1,\n  \"CostPerDistance\": 1.1,\n  \"CostPerHour\": 10,\n  \"BaseFare\": 0,\n  \"StartTime\": \"08:00:00\",\n  \"VehicleType\": 1,\n  \"EmissionCo2\": 250\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "22a67d0e-28b6-4f3e-9a6f-0a66ee1df526",
+    "name": "Track-POD Address Vehicle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target='_blank' href='https://track-pod.freshdesk.com/support/solutions/articles/103000049842'>How to use Webhooks?</a>",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Track-POD Address RejectReason API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "RejectReason",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get reasons for rejection list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/RejectReason"
+          },
+          "docs": "Get reasons for rejection list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

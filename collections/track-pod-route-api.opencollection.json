@@ -1,0 +1,751 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Track-POD Address Route API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Route",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add route",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/Route",
+            "params": [
+              {
+                "name": "update",
+                "value": "",
+                "type": "query",
+                "description": "Add or remove orders from the route if route already exists on this date."
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "mergeAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Merge orders by address onto one site"
+              },
+              {
+                "name": "updateGoodsPrice",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Price in the Goods directory from the payload data."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add route"
+        },
+        {
+          "info": {
+            "name": "Get route by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get route by code"
+        },
+        {
+          "info": {
+            "name": "Update route by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "mergeAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Merge orders by address onto one site"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update route by code"
+        },
+        {
+          "info": {
+            "name": "Delete route by code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/Route/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOrders",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete route by code."
+        },
+        {
+          "info": {
+            "name": "Get route by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get route by id"
+        },
+        {
+          "info": {
+            "name": "Update route by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "mergeAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Merge orders by address onto one site"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update route by id"
+        },
+        {
+          "info": {
+            "name": "Delete route by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/Route/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deleteOrders",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete route by id."
+        },
+        {
+          "info": {
+            "name": "Update routes custom fields by route code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/Route/Code/:code/CustomFields",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update routes custom fields by route code"
+        },
+        {
+          "info": {
+            "name": "Update routes custom fields by route id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/Route/Id/:id/CustomFields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update routes custom fields by route id"
+        },
+        {
+          "info": {
+            "name": "Get routes by date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get routes by date"
+        },
+        {
+          "info": {
+            "name": "Get route codes for export (exported is False)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Export/Code",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Routes status: 0 - Ready; 5 - Closed"
+              }
+            ]
+          },
+          "docs": "Get route codes for export (exported is False)"
+        },
+        {
+          "info": {
+            "name": "Get route ids for export (exported is False)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Export/Id",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Routes status: 0 - Ready; 5 - Closed"
+              }
+            ]
+          },
+          "docs": "Get route ids for export (exported is False)"
+        },
+        {
+          "info": {
+            "name": "Confirm route export (set exported to True) by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Export/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Confirm route export (set exported to True) by code"
+        },
+        {
+          "info": {
+            "name": "Confirm route export (set exported to True) by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Export/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Confirm route export (set exported to True) by id"
+        },
+        {
+          "info": {
+            "name": "Add new order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Code/:code/Order",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "mergeAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Merge orders by address onto one site"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new order to route"
+        },
+        {
+          "info": {
+            "name": "Add new order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Id/:id/Order",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "mergeAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Merge orders by address onto one site"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new order to route"
+        },
+        {
+          "info": {
+            "name": "Add existing order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Code/:code/Order/Number/:number",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Order number"
+              },
+              {
+                "name": "allowTransfer",
+                "value": "",
+                "type": "query",
+                "description": "If true allows transferring order (without delivery status) from another route"
+              },
+              {
+                "name": "allowReschedule",
+                "value": "",
+                "type": "query",
+                "description": "If true allows rescheduling, transferring order (with failed delivery status) from another route and clears old status"
+              }
+            ]
+          },
+          "docs": "Add existing order to route"
+        },
+        {
+          "info": {
+            "name": "Add existing order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Code/:code/Order/Id/:orderId",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              },
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "allowTransfer",
+                "value": "",
+                "type": "query",
+                "description": "If true allows transferring order (without delivery status) from another route"
+              },
+              {
+                "name": "allowReschedule",
+                "value": "",
+                "type": "query",
+                "description": "If true allows rescheduling, transferring order (with failed delivery status) from another route and clears old status"
+              }
+            ]
+          },
+          "docs": "Add existing order to route"
+        },
+        {
+          "info": {
+            "name": "Add existing order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Id/:id/Order/Number/:number",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route Id"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Order number"
+              },
+              {
+                "name": "allowTransfer",
+                "value": "",
+                "type": "query",
+                "description": "If true allows transferring order (without delivery status) from another route"
+              },
+              {
+                "name": "allowReschedule",
+                "value": "",
+                "type": "query",
+                "description": "If true allows rescheduling, transferring order (with failed delivery status) from another route and clears old status"
+              }
+            ]
+          },
+          "docs": "Add existing order to route"
+        },
+        {
+          "info": {
+            "name": "Add existing order to route",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Id/:id/Order/Id/:orderId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route Id"
+              },
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "allowTransfer",
+                "value": "",
+                "type": "query",
+                "description": "If true allows transferring order (without delivery status) from another route"
+              },
+              {
+                "name": "allowReschedule",
+                "value": "",
+                "type": "query",
+                "description": "If true allows rescheduling, transferring order (with failed delivery status) from another route and clears old status"
+              }
+            ]
+          },
+          "docs": "Add existing order to route"
+        },
+        {
+          "info": {
+            "name": "Get route track by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Track/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get route track by code"
+        },
+        {
+          "info": {
+            "name": "Get route track by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Route/Track/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get route track by id"
+        },
+        {
+          "info": {
+            "name": "Start route by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Start/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query",
+                "description": "Status date (client's local date and time)"
+              }
+            ]
+          },
+          "docs": "Start route by code"
+        },
+        {
+          "info": {
+            "name": "Start route by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Start/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Start route by id."
+        },
+        {
+          "info": {
+            "name": "Close route by code",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Close/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query",
+                "description": "Status date (client's local date and time)"
+              }
+            ]
+          },
+          "docs": "Close route by code"
+        },
+        {
+          "info": {
+            "name": "Close route by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Close/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Close route by id."
+        },
+        {
+          "info": {
+            "name": "Set route ready by code.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Ready/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Route code"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query",
+                "description": "Status date (client's local date and time)"
+              }
+            ]
+          },
+          "docs": "Set route ready by code."
+        },
+        {
+          "info": {
+            "name": "Set route ready by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Route/Ready/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "statusDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Set route ready by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

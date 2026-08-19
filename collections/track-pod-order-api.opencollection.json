@@ -1,0 +1,606 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Track-POD Address Order API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add unscheduled order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/Order",
+            "params": [
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "updateGoodsPrice",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Price in the Goods directory from the payload data."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add unscheduled order"
+        },
+        {
+          "info": {
+            "name": "Update order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order",
+            "params": [
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "forceUpdate",
+                "value": "",
+                "type": "query",
+                "description": "Allows updating completed orders."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update order"
+        },
+        {
+          "info": {
+            "name": "Add unscheduled orders (the maximum is 500)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/Order/Bulk",
+            "params": [
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              },
+              {
+                "name": "updateGoodsPrice",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Price in the Goods directory from the payload data."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add unscheduled orders (the maximum is 500)"
+        },
+        {
+          "info": {
+            "name": "Get order by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Number/:number",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get order by number"
+        },
+        {
+          "info": {
+            "name": "Delete order by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/Order/Number/:number",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Orders, that haven't arrived yet, could be deleted. Order will be deleted permanently from the system."
+        },
+        {
+          "info": {
+            "name": "Get order by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get order by Id"
+        },
+        {
+          "info": {
+            "name": "Delete order by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/Order/Id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Orders, that haven't arrived yet, could be deleted. Order will be deleted permanently from the system."
+        },
+        {
+          "info": {
+            "name": "Get order by TrackId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/TrackId/:trackId",
+            "params": [
+              {
+                "name": "trackId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get order by TrackId"
+        },
+        {
+          "info": {
+            "name": "Update order by TrackId",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/TrackId/:trackId",
+            "params": [
+              {
+                "name": "trackId",
+                "value": "",
+                "type": "path",
+                "description": "Order TrackId"
+              },
+              {
+                "name": "updateAddressGps",
+                "value": "",
+                "type": "query",
+                "description": "Force update existing Lat/Lon in the Addresses directory from the payload data."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update order by TrackId"
+        },
+        {
+          "info": {
+            "name": "Get orders by date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get orders by date"
+        },
+        {
+          "info": {
+            "name": "Get orders by route date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Route/Date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get orders by route date"
+        },
+        {
+          "info": {
+            "name": "Get orders by route code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Route/Code/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get orders by route code"
+        },
+        {
+          "info": {
+            "name": "Get orders after status modify date and time (min. request time is UTC - 1 day)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Status/Date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get orders after status modify date and time (min. request time is UTC - 1 day)"
+        },
+        {
+          "info": {
+            "name": "Get orders by number (last 25 orders)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Number/:number/List",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get orders by number (last 25 orders)"
+        },
+        {
+          "info": {
+            "name": "Set order status by number. Deprecated. Please use /Order/Complete or Reject instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Number/:number/Status",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set order status by number. Deprecated. Please use /Order/Complete or Reject instead."
+        },
+        {
+          "info": {
+            "name": "Set order status by TrackId. Deprecated. Please use /Order/Complete or Reject instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/TrackId/:trackId/Status",
+            "params": [
+              {
+                "name": "trackId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set order status by TrackId. Deprecated. Please use /Order/Complete or Reject instead."
+        },
+        {
+          "info": {
+            "name": "Set order status by id. Deprecated. Please use /Order/Complete or Reject instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Id/:id/Status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set order status by id. Deprecated. Please use /Order/Complete or Reject instead."
+        },
+        {
+          "info": {
+            "name": "Get order POD by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Number/:number/Pdf",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get order POD by number"
+        },
+        {
+          "info": {
+            "name": "Get order POD by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Id/:id/Pdf",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get order POD by Id"
+        },
+        {
+          "info": {
+            "name": "Get order shipping label by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Number/:number/Shipping-label",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Order number"
+              },
+              {
+                "name": "pageType",
+                "value": "",
+                "type": "query",
+                "description": "Page type. Options: 6A4, 10x10, 10x15. (default: 6A4)"
+              }
+            ]
+          },
+          "docs": "Get order shipping label by number"
+        },
+        {
+          "info": {
+            "name": "Get order shipping label by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Order/Id/:id/Shipping-label",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Order Id"
+              },
+              {
+                "name": "pageType",
+                "value": "",
+                "type": "query",
+                "description": "Page type. Options: 6A4, 10x10, 10x15. (default: 6A4)"
+              }
+            ]
+          },
+          "docs": "Get order shipping label by Id"
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'delivered', 'collected', or 'partially' by number. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Number/:number/Complete",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'delivered', 'collected', or 'partially' by number. Note: The order must be scheduled for delivery."
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'delivered', 'collected', or 'partially' by Id. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Id/:id/Complete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'delivered', 'collected', or 'partially' by Id. Note: The order must be scheduled for delivery."
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'delivered', 'collected', or 'partially' by TrackId. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/TrackId/:trackId/Complete",
+            "params": [
+              {
+                "name": "trackId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'delivered', 'collected', or 'partially' by TrackId. Note: The order must be scheduled for delivery."
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'not delivered' or 'not collected' by number. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Number/:number/Reject",
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'not delivered' or 'not collected' by number. Note: The order must be scheduled for delivery."
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'not delivered' or 'not collected' by Id. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/Id/:id/Reject",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'not delivered' or 'not collected' by Id. Note: The order must be scheduled for delivery."
+        },
+        {
+          "info": {
+            "name": "Set the order status to 'not delivered' or 'not collected' by TrackId. Note: The order must be scheduled for delivery.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/Order/TrackId/:trackId/Reject",
+            "params": [
+              {
+                "name": "trackId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the order status to 'not delivered' or 'not collected' by TrackId. Note: The order must be scheduled for delivery."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
