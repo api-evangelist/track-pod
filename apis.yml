@@ -32,6 +32,22 @@ tags:
   - Delivery
   - Last Mile
   - Logistics
+  - Proof of Delivery
+  - Electronic Proof Of Delivery
+  - EPOD
+  - Route Planning
+  - Route Optimization
+  - Dispatch
+  - Fleet Management
+  - Driver Tracking
+  - Couriers
+  - Field Service
+  - Transportation
+  - Shipping
+tags_raw:
+  - Delivery
+  - Last Mile
+  - Logistics
   - Proof Of Delivery
   - Electronic Proof Of Delivery
   - EPOD
@@ -184,7 +200,8 @@ apis:
   description: The Test API from Track-POD — 1 operation(s) for test.
   humanURL: https://api.track-pod.com/index.html
   baseURL: https://api.track-pod.com
-  tags:
+  tags: []
+  tags_raw:
   - Test
   properties:
   - type: OpenAPI
