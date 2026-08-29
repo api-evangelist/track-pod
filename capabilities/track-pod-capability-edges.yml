@@ -1,0 +1,58 @@
+slug: track-pod
+provider: Track-POD
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Vehicle
+  spec_file: track-pod-vehicle-api-openapi.yml
+  capability_id: BC-2430
+  capability_id_l1: BC-2430
+  capability_name: Fleet & Mobile Asset Management
+  confidence: 0.78
+  evidence: 'POST /Vehicle  AddVehicle  Add vehicle; GET /Vehicle  GetVehicles  Get vehicles; schemas:
+    NewVehicle, VehicleExtended'
+  reason: Registry CRUD for delivery vehicles — mobile asset master data for the fleet. No evidence of
+    maintenance, telematics or utilisation analytics, so L1 only.
+- tag: Driver
+  spec_file: track-pod-driver-api-openapi.yml
+  capability_id: BC-2440
+  capability_id_l1: BC-2440
+  capability_name: Driver & Crew Operations Management
+  confidence: 0.72
+  evidence: 'GET /Driver  GetDrivers  Get drivers; POST /Driver  AddDriver  Add driver; schemas: UpdateDriver,
+    Driver, NewDriver'
+  reason: CRUD over driver records in a last-mile delivery platform — driver master data underpinning
+    driver/crew operations. No operation names qualifications, rostering or hours-of-service, so no L2
+    is asserted.
+- tag: Route
+  spec_file: track-pod-route-api-openapi.yml
+  capability_id: BC-2420.10
+  capability_id_l1: BC-2420
+  capability_name: Dispatch Management
+  confidence: 0.72
+  evidence: 'POST /Route  AddRoute  Add route; GET /Route/Date/{date}  Get routes by date; schemas: NewRoute,
+    Vehicle, RouteTrack, RouteTrackPoint, Order'
+  reason: Routes bundle orders with a vehicle and track points — construction and management of delivery
+    runs, i.e. assignment of loads and vehicles to moves (dispatch) in a route-planning platform.
+- tag: Order
+  spec_file: track-pod-order-api-openapi.yml
+  capability_id: BC-2420.40
+  capability_id_l1: BC-2420
+  capability_name: Last-Mile Delivery Operations Management
+  confidence: 0.7
+  evidence: 'POST /Order  AddOrder  Add unscheduled order; GET /Order/Route/Date/{date}  Get orders by
+    route date; schemas: CompleteOrder, RejectOrder, OrderStatus, PickupOrder, Goods'
+  reason: Delivery orders tied to routes, with completion/rejection and goods — execution of delivery
+    jobs in an ePOD/last-mile platform, i.e. transport operations rather than generic sales order handling.
+    L2 last-mile is likely given the vendor's ePOD focus but order CRUD alone is somewhat broader, hence
+    moderate confidence.

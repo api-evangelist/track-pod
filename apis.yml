@@ -287,6 +287,9 @@ apis:
   - type: Vocabulary
     url: vocabulary/track-pod-vocabulary.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/track-pod-capability-edges.yml
+    name: Track-POD Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/track-pod/overview
   - type: AgenticAccess
