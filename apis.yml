@@ -156,32 +156,6 @@ apis:
     url: examples/track-pod-create-order-example.json
   - type: Vocabulary
     url: vocabulary/track-pod-vocabulary.yml
-- aid: track-pod:track-pod-rejectreason-api
-  name: Track-POD RejectReason API
-  description: The RejectReason API from Track-POD — 1 operation(s) for rejectreason.
-  humanURL: https://api.track-pod.com/index.html
-  baseURL: https://api.track-pod.com
-  tags:
-  - RejectReason
-  properties:
-  - type: OpenAPI
-    url: openapi/track-pod-rejectreason-api-openapi.yml
-  - type: Documentation
-    url: https://api.track-pod.com/index.html
-  - type: Sandbox
-    url: https://api.sandbox.track-pod.com/index.html
-  - type: JSONSchema
-    url: json-schema/track-pod-order-schema.json
-  - type: JSONSchema
-    url: json-schema/track-pod-route-schema.json
-  - type: JSONLD
-    url: json-ld/track-pod-context.jsonld
-  - type: SpectralRules
-    url: rules/track-pod-rules.yml
-  - type: Examples
-    url: examples/track-pod-create-order-example.json
-  - type: Vocabulary
-    url: vocabulary/track-pod-vocabulary.yml
 - aid: track-pod:track-pod-route-api
   name: Track-POD Route API
   description: The Route API from Track-POD — 24 operation(s) for route.
@@ -271,6 +245,32 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/track-pod-vehiclecheck-api-openapi.yml
+  - type: Documentation
+    url: https://api.track-pod.com/index.html
+  - type: Sandbox
+    url: https://api.sandbox.track-pod.com/index.html
+  - type: JSONSchema
+    url: json-schema/track-pod-order-schema.json
+  - type: JSONSchema
+    url: json-schema/track-pod-route-schema.json
+  - type: JSONLD
+    url: json-ld/track-pod-context.jsonld
+  - type: SpectralRules
+    url: rules/track-pod-rules.yml
+  - type: Examples
+    url: examples/track-pod-create-order-example.json
+  - type: Vocabulary
+    url: vocabulary/track-pod-vocabulary.yml
+- aid: track-pod:track-pod-reject-reason-api
+  name: Track-POD Reject Reason API
+  description: The Reject Reason API from Track-POD — 1 operation(s) for reject reason.
+  humanURL: https://api.track-pod.com/index.html
+  baseURL: https://api.track-pod.com
+  tags:
+  - Reject Reason
+  properties:
+  - type: OpenAPI
+    url: openapi/track-pod-reject-reason-api-openapi.yml
   - type: Documentation
     url: https://api.track-pod.com/index.html
   - type: Sandbox
