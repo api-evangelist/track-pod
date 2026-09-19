@@ -215,6 +215,8 @@ apis:
   humanURL: https://api.track-pod.com/index.html
   baseURL: https://api.track-pod.com
   tags:
+  - Vehicles
+  tags_raw:
   - Vehicle
   properties:
   - type: OpenAPI
