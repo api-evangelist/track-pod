@@ -1,7 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Track-POD Address VehicleCheck API
-  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  title: Track-POD Vehicle Check API
+  description: Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input.
   version: '2.0'
 security:
 - ApiKey: []
@@ -168,53 +168,55 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    VehicleCheckStage:
-      enum:
-      - BeforeRoute
-      - AfterRoute
-      type: string
     VehicleCheck:
       type: object
       properties:
         DriverLogin:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Driver's login
-          nullable: true
           example: 'RT567 '
         DriverName:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Driver’s First Name and Last Name
-          nullable: true
           example: Peter G.
         DepotId:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Unique identifier in user accounting system
-          nullable: true
           example: 1
         Depot:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Depot address
-          nullable: true
           example: '9 Riverside, Salford M7 1PA '
         Date:
           type: string
           format: date-time
         VehicleNumber:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Vehicle number
-          nullable: true
           example: XXX777
         Odometer:
-          type: number
+          type:
+          - number
+          - 'null'
           description: Odometer
           format: double
-          nullable: true
         Values:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/VehicleCheckValue'
           description: Vehicle check values
-          nullable: true
           xml:
             name: Values
             wrapped: true
@@ -223,14 +225,16 @@ components:
           description: Signature attached
           example: true
         SignaturePhoto:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Links for download jpg file (each link is available for 24h from API call)
-          nullable: true
         Stage:
           $ref: '#/components/schemas/VehicleCheckStage'
         RouteNumber:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
       xml:
         name: VehicleCheck
@@ -238,40 +242,51 @@ components:
       type: object
       properties:
         Label:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Vehicle check label
-          nullable: true
           example: Tyre and Wheel Nuts
         Status:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: Check status
-          nullable: true
         Photo:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: Photo attached
-          nullable: true
         Photos:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: Array of links for download jpg file (each link is available for 24h from API call)
-          nullable: true
           xml:
             name: Photos
           example:
           - https://image.track-pod.com/...
         Note:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Note
-          nullable: true
         Value:
-          type: number
+          type:
+          - number
+          - 'null'
           description: Value
           format: double
-          nullable: true
       additionalProperties: false
       xml:
         name: VehicleCheckValue
+    VehicleCheckStage:
+      enum:
+      - BeforeRoute
+      - AfterRoute
+      type: string
   securitySchemes:
     ApiKey:
       type: apiKey

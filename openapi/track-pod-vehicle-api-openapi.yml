@@ -1,7 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Track-POD Address Vehicle API
-  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  title: Track-POD Vehicle API
+  description: Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input.
   version: '2.0'
 security:
 - ApiKey: []
@@ -235,293 +235,29 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    VehicleExtended:
+    ApiResponse:
       type: object
       properties:
-        Id:
-          type: integer
-          description: Track-POD unique identifier
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
           format: int32
-          nullable: true
-          example: 2341
-        DriverId:
-          type: string
-          description: Driver's Track-POD unique identifier
-          format: uuid
-          nullable: true
-          example: 00000000-0000-0000-0000-000000000000
-        DriverUsername:
-          type: string
-          description: Driver's username
-          nullable: true
-          example: MyDriver
-        DepotId:
-          type: string
-          description: Unique identifier in user accounting system
-          nullable: true
-          example: 1
-        Depot:
-          type: string
-          description: Depot address
-          nullable: true
-          example: '9 Riverside, Salford M7 1PA '
-        MaxNodes:
-          type: integer
-          description: Maximum number of sites/orders
-          format: int32
-          nullable: true
-          example: 5
-        MaxWorkTime:
-          type: integer
-          description: Maximum work time, h
-          format: int32
-          nullable: true
-          example: 8
-        MaxDistance:
-          type: integer
-          description: Maximum distance, km
-          format: int32
-          nullable: true
-          example: 1000
-        SpeedRatio:
-          type: number
-          description: Speed ratio restriction
-          format: double
-          nullable: true
-          example: 1
-        CostPerDistance:
-          type: number
-          description: Cost per distance (km)
-          format: double
-          nullable: true
-          example: 1
-        CostPerHour:
-          type: number
-          description: Cost per hour
-          format: double
-          nullable: true
-          example: 10
-        BaseFare:
-          type: number
-          description: Base fare
-          format: double
-          nullable: true
-          example: 0
-        StartTime:
-          type: string
-          description: Start time
-          format: date-span
-          nullable: true
-          example: 08:00:00
-        VehicleType:
-          type: integer
-          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
-          format: int32
-          nullable: true
-          example: 1
-        EmissionCo2:
-          type: integer
-          description: Vehicle emission g/km or g/mile
-          format: int32
-          nullable: true
-          example: 250
-        Number:
-          maxLength: 30
-          minLength: 0
-          type: string
-          description: Number
-          nullable: true
-          example: XXX777
-        CarrierCode:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Carrier Code
-          nullable: true
-          example: 31
-        Carrier:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Carrier
-          nullable: true
-          example: Big Logistics
-        Weight:
-          type: number
-          description: Capacity Weight
-          format: double
-          nullable: true
-          example: 10000
-        Volume:
-          type: number
-          description: Capacity Volume
-          format: double
-          nullable: true
-          example: 14.5
-        Pallets:
-          type: number
-          description: Capacity Pallets
-          format: double
-          nullable: true
-          example: 16
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
       additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
       xml:
-        name: VehicleExtended
-    NewVehicle:
-      type: object
-      properties:
-        Number:
-          maxLength: 30
-          minLength: 0
-          type: string
-          description: "Required (*) \n\nNumber"
-          nullable: true
-          example: XXX777
-        CarrierCode:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Carrier Code
-          nullable: true
-          example: 31
-        Carrier:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Carrier
-          nullable: true
-          example: Big Logistics
-        Weight:
-          maximum: 100000000
-          minimum: 0
-          type: number
-          description: Capacity Weight
-          format: double
-          nullable: true
-          example: 100
-        Volume:
-          maximum: 100000000
-          minimum: 0
-          type: number
-          description: Capacity Volume
-          format: double
-          nullable: true
-          example: 14.5
-        Pallets:
-          maximum: 100000000
-          minimum: 0
-          type: number
-          description: Capacity Pallets
-          format: double
-          nullable: true
-          example: 16
-        DriverId:
-          type: string
-          description: "Required (*) \n\nDriver's Track-POD unique identifier (DriverId or DriverUsername is Required)"
-          format: uuid
-          nullable: true
-          example: 00000000-0000-0000-0000-000000000000
-        DriverUsername:
-          type: string
-          description: "Required (*) \n\nDriver's username (DriverId or DriverUsername is Required)"
-          nullable: true
-          example: MyDriver
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type: string
-          description: "Required (*) \n\nUnique identifier in user accounting system (DepotId or Depot is Required)"
-          nullable: true
-          example: 1
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: "Required (*) \n\nDepot address (DepotId or Depot is Required)"
-          nullable: true
-          example: '9 Riverside, Salford M7 1PA '
-        MaxNodes:
-          maximum: 200
-          minimum: 0
-          type: integer
-          description: Maximum number of sites/orders
-          format: int32
-          nullable: true
-          example: 5
-        MaxWorkTime:
-          maximum: 480
-          minimum: 0
-          type: integer
-          description: Maximum work time, h
-          format: int32
-          nullable: true
-          example: 8
-        MaxDistance:
-          maximum: 10000
-          minimum: 0
-          type: integer
-          description: Maximum distance, km
-          format: int32
-          nullable: true
-          example: 1000
-        SpeedRatio:
-          type: number
-          description: 'Speed ratio restriction
-
-            (should be grater than 0 and less or equal 2)'
-          format: double
-          nullable: true
-          example: 1
-        CostPerDistance:
-          maximum: 1000000
-          minimum: 0
-          type: number
-          description: Cost per distance (km)
-          format: double
-          nullable: true
-          example: 1.1
-        CostPerHour:
-          maximum: 1000000
-          minimum: 0
-          type: number
-          description: Cost per hour
-          format: double
-          nullable: true
-          example: 10
-        BaseFare:
-          maximum: 1000000
-          minimum: 0
-          type: number
-          description: Base fare
-          format: double
-          nullable: true
-          example: 0
-        StartTime:
-          type: string
-          description: Start time
-          format: date-span
-          nullable: true
-          example: 08:00:00
-        VehicleType:
-          maximum: 2
-          minimum: 0
-          type: integer
-          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
-          format: int32
-          nullable: true
-          example: 1
-        EmissionCo2:
-          maximum: 50000
-          minimum: 0
-          type: integer
-          description: Vehicle emission g/km or g/mile
-          format: int32
-          nullable: true
-          example: 250
-      additionalProperties: false
-      description: '"*" - required fields'
-      xml:
-        name: NewVehicle
+        name: ApiResponse
     UpdateVehicle:
       type: object
       properties:
@@ -533,174 +269,502 @@ components:
         Number:
           maxLength: 30
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nNumber"
-          nullable: true
           example: XXX777
         CarrierCode:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Carrier Code
-          nullable: true
           example: 31
         Carrier:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Carrier
-          nullable: true
           example: Big Logistics
         Weight:
           maximum: 100000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Capacity Weight
           format: double
-          nullable: true
           example: 100
         Volume:
           maximum: 100000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Capacity Volume
           format: double
-          nullable: true
           example: 14.5
         Pallets:
           maximum: 100000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Capacity Pallets
           format: double
-          nullable: true
           example: 16
         DriverId:
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nDriver's Track-POD unique identifier (DriverId or DriverUsername is Required)"
           format: uuid
-          nullable: true
           example: 00000000-0000-0000-0000-000000000000
         DriverUsername:
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nDriver's username (DriverId or DriverUsername is Required)"
-          nullable: true
           example: MyDriver
         DepotId:
           maxLength: 50
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nUnique identifier in user accounting system (DepotId or Depot is Required)"
-          nullable: true
           example: 1
         Depot:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nDepot address (DepotId or Depot is Required)"
-          nullable: true
           example: '9 Riverside, Salford M7 1PA '
         MaxNodes:
           maximum: 200
           minimum: 0
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Maximum number of sites/orders
           format: int32
-          nullable: true
           example: 5
         MaxWorkTime:
           maximum: 480
           minimum: 0
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Maximum work time, h
           format: int32
-          nullable: true
           example: 8
         MaxDistance:
           maximum: 10000
           minimum: 0
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Maximum distance, km
           format: int32
-          nullable: true
           example: 1000
         SpeedRatio:
-          type: number
+          type:
+          - number
+          - 'null'
           description: 'Speed ratio restriction
 
             (should be grater than 0 and less or equal 2)'
           format: double
-          nullable: true
           example: 1
         CostPerDistance:
           maximum: 1000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Cost per distance (km)
           format: double
-          nullable: true
           example: 1.1
         CostPerHour:
           maximum: 1000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Cost per hour
           format: double
-          nullable: true
           example: 10
         BaseFare:
           maximum: 1000000
           minimum: 0
-          type: number
+          type:
+          - number
+          - 'null'
           description: Base fare
           format: double
-          nullable: true
           example: 0
         StartTime:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Start time
           format: date-span
-          nullable: true
           example: 08:00:00
         VehicleType:
           maximum: 2
           minimum: 0
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
           format: int32
-          nullable: true
           example: 1
         EmissionCo2:
           maximum: 50000
           minimum: 0
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: Vehicle emission g/km or g/mile
           format: int32
-          nullable: true
           example: 250
       additionalProperties: false
       xml:
         name: UpdateVehicle
-    ApiResponse:
+    NewVehicle:
       type: object
       properties:
-        Status:
-          type: integer
-          description: The HTTP status code for the response
+        Number:
+          maxLength: 30
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nNumber"
+          example: XXX777
+        CarrierCode:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier Code
+          example: 31
+        Carrier:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier
+          example: Big Logistics
+        Weight:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Weight
+          format: double
+          example: 100
+        Volume:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Volume
+          format: double
+          example: 14.5
+        Pallets:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Pallets
+          format: double
+          example: 16
+        DriverId:
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDriver's Track-POD unique identifier (DriverId or DriverUsername is Required)"
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        DriverUsername:
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDriver's username (DriverId or DriverUsername is Required)"
+          example: MyDriver
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nUnique identifier in user accounting system (DepotId or Depot is Required)"
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDepot address (DepotId or Depot is Required)"
+          example: '9 Riverside, Salford M7 1PA '
+        MaxNodes:
+          maximum: 200
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum number of sites/orders
           format: int32
-          nullable: true
-        Title:
-          type: string
-          description: A short, human-readable summary of the response
-          nullable: true
-        Detail:
-          type: string
-          description: A human-readable explanation specific to this response.
-          nullable: true
+          example: 5
+        MaxWorkTime:
+          maximum: 480
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum work time, h
+          format: int32
+          example: 8
+        MaxDistance:
+          maximum: 10000
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum distance, km
+          format: int32
+          example: 1000
+        SpeedRatio:
+          type:
+          - number
+          - 'null'
+          description: 'Speed ratio restriction
+
+            (should be grater than 0 and less or equal 2)'
+          format: double
+          example: 1
+        CostPerDistance:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Cost per distance (km)
+          format: double
+          example: 1.1
+        CostPerHour:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Cost per hour
+          format: double
+          example: 10
+        BaseFare:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Base fare
+          format: double
+          example: 0
+        StartTime:
+          type:
+          - string
+          - 'null'
+          description: Start time
+          format: date-span
+          example: 08:00:00
+        VehicleType:
+          maximum: 2
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
+          format: int32
+          example: 1
+        EmissionCo2:
+          maximum: 50000
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Vehicle emission g/km or g/mile
+          format: int32
+          example: 250
       additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
+      description: '"*" - required fields'
       xml:
-        name: ApiResponse
+        name: NewVehicle
+    VehicleExtended:
+      type: object
+      properties:
+        Id:
+          type:
+          - integer
+          - 'null'
+          description: Track-POD unique identifier
+          format: int32
+          example: 2341
+        DriverId:
+          type:
+          - string
+          - 'null'
+          description: Driver's Track-POD unique identifier
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        DriverUsername:
+          type:
+          - string
+          - 'null'
+          description: Driver's username
+          example: MyDriver
+        DepotId:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1
+        Depot:
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: '9 Riverside, Salford M7 1PA '
+        MaxNodes:
+          type:
+          - integer
+          - 'null'
+          description: Maximum number of sites/orders
+          format: int32
+          example: 5
+        MaxWorkTime:
+          type:
+          - integer
+          - 'null'
+          description: Maximum work time, h
+          format: int32
+          example: 8
+        MaxDistance:
+          type:
+          - integer
+          - 'null'
+          description: Maximum distance, km
+          format: int32
+          example: 1000
+        SpeedRatio:
+          type:
+          - number
+          - 'null'
+          description: Speed ratio restriction
+          format: double
+          example: 1
+        CostPerDistance:
+          type:
+          - number
+          - 'null'
+          description: Cost per distance (km)
+          format: double
+          example: 1
+        CostPerHour:
+          type:
+          - number
+          - 'null'
+          description: Cost per hour
+          format: double
+          example: 10
+        BaseFare:
+          type:
+          - number
+          - 'null'
+          description: Base fare
+          format: double
+          example: 0
+        StartTime:
+          type:
+          - string
+          - 'null'
+          description: Start time
+          format: date-span
+          example: 08:00:00
+        VehicleType:
+          type:
+          - integer
+          - 'null'
+          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
+          format: int32
+          example: 1
+        EmissionCo2:
+          type:
+          - integer
+          - 'null'
+          description: Vehicle emission g/km or g/mile
+          format: int32
+          example: 250
+        Number:
+          maxLength: 30
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Number
+          example: XXX777
+        CarrierCode:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier Code
+          example: 31
+        Carrier:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier
+          example: Big Logistics
+        Weight:
+          type:
+          - number
+          - 'null'
+          description: Capacity Weight
+          format: double
+          example: 10000
+        Volume:
+          type:
+          - number
+          - 'null'
+          description: Capacity Volume
+          format: double
+          example: 14.5
+        Pallets:
+          type:
+          - number
+          - 'null'
+          description: Capacity Pallets
+          format: double
+          example: 16
+      additionalProperties: false
+      xml:
+        name: VehicleExtended
   securitySchemes:
     ApiKey:
       type: apiKey

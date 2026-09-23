@@ -1,7 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Track-POD Address Driver API
-  description: 'Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input. Our API provides an easy HTTP interface to Track-POD functionality through JSON or XML<br><br><b>Endpoint:</b><br>https://api.track-pod.com/<br><br><b>Request headers:</b><br><b>X-API-KEY</b> - API Key. Please find the API key in the Track-POD settings <br><b>Content-Type</b> - (POST/PUT) Request input type: <b>application/json</b> - JSON, <b>application/xml</b> - XML<br><b>Accept</b> - Response output type: <b>application/json</b> - JSON, <b>application/xml</b> - XML <br><b>Accept-Encoding</b> - Response compression: <b>gzip, deflate, br</b><br><br><b>Webhooks:</b><br>Create/Update/Delete route, Create/Update/Delete order, and more <a target=''_blank'' href=''https://track-pod.freshdesk.com/support/solutions/articles/103000049842''>How to use Webhooks?</a>'
+  title: Track-POD Driver API
+  description: Track-POD API enables ERP or any other system integration with Track-POD without need for any manual data input.
   version: '2.0'
 security:
 - ApiKey: []
@@ -131,7 +131,7 @@ paths:
     delete:
       tags:
       - Driver
-      summary: Delete Driver by id.
+      summary: Delete Driver by id
       operationId: DeleteDriverByUsername
       parameters:
       - name: username
@@ -334,173 +334,127 @@ paths:
           description: Internal Server Error
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
     UpdateDriver:
       type: object
       properties:
         Id:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Track-POD unique identifier
           format: uuid
-          nullable: true
           example: 00000000-0000-0000-0000-000000000000
         Name:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nName"
-          nullable: true
           example: John Doe
         Vehicle:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Vehicle number
-          nullable: true
           example: NYC 1898
         Phone:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Phone
-          nullable: true
           example: +1-XXX-456-7890
         Username:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nUsername"
-          nullable: true
           example: john
         Password:
           maxLength: 255
           minLength: 5
-          type: string
+          type:
+          - string
+          - 'null'
           description: "Required (*) \n\nPassword"
-          nullable: true
         DepotId:
           maxLength: 50
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Unique identifier in user accounting system
-          nullable: true
           example: 1
         Depot:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Depot address
-          nullable: true
           example: '9 Riverside, Salford M7 1PA '
         HomeAddress:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Home address
-          nullable: true
           example: 2 St Josephs Crescent, Liverpool L3 3JF
         Zone:
           maxLength: 100
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Zone
-          nullable: true
           example: South
         Active:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: Active flag
-          nullable: true
           example: true
         Note:
           maxLength: 255
           minLength: 0
-          type: string
+          type:
+          - string
+          - 'null'
           description: Note
-          nullable: true
           example: My favourite driver
       additionalProperties: false
       xml:
         name: UpdateDriver
-    NewDriver:
-      type: object
-      properties:
-        Name:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: "Required (*) \n\nName"
-          nullable: true
-          example: John Doe
-        Vehicle:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Vehicle number
-          nullable: true
-          example: NYC 1898
-        Phone:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Phone
-          nullable: true
-          example: +1-XXX-456-7890
-        Username:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: "Required (*) \n\nUsername"
-          nullable: true
-          example: john
-        Password:
-          maxLength: 255
-          minLength: 5
-          type: string
-          description: "Required (*) \n\nPassword"
-          nullable: true
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type: string
-          description: Unique identifier in user accounting system
-          nullable: true
-          example: 1
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Depot address
-          nullable: true
-          example: '9 Riverside, Salford M7 1PA '
-        HomeAddress:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Home address
-          nullable: true
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        Zone:
-          maxLength: 100
-          minLength: 0
-          type: string
-          description: Zone
-          nullable: true
-          example: South
-        Active:
-          type: boolean
-          description: Active flag
-          nullable: true
-          example: true
-        Note:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: Note
-          nullable: true
-          example: My favourite driver
-      additionalProperties: false
-      description: '"*" - required fields'
-      xml:
-        name: NewDriver
     Driver:
       type: object
       properties:
@@ -515,86 +469,168 @@ components:
           format: int32
           example: 1
         Name:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Name
-          nullable: true
           example: John Doe
         Vehicle:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Vehicle number
-          nullable: true
           example: NYC 1898
         Phone:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Phone
-          nullable: true
           example: +1-XXX-456-7890
         Username:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Username
-          nullable: true
           example: john
         DepotId:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Unique identifier in user accounting system
-          nullable: true
           example: 1
         Depot:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Depot address
-          nullable: true
           example: 9 Riverside, Salford M7 1PA
         HomeAddress:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Home address
-          nullable: true
           example: 2 St Josephs Crescent, Liverpool L3 3JF
         Zone:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Zone
-          nullable: true
           example: South
         Active:
           type: boolean
           description: Active flag
           example: true
         Note:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Note
-          nullable: true
           example: My favourite driver
         TeamCodes:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: Team code
-          nullable: true
           xml:
             name: TeamCodes
             wrapped: true
       additionalProperties: false
       xml:
         name: Driver
-    ApiResponse:
+    NewDriver:
       type: object
       properties:
-        Status:
-          type: integer
-          description: The HTTP status code for the response
-          format: int32
-          nullable: true
-        Title:
-          type: string
-          description: A short, human-readable summary of the response
-          nullable: true
-        Detail:
-          type: string
-          description: A human-readable explanation specific to this response.
-          nullable: true
+        Name:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nName"
+          example: John Doe
+        Vehicle:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Vehicle number
+          example: NYC 1898
+        Phone:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Phone
+          example: +1-XXX-456-7890
+        Username:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nUsername"
+          example: john
+        Password:
+          maxLength: 255
+          minLength: 5
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nPassword"
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: '9 Riverside, Salford M7 1PA '
+        HomeAddress:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Home address
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Zone
+          example: South
+        Active:
+          type:
+          - boolean
+          - 'null'
+          description: Active flag
+          example: true
+        Note:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Note
+          example: My favourite driver
       additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
+      description: '"*" - required fields'
       xml:
-        name: ApiResponse
+        name: NewDriver
   securitySchemes:
     ApiKey:
       type: apiKey
