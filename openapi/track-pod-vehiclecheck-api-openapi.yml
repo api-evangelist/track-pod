@@ -168,6 +168,11 @@ paths:
           description: Internal Server Error
 components:
   schemas:
+    VehicleCheckStage:
+      enum:
+      - BeforeRoute
+      - AfterRoute
+      type: string
     VehicleCheck:
       type: object
       properties:
@@ -282,11 +287,6 @@ components:
       additionalProperties: false
       xml:
         name: VehicleCheckValue
-    VehicleCheckStage:
-      enum:
-      - BeforeRoute
-      - AfterRoute
-      type: string
   securitySchemes:
     ApiKey:
       type: apiKey

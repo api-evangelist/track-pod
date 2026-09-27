@@ -334,127 +334,6 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    ApiResponse:
-      type: object
-      properties:
-        Status:
-          type:
-          - integer
-          - 'null'
-          description: The HTTP status code for the response
-          format: int32
-        Title:
-          type:
-          - string
-          - 'null'
-          description: A short, human-readable summary of the response
-        Detail:
-          type:
-          - string
-          - 'null'
-          description: A human-readable explanation specific to this response.
-      additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
-      xml:
-        name: ApiResponse
-    UpdateDriver:
-      type: object
-      properties:
-        Id:
-          type:
-          - string
-          - 'null'
-          description: Track-POD unique identifier
-          format: uuid
-          example: 00000000-0000-0000-0000-000000000000
-        Name:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nName"
-          example: John Doe
-        Vehicle:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Vehicle number
-          example: NYC 1898
-        Phone:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Phone
-          example: +1-XXX-456-7890
-        Username:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nUsername"
-          example: john
-        Password:
-          maxLength: 255
-          minLength: 5
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nPassword"
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 1
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Depot address
-          example: '9 Riverside, Salford M7 1PA '
-        HomeAddress:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Home address
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        Zone:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Zone
-          example: South
-        Active:
-          type:
-          - boolean
-          - 'null'
-          description: Active flag
-          example: true
-        Note:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Note
-          example: My favourite driver
-      additionalProperties: false
-      xml:
-        name: UpdateDriver
     Driver:
       type: object
       properties:
@@ -631,6 +510,127 @@ components:
       description: '"*" - required fields'
       xml:
         name: NewDriver
+    UpdateDriver:
+      type: object
+      properties:
+        Id:
+          type:
+          - string
+          - 'null'
+          description: Track-POD unique identifier
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        Name:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nName"
+          example: John Doe
+        Vehicle:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Vehicle number
+          example: NYC 1898
+        Phone:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Phone
+          example: +1-XXX-456-7890
+        Username:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nUsername"
+          example: john
+        Password:
+          maxLength: 255
+          minLength: 5
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nPassword"
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: '9 Riverside, Salford M7 1PA '
+        HomeAddress:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Home address
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Zone
+          example: South
+        Active:
+          type:
+          - boolean
+          - 'null'
+          description: Active flag
+          example: true
+        Note:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Note
+          example: My favourite driver
+      additionalProperties: false
+      xml:
+        name: UpdateDriver
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
   securitySchemes:
     ApiKey:
       type: apiKey
