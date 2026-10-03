@@ -334,6 +334,29 @@ paths:
           description: Internal Server Error
 components:
   schemas:
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
     Driver:
       type: object
       properties:
@@ -608,29 +631,6 @@ components:
       additionalProperties: false
       xml:
         name: UpdateDriver
-    ApiResponse:
-      type: object
-      properties:
-        Status:
-          type:
-          - integer
-          - 'null'
-          description: The HTTP status code for the response
-          format: int32
-        Title:
-          type:
-          - string
-          - 'null'
-          description: A short, human-readable summary of the response
-        Detail:
-          type:
-          - string
-          - 'null'
-          description: A human-readable explanation specific to this response.
-      additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
-      xml:
-        name: ApiResponse
   securitySchemes:
     ApiKey:
       type: apiKey

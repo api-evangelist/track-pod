@@ -41,23 +41,6 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    RejectReason:
-      type: object
-      properties:
-        Id:
-          type: integer
-          description: Track-POD unique identifier
-          format: int32
-          example: 2
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Name
-          example: Canceled
-      additionalProperties: false
-      xml:
-        name: RejectReason
     RejectReasonsList:
       type: object
       properties:
@@ -104,6 +87,23 @@ components:
       additionalProperties: false
       xml:
         name: RejectReasonsList
+    RejectReason:
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: Track-POD unique identifier
+          format: int32
+          example: 2
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Name
+          example: Canceled
+      additionalProperties: false
+      xml:
+        name: RejectReason
   securitySchemes:
     ApiKey:
       type: apiKey

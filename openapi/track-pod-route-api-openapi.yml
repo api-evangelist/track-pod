@@ -2044,379 +2044,6 @@ components:
       - LiveTracking
       - Routing
       type: string
-    NewOrderGoods:
-      type: object
-      properties:
-        OrderLineId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Order line (goods line in the order) unique identifier in user accounting system
-          example: 22435324
-        GoodsId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Goods (directory) unique identifier in user accounting system
-          example: 30495
-        GoodsName:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Item Description - Goods, load, packaging
-          example: Some big mystic box
-        GoodsUnit:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: 'Unit of measure: pcs, pkg, kg, lbs'
-          example: pcs.
-        Note:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Notes for delivery/pickup
-          example: ID3658AAA
-        Quantity:
-          type:
-          - number
-          - 'null'
-          description: Quantity or weight
-          format: double
-          example: 10.5
-        Cost:
-          type:
-          - number
-          - 'null'
-          description: Unit price
-          format: double
-          example: 2.99
-        OrderLineBarcode:
-          maxLength: 128
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Order line (goods line in the order) barcode
-          example: 1234567890123
-        GoodsBarcode:
-          maxLength: 128
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Goods (directory) barcode
-          example: 1234567890123
-      additionalProperties: false
-      description: '"*" - required fields'
-      xml:
-        name: NewOrderGoods
-    NotificationsPolicy:
-      type: object
-      properties:
-        PriorToRouteNotificationEnabled:
-          type:
-          - boolean
-          - 'null'
-          description: Overrides default behavior for prior to route notifications
-        AtRouteStartNotificationEnabled:
-          type:
-          - boolean
-          - 'null'
-          description: Overrides default behavior for at route start notifications
-        EnRouteNotificationEnabled:
-          type:
-          - boolean
-          - 'null'
-          description: Overrides default behavior for en route notifications
-        AtDepartureNotificationEnabled:
-          type:
-          - boolean
-          - 'null'
-          description: Overrides default behavior for at departure notifications
-      additionalProperties: false
-      xml:
-        name: NotificationsPolicy
-    NewOrder:
-      type: object
-      properties:
-        Number:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Order/Invoice/Job/Waybill number
-          example: cv30001-2
-        Id:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 10000345
-        Date:
-          type:
-          - string
-          - 'null'
-          description: Order date, yyyy-MM-dd
-          format: date-time
-          example: '2019-02-01'
-        Type:
-          maximum: 1
-          minimum: 0
-          type: integer
-          description: 'Order type:
-
-            0 - Delivery order;
-
-            1 - Collection order'
-          format: int32
-          example: 0
-        Shipper:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Shipper/Supplier name
-          example: Sanitex
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Depot address
-          example: '9 Riverside, Salford M7 1PA '
-        Client:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nClient/Customer name"
-          example: Maxima
-        Address:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nDelivery/Pickup address. Address cannot be updated for orders planned into routes"
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        AddressLat:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Latitude
-          format: double
-          example: 25.290479
-        AddressLon:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Longitude
-          format: double
-          example: 65.294049
-        AddressZone:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Address zone
-          example: Zone 1
-        TimeSlotFrom:
-          type:
-          - string
-          - 'null'
-          description: Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T09:00:00'
-        TimeSlotTo:
-          type:
-          - string
-          - 'null'
-          description: Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T18:00:00'
-        ServiceTime:
-          type:
-          - number
-          - 'null'
-          description: 'Service Time, min.
-
-            If seconds are specified value will be decimal'
-          format: double
-          example: 10
-        Note:
-          maxLength: 500
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Notes to order
-          example: Only to sign Invoice
-        ContactName:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact name
-          example: John Doe
-        Phone:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact phone number
-          example: '+37061191244'
-        Email:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s e-mail
-          example: X-604@maxima.com
-        Weight:
-          type:
-          - number
-          - 'null'
-          description: Total weight
-          format: double
-          example: 50.5
-        Volume:
-          type:
-          - number
-          - 'null'
-          description: Total volume
-          format: double
-          example: 8.54
-        Pallets:
-          type:
-          - number
-          - 'null'
-          description: Pallets count
-          format: double
-          example: 3.5
-        COD:
-          type:
-          - number
-          - 'null'
-          description: Amount of Cash on Delivery
-          format: double
-          example: 20.45
-        InvoiceId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Invoice identifier in user accounting system
-          example: 'inv0002 '
-        CustomerReferenceId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer reference order identifier in user accounting system
-          example: ord123/1
-        Barcode:
-          maxLength: 128
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Barcode for scanning in the mobile application
-          example: 1234567890123
-        ShipperId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Optional, unique identifier in user accounting system for shipper directory
-          example: 357
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Optional, unique identifier in user accounting system for depot directory
-          example: 1
-        ClientId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Optional, unique identifier in user accounting system for client directory
-          example: 247
-        AddressId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Optional, unique identifier in user accounting system for address directory
-          example: 13587
-        GoodsList:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NewOrderGoods'
-          description: Goods List in Order
-          xml:
-            name: GoodsList
-            wrapped: true
-        CustomFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NewCustomField'
-          description: Custom Fields
-          xml:
-            name: CustomFields
-            wrapped: true
-        PickupOrder:
-          $ref: '#/components/schemas/NewPickupOrder'
-        Priority:
-          type:
-          - string
-          - 'null'
-          description: 'Priority
-
-            Possible values: low, normal, high'
-        TeamCode:
-          type:
-          - string
-          - 'null'
-          description: Team code
-        NotificationsPolicy:
-          $ref: '#/components/schemas/NotificationsPolicy'
-      additionalProperties: false
-      description: '"*" - required fields'
-      xml:
-        name: NewOrder
     RouteTrack:
       type: object
       properties:
@@ -2459,65 +2086,6 @@ components:
       additionalProperties: false
       xml:
         name: RouteTrackPoint
-    Vehicle:
-      type: object
-      properties:
-        Number:
-          maxLength: 30
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Number
-          example: XXX777
-        CarrierCode:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Carrier Code
-          example: 31
-        Carrier:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Carrier
-          example: Big Logistics
-        Weight:
-          type:
-          - number
-          - 'null'
-          description: Capacity Weight
-          format: double
-          example: 10000
-        Volume:
-          type:
-          - number
-          - 'null'
-          description: Capacity Volume
-          format: double
-          example: 14.5
-        Pallets:
-          type:
-          - number
-          - 'null'
-          description: Capacity Pallets
-          format: double
-          example: 16
-      additionalProperties: false
-      xml:
-        name: Vehicle
-    RouteStatus:
-      enum:
-      - Draft
-      - Ready
-      - Loaded
-      - InProgress
-      - Closed
-      type: string
     CustomField:
       type: object
       properties:
@@ -2540,716 +2108,6 @@ components:
       additionalProperties: false
       xml:
         name: CustomField
-    NewCustomField:
-      type: object
-      properties:
-        Id:
-          pattern: cf_\d+
-          type:
-          - string
-          - 'null'
-          description: Custom Field Id
-          example: cf_456
-        Value:
-          type:
-          - string
-          - 'null'
-          description: 'Custom Field Value in format:
-
-            CheckBox - true
-
-            Number - 123.45
-
-            Date - 2019-09-18
-
-            Time - 13:00
-
-            DateTime - 2019-09-18T13:45:00
-
-            Text - Text Value'
-      additionalProperties: false
-      xml:
-        name: NewCustomField
-    PickupOrder:
-      type: object
-      properties:
-        Id_DocShipment:
-          type: integer
-          format: int32
-        Type:
-          type: integer
-          description: 'Order type:
-
-            0 - Delivery order;
-
-            1 - Collection order'
-          format: int32
-          example: 0
-        ClientId:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 247
-        Client:
-          type:
-          - string
-          - 'null'
-          description: Client/Customer name
-          example: Maxima
-        AddressId:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 13587
-        Address:
-          type:
-          - string
-          - 'null'
-          description: Delivery/Pickup address
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        AddressLat:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Latitude
-          format: double
-          example: 25.290479
-        AddressLon:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Longitude
-          format: double
-          example: 65.294049
-        AddressZone:
-          type:
-          - string
-          - 'null'
-          description: Address zone
-          example: Zone 1
-        ContactName:
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact name
-          example: John Doe
-        Phone:
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact phone number
-          example: '+37061191244'
-        Email:
-          type:
-          - string
-          - 'null'
-          description: Customer’s e-mail
-          example: X-604@maxima.com
-        TimeSlotFrom:
-          type:
-          - string
-          - 'null'
-          description: Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T09:00:00'
-        TimeSlotTo:
-          type:
-          - string
-          - 'null'
-          description: Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T18:00:00'
-        ServiceTime:
-          type:
-          - number
-          - 'null'
-          description: 'Desired service time, min.
-
-            If seconds are specified value will be decimal'
-          format: double
-          example: 10
-        CustomFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/CustomField'
-          description: List of custom fields
-          xml:
-            name: CustomFields
-            wrapped: true
-        Note:
-          type:
-          - string
-          - 'null'
-          description: Notes to order
-          example: Only to sign Invoice
-        COD:
-          type: number
-          description: Amount of Cash on Delivery
-          format: double
-          example: 20.45
-        CODActual:
-          type:
-          - string
-          - 'null'
-          description: Collected Paid Amount from a Client
-          example: 20.5
-        StatusId:
-          type:
-          - integer
-          - 'null'
-          description: 'Status code: 1 - In Progress; 2 - Not delivered/Not collected (site issues); 3 - Delivered/Collected; 4 - Partially; 5 - Not delivered/Not collected (order issues)'
-          format: int32
-          example: 3
-        Status:
-          type:
-          - string
-          - 'null'
-          description: Status description
-          example: Delivered
-        StatusLat:
-          type:
-          - number
-          - 'null'
-          description: Status GPS Latitude
-          format: double
-          example: 25.290479
-        StatusLon:
-          type:
-          - number
-          - 'null'
-          description: Status GPS Longitude
-          format: double
-          example: 65.294049.
-        DriverComment:
-          type:
-          - string
-          - 'null'
-          description: Drivers comment from mobile application
-          example: The customer was angry for being late
-        RejectReasonId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        RejectReason:
-          type:
-          - string
-          - 'null'
-          description: Reject reason for order
-          example: Out Of Time
-        ScanReasonId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        ScanRejectReason:
-          type:
-          - string
-          - 'null'
-          description: Reject reason for order's scanning
-          example: Barcode is Damaged
-        LoadCheckScanReasonId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        LoadCheckScanRejectReason:
-          type:
-          - string
-          - 'null'
-          description: Reject reason for order's scanning when the order is loaded
-          example: Barcode is Damaged
-        SignatureName:
-          type:
-          - string
-          - 'null'
-          description: Name of the person who signed
-          example: Andrew Bart
-        HasSignaturePhoto:
-          type:
-          - boolean
-          - 'null'
-          description: Signature attached
-          example: true
-        SignaturePhotos:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: Array of links for download jpg file (each link is available for 24h from API call)
-          xml:
-            name: SignaturePhotos
-          example:
-          - https://image.track-pod.com/...
-        HasPhoto:
-          type:
-          - boolean
-          - 'null'
-          description: Photo attached
-          example: false
-        Photos:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: Array of links for download jpg file (each link is available for 24h from API call)
-          xml:
-            name: Photos
-          example:
-          - https://image.track-pod.com/...
-        HasRoutePointPhoto:
-          type:
-          - boolean
-          - 'null'
-        StatusDate:
-          type:
-          - string
-          - 'null'
-          description: Status date
-          format: date-time
-          example: '2019-02-01T15:31:00'
-        PlanTime:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        PlanTimeDep:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        PlanServiceTime:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        ETA:
-          type:
-          - string
-          - 'null'
-          description: Estimated time of arrival
-          format: date-time
-          example: '2019-02-01T15:27:00'
-        UpdatedETA:
-          type:
-          - string
-          - 'null'
-          description: Updated estimated time of arrival
-          format: date-time
-          example: '2019-02-01T15:35:00'
-        RouteDate:
-          type:
-          - string
-          - 'null'
-          description: Route date
-          format: date-time
-          example: '2019-02-01T00:00:00'
-        ArrivedDate:
-          type:
-          - string
-          - 'null'
-          description: Date of arrival
-          format: date-time
-          example: '2019-02-01T15:25:00'
-        DepartedDate:
-          type:
-          - string
-          - 'null'
-          description: Date of Departure
-          format: date-time
-          example: '2019-02-01T15:31:00'
-        ReportUrl:
-          type:
-          - string
-          - 'null'
-          description: Link to the PDF order delivery note (available within 1 hour from the API call)
-          example: Paid feature, please contact support for details
-        Barcode:
-          type:
-          - string
-          - 'null'
-          description: Barcode
-          example: 1234567890123
-        Scanned:
-          type:
-          - boolean
-          - 'null'
-          description: Order is scanned in the mobile application
-          example: false
-        FeedbackRating:
-          type:
-          - number
-          - 'null'
-          description: Feedback Rating from mobile application
-          format: double
-          example: 5
-        TrackKey:
-          type: string
-          description: Key for tracking order
-          format: uuid
-          readOnly: true
-          example: 3F2504E0-4F89-11D3-9A0C-0305E82C3301
-          deprecated: true
-        TrackId:
-          type: string
-          description: Id for tracking order
-          format: uuid
-          example: 3F2504E0-4F89-11D3-9A0C-0305E82C3301
-        TrackLink:
-          type:
-          - string
-          - 'null'
-          description: Link for tracking order
-          example: https://web.track-pod.com/track?id=d8662b19-ece7-4cda-baa3-c711ade5ad15
-        LoadStatusId:
-          $ref: '#/components/schemas/LoadStatus'
-        HasLoadSignature:
-          type:
-          - boolean
-          - 'null'
-        LoadStatus:
-          type:
-          - string
-          - 'null'
-          description: 'Status code: none; loaded; not-loaded;'
-          example: loaded
-        LoadDate:
-          type:
-          - string
-          - 'null'
-          description: Date of Loading
-          format: date-time
-          example: '2019-02-01T15:31:00'
-        LoadSignaturePhotos:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: Array of links for download jpg file (each link is available for 24h from API call)
-          xml:
-            name: LoadSignaturePhotos
-            wrapped: true
-        ChangeDate:
-          type: string
-          format: date-time
-        AddressNote:
-          type:
-          - string
-          - 'null'
-          description: Address note
-          example: Beware of the dog
-        ClientNote:
-          type:
-          - string
-          - 'null'
-          description: Client note
-          example: Very nice person
-        CustomFieldsStr:
-          type:
-          - string
-          - 'null'
-        CancelledStatus:
-          type: integer
-          format: int32
-        RescheduledTimes:
-          type:
-          - integer
-          - 'null'
-          description: Order rescheduled times
-          format: int32
-          example: 1
-      additionalProperties: false
-      xml:
-        name: PickupOrder
-    NewRoute:
-      type: object
-      properties:
-        Code:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Route code/number
-          example: R0001234
-        Id:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 1234
-        Date:
-          type:
-          - string
-          - 'null'
-          description: Route date, yyyy-MM-dd
-          format: date-time
-          example: '2019-02-01'
-        StartTimePlan:
-          type:
-          - string
-          - 'null'
-          description: Planned Start Time, yyyy-MM-ddTHH:mm:ss or HH:mm
-          format: date-time
-          example: '13:00'
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 1
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Depot address
-          example: 9 Riverside, Salford M7 1PA
-        StartFromDepot:
-          type:
-          - boolean
-          - 'null'
-          description: Start route from depot
-          example: true
-        ReturnToDepot:
-          type:
-          - boolean
-          - 'null'
-          description: Return to depot
-          example: true
-        DriverLogin:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Driver's login
-          example: 'RT567 '
-        DriverPassword:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Driver’s password
-          example: 1
-        DriverName:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Driver’s First Name and Last Name
-          example: Peter G.
-        DriverVehicle:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Driver’s vehicle license plate number
-          example: FCU 819
-        Vehicle:
-          $ref: '#/components/schemas/Vehicle'
-        Orders:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NewOrder'
-          xml:
-            name: Orders
-            wrapped: true
-        CustomFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NewCustomField'
-          description: Custom Fields
-          xml:
-            name: CustomFields
-            wrapped: true
-        RouteDate:
-          type: string
-          format: date-time
-          readOnly: true
-      additionalProperties: false
-      xml:
-        name: NewRoute
-    LoadStatus:
-      enum:
-      - NotLoaded
-      - Loaded
-      - Scanned
-      type: string
-    NewPickupOrder:
-      type: object
-      properties:
-        ClientId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 247
-        Client:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Client/Customer name
-          example: Maxima
-        AddressId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 13587
-        Address:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Pickup address
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        AddressLat:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Latitude
-          format: double
-          example: 25.290479
-        AddressLon:
-          type:
-          - number
-          - 'null'
-          description: Address GPS Longitude
-          format: double
-          example: 65.294049
-        AddressZone:
-          maxLength: 100
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Address zone
-          example: Zone 1
-        ContactName:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact name
-          example: John Doe
-        Phone:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s contact phone number
-          example: '+37061191244'
-        Email:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Customer’s e-mail
-          example: X-604@maxima.com
-        TimeSlotFrom:
-          type:
-          - string
-          - 'null'
-          description: Desired pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T09:00:00'
-        TimeSlotTo:
-          type:
-          - string
-          - 'null'
-          description: Desired pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
-          format: date-time
-          example: '2019-02-01T18:00:00'
-        ServiceTime:
-          type:
-          - number
-          - 'null'
-          description: 'Service Time, min.
-
-            If seconds are specified value will be decimal'
-          format: double
-          example: 10
-        CustomFields:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/NewCustomField'
-          description: Custom Fields
-          xml:
-            name: CustomFields
-            wrapped: true
-        COD:
-          type:
-          - number
-          - 'null'
-          description: Amount of Cash
-          format: double
-          example: 20.45
-        Note:
-          maxLength: 500
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Notes to order
-          example: Only to sign Invoice
-      additionalProperties: false
-      xml:
-        name: NewPickupOrder
-    ApiResponse:
-      type: object
-      properties:
-        Status:
-          type:
-          - integer
-          - 'null'
-          description: The HTTP status code for the response
-          format: int32
-        Title:
-          type:
-          - string
-          - 'null'
-          description: A short, human-readable summary of the response
-        Detail:
-          type:
-          - string
-          - 'null'
-          description: A human-readable explanation specific to this response.
-      additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
-      xml:
-        name: ApiResponse
     Order:
       type: object
       properties:
@@ -3780,6 +2638,306 @@ components:
       additionalProperties: false
       xml:
         name: Order
+    NewOrderGoods:
+      type: object
+      properties:
+        OrderLineId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Order line (goods line in the order) unique identifier in user accounting system
+          example: 22435324
+        GoodsId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Goods (directory) unique identifier in user accounting system
+          example: 30495
+        GoodsName:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Item Description - Goods, load, packaging
+          example: Some big mystic box
+        GoodsUnit:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: 'Unit of measure: pcs, pkg, kg, lbs'
+          example: pcs.
+        Note:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Notes for delivery/pickup
+          example: ID3658AAA
+        Quantity:
+          type:
+          - number
+          - 'null'
+          description: Quantity or weight
+          format: double
+          example: 10.5
+        Cost:
+          type:
+          - number
+          - 'null'
+          description: Unit price
+          format: double
+          example: 2.99
+        OrderLineBarcode:
+          maxLength: 128
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Order line (goods line in the order) barcode
+          example: 1234567890123
+        GoodsBarcode:
+          maxLength: 128
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Goods (directory) barcode
+          example: 1234567890123
+      additionalProperties: false
+      description: '"*" - required fields'
+      xml:
+        name: NewOrderGoods
+    NewPickupOrder:
+      type: object
+      properties:
+        ClientId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 247
+        Client:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Client/Customer name
+          example: Maxima
+        AddressId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 13587
+        Address:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Pickup address
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        AddressLat:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Latitude
+          format: double
+          example: 25.290479
+        AddressLon:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Longitude
+          format: double
+          example: 65.294049
+        AddressZone:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Address zone
+          example: Zone 1
+        ContactName:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact name
+          example: John Doe
+        Phone:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact phone number
+          example: '+37061191244'
+        Email:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s e-mail
+          example: X-604@maxima.com
+        TimeSlotFrom:
+          type:
+          - string
+          - 'null'
+          description: Desired pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T09:00:00'
+        TimeSlotTo:
+          type:
+          - string
+          - 'null'
+          description: Desired pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T18:00:00'
+        ServiceTime:
+          type:
+          - number
+          - 'null'
+          description: 'Service Time, min.
+
+            If seconds are specified value will be decimal'
+          format: double
+          example: 10
+        CustomFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewCustomField'
+          description: Custom Fields
+          xml:
+            name: CustomFields
+            wrapped: true
+        COD:
+          type:
+          - number
+          - 'null'
+          description: Amount of Cash
+          format: double
+          example: 20.45
+        Note:
+          maxLength: 500
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Notes to order
+          example: Only to sign Invoice
+      additionalProperties: false
+      xml:
+        name: NewPickupOrder
+    RouteStatus:
+      enum:
+      - Draft
+      - Ready
+      - Loaded
+      - InProgress
+      - Closed
+      type: string
+    NotificationsPolicy:
+      type: object
+      properties:
+        PriorToRouteNotificationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: Overrides default behavior for prior to route notifications
+        AtRouteStartNotificationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: Overrides default behavior for at route start notifications
+        EnRouteNotificationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: Overrides default behavior for en route notifications
+        AtDepartureNotificationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: Overrides default behavior for at departure notifications
+      additionalProperties: false
+      xml:
+        name: NotificationsPolicy
+    Vehicle:
+      type: object
+      properties:
+        Number:
+          maxLength: 30
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Number
+          example: XXX777
+        CarrierCode:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier Code
+          example: 31
+        Carrier:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier
+          example: Big Logistics
+        Weight:
+          type:
+          - number
+          - 'null'
+          description: Capacity Weight
+          format: double
+          example: 10000
+        Volume:
+          type:
+          - number
+          - 'null'
+          description: Capacity Volume
+          format: double
+          example: 14.5
+        Pallets:
+          type:
+          - number
+          - 'null'
+          description: Capacity Pallets
+          format: double
+          example: 16
+      additionalProperties: false
+      xml:
+        name: Vehicle
+    LoadStatus:
+      enum:
+      - NotLoaded
+      - Loaded
+      - Scanned
+      type: string
     Goods:
       type: object
       properties:
@@ -3896,6 +3054,848 @@ components:
       additionalProperties: false
       xml:
         name: Goods
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
+    NewRoute:
+      type: object
+      properties:
+        Code:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Route code/number
+          example: R0001234
+        Id:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1234
+        Date:
+          type:
+          - string
+          - 'null'
+          description: Route date, yyyy-MM-dd
+          format: date-time
+          example: '2019-02-01'
+        StartTimePlan:
+          type:
+          - string
+          - 'null'
+          description: Planned Start Time, yyyy-MM-ddTHH:mm:ss or HH:mm
+          format: date-time
+          example: '13:00'
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: 9 Riverside, Salford M7 1PA
+        StartFromDepot:
+          type:
+          - boolean
+          - 'null'
+          description: Start route from depot
+          example: true
+        ReturnToDepot:
+          type:
+          - boolean
+          - 'null'
+          description: Return to depot
+          example: true
+        DriverLogin:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Driver's login
+          example: 'RT567 '
+        DriverPassword:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Driver’s password
+          example: 1
+        DriverName:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Driver’s First Name and Last Name
+          example: Peter G.
+        DriverVehicle:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Driver’s vehicle license plate number
+          example: FCU 819
+        Vehicle:
+          $ref: '#/components/schemas/Vehicle'
+        Orders:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewOrder'
+          xml:
+            name: Orders
+            wrapped: true
+        CustomFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewCustomField'
+          description: Custom Fields
+          xml:
+            name: CustomFields
+            wrapped: true
+        RouteDate:
+          type: string
+          format: date-time
+          readOnly: true
+      additionalProperties: false
+      xml:
+        name: NewRoute
+    NewCustomField:
+      type: object
+      properties:
+        Id:
+          pattern: cf_\d+
+          type:
+          - string
+          - 'null'
+          description: Custom Field Id
+          example: cf_456
+        Value:
+          type:
+          - string
+          - 'null'
+          description: 'Custom Field Value in format:
+
+            CheckBox - true
+
+            Number - 123.45
+
+            Date - 2019-09-18
+
+            Time - 13:00
+
+            DateTime - 2019-09-18T13:45:00
+
+            Text - Text Value'
+      additionalProperties: false
+      xml:
+        name: NewCustomField
+    NewOrder:
+      type: object
+      properties:
+        Number:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Order/Invoice/Job/Waybill number
+          example: cv30001-2
+        Id:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 10000345
+        Date:
+          type:
+          - string
+          - 'null'
+          description: Order date, yyyy-MM-dd
+          format: date-time
+          example: '2019-02-01'
+        Type:
+          maximum: 1
+          minimum: 0
+          type: integer
+          description: 'Order type:
+
+            0 - Delivery order;
+
+            1 - Collection order'
+          format: int32
+          example: 0
+        Shipper:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Shipper/Supplier name
+          example: Sanitex
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: '9 Riverside, Salford M7 1PA '
+        Client:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nClient/Customer name"
+          example: Maxima
+        Address:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDelivery/Pickup address. Address cannot be updated for orders planned into routes"
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        AddressLat:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Latitude
+          format: double
+          example: 25.290479
+        AddressLon:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Longitude
+          format: double
+          example: 65.294049
+        AddressZone:
+          maxLength: 100
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Address zone
+          example: Zone 1
+        TimeSlotFrom:
+          type:
+          - string
+          - 'null'
+          description: Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T09:00:00'
+        TimeSlotTo:
+          type:
+          - string
+          - 'null'
+          description: Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T18:00:00'
+        ServiceTime:
+          type:
+          - number
+          - 'null'
+          description: 'Service Time, min.
+
+            If seconds are specified value will be decimal'
+          format: double
+          example: 10
+        Note:
+          maxLength: 500
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Notes to order
+          example: Only to sign Invoice
+        ContactName:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact name
+          example: John Doe
+        Phone:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact phone number
+          example: '+37061191244'
+        Email:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer’s e-mail
+          example: X-604@maxima.com
+        Weight:
+          type:
+          - number
+          - 'null'
+          description: Total weight
+          format: double
+          example: 50.5
+        Volume:
+          type:
+          - number
+          - 'null'
+          description: Total volume
+          format: double
+          example: 8.54
+        Pallets:
+          type:
+          - number
+          - 'null'
+          description: Pallets count
+          format: double
+          example: 3.5
+        COD:
+          type:
+          - number
+          - 'null'
+          description: Amount of Cash on Delivery
+          format: double
+          example: 20.45
+        InvoiceId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Invoice identifier in user accounting system
+          example: 'inv0002 '
+        CustomerReferenceId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Customer reference order identifier in user accounting system
+          example: ord123/1
+        Barcode:
+          maxLength: 128
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Barcode for scanning in the mobile application
+          example: 1234567890123
+        ShipperId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Optional, unique identifier in user accounting system for shipper directory
+          example: 357
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Optional, unique identifier in user accounting system for depot directory
+          example: 1
+        ClientId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Optional, unique identifier in user accounting system for client directory
+          example: 247
+        AddressId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Optional, unique identifier in user accounting system for address directory
+          example: 13587
+        GoodsList:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewOrderGoods'
+          description: Goods List in Order
+          xml:
+            name: GoodsList
+            wrapped: true
+        CustomFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/NewCustomField'
+          description: Custom Fields
+          xml:
+            name: CustomFields
+            wrapped: true
+        PickupOrder:
+          $ref: '#/components/schemas/NewPickupOrder'
+        Priority:
+          type:
+          - string
+          - 'null'
+          description: 'Priority
+
+            Possible values: low, normal, high'
+        TeamCode:
+          type:
+          - string
+          - 'null'
+          description: Team code
+        NotificationsPolicy:
+          $ref: '#/components/schemas/NotificationsPolicy'
+      additionalProperties: false
+      description: '"*" - required fields'
+      xml:
+        name: NewOrder
+    PickupOrder:
+      type: object
+      properties:
+        Id_DocShipment:
+          type: integer
+          format: int32
+        Type:
+          type: integer
+          description: 'Order type:
+
+            0 - Delivery order;
+
+            1 - Collection order'
+          format: int32
+          example: 0
+        ClientId:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 247
+        Client:
+          type:
+          - string
+          - 'null'
+          description: Client/Customer name
+          example: Maxima
+        AddressId:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 13587
+        Address:
+          type:
+          - string
+          - 'null'
+          description: Delivery/Pickup address
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        AddressLat:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Latitude
+          format: double
+          example: 25.290479
+        AddressLon:
+          type:
+          - number
+          - 'null'
+          description: Address GPS Longitude
+          format: double
+          example: 65.294049
+        AddressZone:
+          type:
+          - string
+          - 'null'
+          description: Address zone
+          example: Zone 1
+        ContactName:
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact name
+          example: John Doe
+        Phone:
+          type:
+          - string
+          - 'null'
+          description: Customer’s contact phone number
+          example: '+37061191244'
+        Email:
+          type:
+          - string
+          - 'null'
+          description: Customer’s e-mail
+          example: X-604@maxima.com
+        TimeSlotFrom:
+          type:
+          - string
+          - 'null'
+          description: Desired delivery/pickup time from, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T09:00:00'
+        TimeSlotTo:
+          type:
+          - string
+          - 'null'
+          description: Desired delivery/pickup time till, yyyy-MM-ddTHH:mm:ss or HH:mm:ss
+          format: date-time
+          example: '2019-02-01T18:00:00'
+        ServiceTime:
+          type:
+          - number
+          - 'null'
+          description: 'Desired service time, min.
+
+            If seconds are specified value will be decimal'
+          format: double
+          example: 10
+        CustomFields:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/CustomField'
+          description: List of custom fields
+          xml:
+            name: CustomFields
+            wrapped: true
+        Note:
+          type:
+          - string
+          - 'null'
+          description: Notes to order
+          example: Only to sign Invoice
+        COD:
+          type: number
+          description: Amount of Cash on Delivery
+          format: double
+          example: 20.45
+        CODActual:
+          type:
+          - string
+          - 'null'
+          description: Collected Paid Amount from a Client
+          example: 20.5
+        StatusId:
+          type:
+          - integer
+          - 'null'
+          description: 'Status code: 1 - In Progress; 2 - Not delivered/Not collected (site issues); 3 - Delivered/Collected; 4 - Partially; 5 - Not delivered/Not collected (order issues)'
+          format: int32
+          example: 3
+        Status:
+          type:
+          - string
+          - 'null'
+          description: Status description
+          example: Delivered
+        StatusLat:
+          type:
+          - number
+          - 'null'
+          description: Status GPS Latitude
+          format: double
+          example: 25.290479
+        StatusLon:
+          type:
+          - number
+          - 'null'
+          description: Status GPS Longitude
+          format: double
+          example: 65.294049.
+        DriverComment:
+          type:
+          - string
+          - 'null'
+          description: Drivers comment from mobile application
+          example: The customer was angry for being late
+        RejectReasonId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        RejectReason:
+          type:
+          - string
+          - 'null'
+          description: Reject reason for order
+          example: Out Of Time
+        ScanReasonId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        ScanRejectReason:
+          type:
+          - string
+          - 'null'
+          description: Reject reason for order's scanning
+          example: Barcode is Damaged
+        LoadCheckScanReasonId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        LoadCheckScanRejectReason:
+          type:
+          - string
+          - 'null'
+          description: Reject reason for order's scanning when the order is loaded
+          example: Barcode is Damaged
+        SignatureName:
+          type:
+          - string
+          - 'null'
+          description: Name of the person who signed
+          example: Andrew Bart
+        HasSignaturePhoto:
+          type:
+          - boolean
+          - 'null'
+          description: Signature attached
+          example: true
+        SignaturePhotos:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Array of links for download jpg file (each link is available for 24h from API call)
+          xml:
+            name: SignaturePhotos
+          example:
+          - https://image.track-pod.com/...
+        HasPhoto:
+          type:
+          - boolean
+          - 'null'
+          description: Photo attached
+          example: false
+        Photos:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Array of links for download jpg file (each link is available for 24h from API call)
+          xml:
+            name: Photos
+          example:
+          - https://image.track-pod.com/...
+        HasRoutePointPhoto:
+          type:
+          - boolean
+          - 'null'
+        StatusDate:
+          type:
+          - string
+          - 'null'
+          description: Status date
+          format: date-time
+          example: '2019-02-01T15:31:00'
+        PlanTime:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        PlanTimeDep:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        PlanServiceTime:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        ETA:
+          type:
+          - string
+          - 'null'
+          description: Estimated time of arrival
+          format: date-time
+          example: '2019-02-01T15:27:00'
+        UpdatedETA:
+          type:
+          - string
+          - 'null'
+          description: Updated estimated time of arrival
+          format: date-time
+          example: '2019-02-01T15:35:00'
+        RouteDate:
+          type:
+          - string
+          - 'null'
+          description: Route date
+          format: date-time
+          example: '2019-02-01T00:00:00'
+        ArrivedDate:
+          type:
+          - string
+          - 'null'
+          description: Date of arrival
+          format: date-time
+          example: '2019-02-01T15:25:00'
+        DepartedDate:
+          type:
+          - string
+          - 'null'
+          description: Date of Departure
+          format: date-time
+          example: '2019-02-01T15:31:00'
+        ReportUrl:
+          type:
+          - string
+          - 'null'
+          description: Link to the PDF order delivery note (available within 1 hour from the API call)
+          example: Paid feature, please contact support for details
+        Barcode:
+          type:
+          - string
+          - 'null'
+          description: Barcode
+          example: 1234567890123
+        Scanned:
+          type:
+          - boolean
+          - 'null'
+          description: Order is scanned in the mobile application
+          example: false
+        FeedbackRating:
+          type:
+          - number
+          - 'null'
+          description: Feedback Rating from mobile application
+          format: double
+          example: 5
+        TrackKey:
+          type: string
+          description: Key for tracking order
+          format: uuid
+          readOnly: true
+          example: 3F2504E0-4F89-11D3-9A0C-0305E82C3301
+          deprecated: true
+        TrackId:
+          type: string
+          description: Id for tracking order
+          format: uuid
+          example: 3F2504E0-4F89-11D3-9A0C-0305E82C3301
+        TrackLink:
+          type:
+          - string
+          - 'null'
+          description: Link for tracking order
+          example: https://web.track-pod.com/track?id=d8662b19-ece7-4cda-baa3-c711ade5ad15
+        LoadStatusId:
+          $ref: '#/components/schemas/LoadStatus'
+        HasLoadSignature:
+          type:
+          - boolean
+          - 'null'
+        LoadStatus:
+          type:
+          - string
+          - 'null'
+          description: 'Status code: none; loaded; not-loaded;'
+          example: loaded
+        LoadDate:
+          type:
+          - string
+          - 'null'
+          description: Date of Loading
+          format: date-time
+          example: '2019-02-01T15:31:00'
+        LoadSignaturePhotos:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Array of links for download jpg file (each link is available for 24h from API call)
+          xml:
+            name: LoadSignaturePhotos
+            wrapped: true
+        ChangeDate:
+          type: string
+          format: date-time
+        AddressNote:
+          type:
+          - string
+          - 'null'
+          description: Address note
+          example: Beware of the dog
+        ClientNote:
+          type:
+          - string
+          - 'null'
+          description: Client note
+          example: Very nice person
+        CustomFieldsStr:
+          type:
+          - string
+          - 'null'
+        CancelledStatus:
+          type: integer
+          format: int32
+        RescheduledTimes:
+          type:
+          - integer
+          - 'null'
+          description: Order rescheduled times
+          format: int32
+          example: 1
+      additionalProperties: false
+      xml:
+        name: PickupOrder
     Route:
       type: object
       properties:
