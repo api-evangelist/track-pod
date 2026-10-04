@@ -334,113 +334,6 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    ApiResponse:
-      type: object
-      properties:
-        Status:
-          type:
-          - integer
-          - 'null'
-          description: The HTTP status code for the response
-          format: int32
-        Title:
-          type:
-          - string
-          - 'null'
-          description: A short, human-readable summary of the response
-        Detail:
-          type:
-          - string
-          - 'null'
-          description: A human-readable explanation specific to this response.
-      additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
-      xml:
-        name: ApiResponse
-    Driver:
-      type: object
-      properties:
-        Id:
-          type: string
-          description: Track-POD unique identifier
-          format: uuid
-          example: 00000000-0000-0000-0000-000000000000
-        Number:
-          type: integer
-          description: Sequence number
-          format: int32
-          example: 1
-        Name:
-          type:
-          - string
-          - 'null'
-          description: Name
-          example: John Doe
-        Vehicle:
-          type:
-          - string
-          - 'null'
-          description: Vehicle number
-          example: NYC 1898
-        Phone:
-          type:
-          - string
-          - 'null'
-          description: Phone
-          example: +1-XXX-456-7890
-        Username:
-          type:
-          - string
-          - 'null'
-          description: Username
-          example: john
-        DepotId:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier in user accounting system
-          example: 1
-        Depot:
-          type:
-          - string
-          - 'null'
-          description: Depot address
-          example: 9 Riverside, Salford M7 1PA
-        HomeAddress:
-          type:
-          - string
-          - 'null'
-          description: Home address
-          example: 2 St Josephs Crescent, Liverpool L3 3JF
-        Zone:
-          type:
-          - string
-          - 'null'
-          description: Zone
-          example: South
-        Active:
-          type: boolean
-          description: Active flag
-          example: true
-        Note:
-          type:
-          - string
-          - 'null'
-          description: Note
-          example: My favourite driver
-        TeamCodes:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-          description: Team code
-          xml:
-            name: TeamCodes
-            wrapped: true
-      additionalProperties: false
-      xml:
-        name: Driver
     NewDriver:
       type: object
       properties:
@@ -631,6 +524,113 @@ components:
       additionalProperties: false
       xml:
         name: UpdateDriver
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
+    Driver:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Track-POD unique identifier
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        Number:
+          type: integer
+          description: Sequence number
+          format: int32
+          example: 1
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Name
+          example: John Doe
+        Vehicle:
+          type:
+          - string
+          - 'null'
+          description: Vehicle number
+          example: NYC 1898
+        Phone:
+          type:
+          - string
+          - 'null'
+          description: Phone
+          example: +1-XXX-456-7890
+        Username:
+          type:
+          - string
+          - 'null'
+          description: Username
+          example: john
+        DepotId:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier in user accounting system
+          example: 1
+        Depot:
+          type:
+          - string
+          - 'null'
+          description: Depot address
+          example: 9 Riverside, Salford M7 1PA
+        HomeAddress:
+          type:
+          - string
+          - 'null'
+          description: Home address
+          example: 2 St Josephs Crescent, Liverpool L3 3JF
+        Zone:
+          type:
+          - string
+          - 'null'
+          description: Zone
+          example: South
+        Active:
+          type: boolean
+          description: Active flag
+          example: true
+        Note:
+          type:
+          - string
+          - 'null'
+          description: Note
+          example: My favourite driver
+        TeamCodes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: Team code
+          xml:
+            name: TeamCodes
+            wrapped: true
+      additionalProperties: false
+      xml:
+        name: Driver
   securitySchemes:
     ApiKey:
       type: apiKey

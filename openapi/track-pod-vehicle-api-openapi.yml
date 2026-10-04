@@ -235,204 +235,6 @@ paths:
           description: Internal Server Error
 components:
   schemas:
-    ApiResponse:
-      type: object
-      properties:
-        Status:
-          type:
-          - integer
-          - 'null'
-          description: The HTTP status code for the response
-          format: int32
-        Title:
-          type:
-          - string
-          - 'null'
-          description: A short, human-readable summary of the response
-        Detail:
-          type:
-          - string
-          - 'null'
-          description: A human-readable explanation specific to this response.
-      additionalProperties: false
-      description: 'Object for all API responses, except GET (status code: 200)'
-      xml:
-        name: ApiResponse
-    NewVehicle:
-      type: object
-      properties:
-        Number:
-          maxLength: 30
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nNumber"
-          example: XXX777
-        CarrierCode:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Carrier Code
-          example: 31
-        Carrier:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: Carrier
-          example: Big Logistics
-        Weight:
-          maximum: 100000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Capacity Weight
-          format: double
-          example: 100
-        Volume:
-          maximum: 100000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Capacity Volume
-          format: double
-          example: 14.5
-        Pallets:
-          maximum: 100000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Capacity Pallets
-          format: double
-          example: 16
-        DriverId:
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nDriver's Track-POD unique identifier (DriverId or DriverUsername is Required)"
-          format: uuid
-          example: 00000000-0000-0000-0000-000000000000
-        DriverUsername:
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nDriver's username (DriverId or DriverUsername is Required)"
-          example: MyDriver
-        DepotId:
-          maxLength: 50
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nUnique identifier in user accounting system (DepotId or Depot is Required)"
-          example: 1
-        Depot:
-          maxLength: 255
-          minLength: 0
-          type:
-          - string
-          - 'null'
-          description: "Required (*) \n\nDepot address (DepotId or Depot is Required)"
-          example: '9 Riverside, Salford M7 1PA '
-        MaxNodes:
-          maximum: 200
-          minimum: 0
-          type:
-          - integer
-          - 'null'
-          description: Maximum number of sites/orders
-          format: int32
-          example: 5
-        MaxWorkTime:
-          maximum: 480
-          minimum: 0
-          type:
-          - integer
-          - 'null'
-          description: Maximum work time, h
-          format: int32
-          example: 8
-        MaxDistance:
-          maximum: 10000
-          minimum: 0
-          type:
-          - integer
-          - 'null'
-          description: Maximum distance, km
-          format: int32
-          example: 1000
-        SpeedRatio:
-          type:
-          - number
-          - 'null'
-          description: 'Speed ratio restriction
-
-            (should be grater than 0 and less or equal 2)'
-          format: double
-          example: 1
-        CostPerDistance:
-          maximum: 1000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Cost per distance (km)
-          format: double
-          example: 1.1
-        CostPerHour:
-          maximum: 1000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Cost per hour
-          format: double
-          example: 10
-        BaseFare:
-          maximum: 1000000
-          minimum: 0
-          type:
-          - number
-          - 'null'
-          description: Base fare
-          format: double
-          example: 0
-        StartTime:
-          type:
-          - string
-          - 'null'
-          description: Start time
-          format: date-span
-          example: 08:00:00
-        VehicleType:
-          maximum: 2
-          minimum: 0
-          type:
-          - integer
-          - 'null'
-          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
-          format: int32
-          example: 1
-        EmissionCo2:
-          maximum: 50000
-          minimum: 0
-          type:
-          - integer
-          - 'null'
-          description: Vehicle emission g/km or g/mile
-          format: int32
-          example: 250
-      additionalProperties: false
-      description: '"*" - required fields'
-      xml:
-        name: NewVehicle
     VehicleExtended:
       type: object
       properties:
@@ -765,6 +567,204 @@ components:
       additionalProperties: false
       xml:
         name: UpdateVehicle
+    NewVehicle:
+      type: object
+      properties:
+        Number:
+          maxLength: 30
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nNumber"
+          example: XXX777
+        CarrierCode:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier Code
+          example: 31
+        Carrier:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: Carrier
+          example: Big Logistics
+        Weight:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Weight
+          format: double
+          example: 100
+        Volume:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Volume
+          format: double
+          example: 14.5
+        Pallets:
+          maximum: 100000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Capacity Pallets
+          format: double
+          example: 16
+        DriverId:
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDriver's Track-POD unique identifier (DriverId or DriverUsername is Required)"
+          format: uuid
+          example: 00000000-0000-0000-0000-000000000000
+        DriverUsername:
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDriver's username (DriverId or DriverUsername is Required)"
+          example: MyDriver
+        DepotId:
+          maxLength: 50
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nUnique identifier in user accounting system (DepotId or Depot is Required)"
+          example: 1
+        Depot:
+          maxLength: 255
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: "Required (*) \n\nDepot address (DepotId or Depot is Required)"
+          example: '9 Riverside, Salford M7 1PA '
+        MaxNodes:
+          maximum: 200
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum number of sites/orders
+          format: int32
+          example: 5
+        MaxWorkTime:
+          maximum: 480
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum work time, h
+          format: int32
+          example: 8
+        MaxDistance:
+          maximum: 10000
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Maximum distance, km
+          format: int32
+          example: 1000
+        SpeedRatio:
+          type:
+          - number
+          - 'null'
+          description: 'Speed ratio restriction
+
+            (should be grater than 0 and less or equal 2)'
+          format: double
+          example: 1
+        CostPerDistance:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Cost per distance (km)
+          format: double
+          example: 1.1
+        CostPerHour:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Cost per hour
+          format: double
+          example: 10
+        BaseFare:
+          maximum: 1000000
+          minimum: 0
+          type:
+          - number
+          - 'null'
+          description: Base fare
+          format: double
+          example: 0
+        StartTime:
+          type:
+          - string
+          - 'null'
+          description: Start time
+          format: date-span
+          example: 08:00:00
+        VehicleType:
+          maximum: 2
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: 'Vehicle type: 0 - Truck/Car, 1 - Motorcycle, 2 - Bicycle'
+          format: int32
+          example: 1
+        EmissionCo2:
+          maximum: 50000
+          minimum: 0
+          type:
+          - integer
+          - 'null'
+          description: Vehicle emission g/km or g/mile
+          format: int32
+          example: 250
+      additionalProperties: false
+      description: '"*" - required fields'
+      xml:
+        name: NewVehicle
+    ApiResponse:
+      type: object
+      properties:
+        Status:
+          type:
+          - integer
+          - 'null'
+          description: The HTTP status code for the response
+          format: int32
+        Title:
+          type:
+          - string
+          - 'null'
+          description: A short, human-readable summary of the response
+        Detail:
+          type:
+          - string
+          - 'null'
+          description: A human-readable explanation specific to this response.
+      additionalProperties: false
+      description: 'Object for all API responses, except GET (status code: 200)'
+      xml:
+        name: ApiResponse
   securitySchemes:
     ApiKey:
       type: apiKey
