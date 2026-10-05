@@ -1,0 +1,12 @@
+{
+ "url": "https://api.track-pod.com/swagger/v1/swagger.json",
+ "requested_url": "https://api.track-pod.com/swagger/v1/swagger.json",
+ "status": 200,
+ "content_type": "application/json;charset=utf-8",
+ "bytes": 338784,
+ "sha256": "2ff1d587e26efbdea536cc167b156eaf51a86272979e2246265c10dedc0cc01b",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.986), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
