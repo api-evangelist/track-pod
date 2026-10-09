@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-25 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-25'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -253,3 +258,89 @@ notes:
   - All plans include route optimization, live tracking, proof of delivery, geofencing, the driver mobile app, analytics, 5,000+ integrations, and API access.
   - The driver mobile app is free to download on iOS and Android; the web dispatcher dashboard requires a paid subscription.
   - Annual billing is invoiced up front at a lower per-driver rate; monthly billing is at a higher per-driver rate.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units:
+  - negotiated
+  - period
+  - seat
+  - transaction
+  plans:
+  - name: Advanced
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    - seat
+    - transaction
+    periods:
+    - month
+  - name: Advanced Plus
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    - seat
+    - transaction
+    periods:
+    - month
+  - name: Ultimate
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    - seat
+    - transaction
+    periods:
+    - month
+  - name: Enterprise
+    access: enterprise
+    model: negotiated
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
+  - name: S Plan
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+  - name: M Plan
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+  - name: L Plan
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+  - name: XL Plan
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    - transaction
+    periods:
+    - month
