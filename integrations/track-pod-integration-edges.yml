@@ -1,3 +1,54 @@
+generated: '2026-10-20'
+method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/track-pod/integrations
+checked:
+- https://zapier.com/api/v4/apps/
+- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/track-pod
+- https://monid.ai/tools/track-pod
+- https://n8n.io/integrations/track-pod/
+- https://zapier.com/apps/track-pod/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: track-pod
+  url: https://zapier.com/apps/track-pod/integrations
+  external_url: https://www.track-pod.com/
+  partner_tier: SILVER
+  triggers:
+  - key: order_created
+    label: Order Created
+  - key: order_delivered
+    label: Order Collected \ Delivered
+  - key: order_delivered_partially
+    label: Order Partially Collected \ Delivered
+  - key: order_not_delivered
+    label: Order Not Collected \ Not Delivered
+  - key: order_updated
+    label: Order Updated
+  - key: order_updates
+    label: Order Status Updated
+  - key: previous_order_completed
+    label: Order Notification en Route Sent
+  actions:
+  - key: createOrder
+    label: Create Order
+  - key: deleteOrder
+    label: Delete Order
+  - key: updateOrder
+    label: Update Order
+  searches:
+  - key: searchOrderByExternalId
+    label: Find an Order by External Id
+  - key: searchOrderById
+    label: Find an Order by Id
+  - key: searchOrderByNumber
+    label: Find an Order by Number
+  - key: searchRouteByCode
+    label: Find a Route by Code
 edges:
 - partner_name: 17track
   partner: 17track
@@ -53,10 +104,425 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-generated: '2026-10-12'
-method: searched
-checked:
-- https://zapier.com/api/v4/apps/
-- shopify/integrations/shopify-integration-edges.yml
-source:
-- shopify/integrations/shopify-integration-edges.yml
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Cin7 Core Inventory
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/cin7-core
+  direction: third-party
+  category: Accounting
+  partner_url: https://dearsystems.com/
+- partner_name: QuickBooks Online
+  partner: quickbooks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: WhatsApp Notifications
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/whatsapp-notifications
+  direction: third-party
+  category: Communication
+  partner_url: null
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: monday.com
+  partner: monday-com
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: eBay
+  partner: ebay
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/ebay
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ebay.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: SimpleTexting
+  partner: simpletexting
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/simpletexting
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://simpletexting.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Odoo ERP Self Hosted
+  partner: odoo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/openerp
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.odoo.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Odoo CRM
+  partner: odoo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/odoo
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.odoo.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Knack
+  partner: knack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/knack
+  direction: third-party
+  category: Databases
+  partner_url: https://www.knackhq.com/
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/klaviyo
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.klaviyo.com/
+- partner_name: Square
+  partner: square
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/square
+  direction: third-party
+  category: eCommerce
+  partner_url: https://squareup.com/t/cmtp_performance/pr_developers/d_partnerships/p_zapier/?route=
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Axonaut
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/axonaut
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://axonaut.com/
+- partner_name: Amazon Seller Central
+  partner: amazon
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/amazon-seller-central
+  direction: third-party
+  category: Amazon
+  partner_url: https://sellercentral.amazon.com/
+- partner_name: Sage Accounting
+  partner: sage-accounting
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/sage-accounting
+  direction: third-party
+  category: Accounting
+  partner_url: https://www.sage.com/en-gb/sage-business-cloud/accounting/
+- partner_name: Deputy
+  partner: deputy
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/deputy
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: http://www.deputy.com/
+- partner_name: Jobber
+  partner: jobber
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/jobber
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.getjobber.com/plp/zapier?utm_source=Zapier&utm_medium=PLP
+- partner_name: WordPress
+  partner: wordpress
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/wordpress
+  direction: third-party
+  category: Website Builders
+  partner_url: https://wordpress.org/
+- partner_name: Wati
+  partner: wati
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/wati
+  direction: third-party
+  category: Communication
+  partner_url: https://wati.io/
+- partner_name: Simpro
+  partner: simpro
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/track-pod/integrations/simpro
+  direction: third-party
+  category: Project Management
+  partner_url: https://simprogroup.com/zapier
+templates:
+- title: Add new paid orders in Shopify to Track-POD
+  url: https://zapier.com/apps/shopify/integrations/track-pod/1071042/add-new-paid-orders-in-shopify-to-track-pod
+  apps:
+  - shopify
+  - track-pod
+- title: Add new QuickBooks Online invoices as Track-POD orders
+  url: https://zapier.com/apps/quickbooks/integrations/track-pod/1071233/add-new-quickbooks-online-invoices-as-track-pod-orders
+  apps:
+  - quickbooks
+  - track-pod
+- title: Get direct Slack messages for new order status updates in Track-POD
+  url: https://zapier.com/apps/slack/integrations/track-pod/1071101/get-direct-slack-messages-for-new-order-status-updates-in-track-pod
+  apps:
+  - track-pod
+  - slack
+- title: Create Track-POD orders from new Google Sheets rows
+  url: https://zapier.com/apps/google-sheets/integrations/track-pod/1071226/create-track-pod-orders-from-new-google-sheets-rows
+  apps:
+  - google-sheets
+  - track-pod
+- title: Import new eBay orders to Track-POD
+  url: https://zapier.com/apps/ebay/integrations/track-pod/1072005/import-new-ebay-orders-to-track-pod
+  apps:
+  - ebay
+  - track-pod
+- title: Update BaseLinker tracking numbers when Track-POD order statuses are updated
+  url: https://zapier.com/apps/baselinker/integrations/track-pod/1639026/update-baselinker-tracking-numbers-when-track-pod-order-statuses-are-updated
+  apps:
+  - track-pod
+  - baselinker
+- title: Add new WooCommerce orders to Track-POD
+  url: https://zapier.com/apps/track-pod/integrations/woocommerce/1071125/add-new-woocommerce-orders-to-track-pod
+  apps:
+  - woocommerce
+  - track-pod
+- title: Send Gmail emails for new order status updates in Track-POD
+  url: https://zapier.com/apps/gmail/integrations/track-pod/1071265/send-gmail-emails-for-new-order-status-updates-in-track-pod
+  apps:
+  - track-pod
+  - gmail
+- title: Add new ready to ship Veeqo orders to Track-POD
+  url: https://zapier.com/apps/track-pod/integrations/veeqo/1072012/add-new-ready-to-ship-veeqo-orders-to-track-pod
+  apps:
+  - veeqo
+  - track-pod
+- title: Add new Skubana orders to Track-POD
+  url: https://zapier.com/apps/skubana/integrations/track-pod/1072017/add-new-skubana-orders-to-track-pod
+  apps:
+  - skubana
+  - track-pod
+- title: Create Track-POD orders from new Zoho Inventory invoices
+  url: https://zapier.com/apps/track-pod/integrations/zoho-inventory/1072022/create-track-pod-orders-from-new-zoho-inventory-invoices
+  apps:
+  - zoho-inventory
+  - track-pod
+- title: Send Track-POD order notifications en route and create new rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/track-pod/1236710/send-track-pod-order-notifications-en-route-and-create-new-rows-in-google-sheets
+  apps:
+  - track-pod
+  - google-sheets
+template_total: 50
